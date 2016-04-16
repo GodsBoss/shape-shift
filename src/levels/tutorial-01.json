@@ -54,6 +54,81 @@
       "type": "wall",
       "x": 13,
       "y": 8
+    },
+    {
+      "type": "wall",
+      "x": 3,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 4
+    },
+    {
+      "type": "shape-pentagon",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "shape-hexagon",
+      "x": 8,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 9,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 9,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "x": 7,
+      "y": 3
+    },
+    {
+      "type": "hole-pentagon",
+      "x": 8,
+      "y": 3
+    },
+    {
+      "type": "hole-hexagon",
+      "x": 5,
+      "y": 3
     }
   ],
   "highlights": [
