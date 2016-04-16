@@ -2,7 +2,7 @@ var gulp = require('gulp');
 
 gulp.task(
   'default',
-  function() {}
+  ['build:index.html', 'build:phaser']
 );
 
 gulp.task(
