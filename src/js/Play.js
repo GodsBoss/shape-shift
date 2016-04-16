@@ -9,6 +9,7 @@ class Play {
 
   create () {
     this.createArrows();
+    this.createResetButton();
     this.createBackToLevelSelectionButton();
   }
 
@@ -19,6 +20,12 @@ class Play {
       right: this.createArrow('right'),
       up   : this.createArrow('up')
     };
+  }
+
+  createResetButton() {
+    var resetButton = this.add.sprite(272, 184, 'button-reset-level');
+    resetButton.anchor.setTo(0.5, 0.5);
+    resetButton.inputEnabled = true;
   }
 
   createBackToLevelSelectionButton() {
