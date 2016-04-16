@@ -2,6 +2,7 @@
   "key": "tutorial-6",
   "comment": "Demonstrates shape traps.",
   "index": 6,
+  "unlocks": ["easy-1"],
   "objects": [
     {
       "type": "wall",
