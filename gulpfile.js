@@ -40,7 +40,6 @@ gulp.task(
       'Level',
       'Levels',
       'PlayerProgress',
-      'PlayerProgressStore',
 
       // States
       'Boot',

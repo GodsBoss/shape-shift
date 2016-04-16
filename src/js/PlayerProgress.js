@@ -1,5 +1,11 @@
 class PlayerProgress {
-  constructor () {
+  constructor (store, key) {
+    this.store = store;
+    this.key = key;
+    this.clearAvailableLevels();
+  }
+
+  clearAvailableLevels() {
     this.availableLevels = [];
   }
 
@@ -20,11 +26,38 @@ class PlayerProgress {
       }
     );
   }
-}
 
-PlayerProgress.fromJson = (json) => {
-  var progress = new PlayerProgress();
-  var data = JSON.parse(json);
-  data.availableLevels.forEach((levelKey) => progress.makeAvailable(levelKey));
-  return progress;
-};
+  levelBeaten(level) {
+    if (level.unlockedLevels().length > 0) {
+      level.unlockedLevels().forEach((key) => this.makeAvailable(key));
+      this.save();
+    }
+  }
+
+  save () {
+    try {
+      this.storage.setItem(this.key, this.toJson());
+    } catch (e) {
+      console.log('Saving player progress failed.');
+    }
+  }
+
+  load() {
+    try {
+      var data = JSON.parse(PlayerProgress.fromJson(this.storage.getItem(this.key)));
+    } catch (e) {
+      console.log('Loading player progress failed, do not refresh.');
+      return;
+    }
+    this.clearAvailableLevels();
+    data.availableLevels.forEach((levelKey) => this.makeAvailable(levelKey));
+  }
+
+  clear() {
+    try {
+      this.storage.removeItem(this.key);
+    } catch (e) {
+      console.log('Clearing player progress failed.');
+    }
+  }
+}

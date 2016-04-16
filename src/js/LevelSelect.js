@@ -1,12 +1,12 @@
 class LevelSelect {
-  constructor (playerProgressStore) {
-    this.playerProgressStore = playerProgressStore;
+  constructor (playerProgress) {
+    this.playerProgress = playerProgress;
   }
 
   create () {
     this.createLevelSelectMarker();
     this.levels = Levels.fromData(this.cache.getJSON('level-data'));
-    this.levels.onlyAvailableLevels(this.playerProgressStore.load()).forEach((level, index) => this.addLevelButton(level, index));
+    this.levels.onlyAvailableLevels(this.playerProgress).forEach((level, index) => this.addLevelButton(level, index));
   }
 
   createLevelSelectMarker() {

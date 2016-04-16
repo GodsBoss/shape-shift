@@ -11,6 +11,10 @@ class Level {
   isAccessible() {
     return this.accessible;
   }
+
+  unlockedLevels() {
+    return [];
+  }
 }
 
 Level.fromData = (data) => {
