@@ -87,7 +87,9 @@ class Play {
   }
 
   createHole(hole, empty = true) {
-    ++this.holesToFill;
+    if (empty) {
+      ++this.holesToFill;
+    }
     let sprite = this.createObject(this.holeGroup, (empty ? '' : 'filled-') + 'hole-' + hole.type, hole);
     sprite.holeType = hole.type;
     sprite.empty = empty;
@@ -149,6 +151,10 @@ class Play {
 
   update () {
     this.shapes.filter((shape) => shape.currentlyMoving).forEach((shape) => this.moveShape(shape));
+    if (this.holesToFill <= 0) {
+      this.playerProgress.levelBeaten(this.level);
+      this.backToLevelSelection();
+    }
   }
 
   moveShape(shape) {
