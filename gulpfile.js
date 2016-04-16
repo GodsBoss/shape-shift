@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 
 var DIST = 'dist';
@@ -30,8 +31,9 @@ gulp.task(
   'build:game.js',
   function() {
     gulp.
-      src('src/js/init.js').
+      src(['src/js/Initializer.js', 'src/js/init.js']).
       pipe(concat('game.js')).
+      pipe(babel({presets: ['es2015']})).
       pipe(gulp.dest(DIST));
   }
 );
