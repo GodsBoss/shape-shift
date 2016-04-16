@@ -40,6 +40,45 @@
       ],
       "off": [],
       "active": true
+    },
+    {
+      "type": "shape-hexagon",
+      "x": 6,
+      "y": 7
+    },
+    {
+      "type": "hole-hexagon",
+      "x": 10,
+      "y": 7
+    },
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 7
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 8
+    },
+    {
+      "type": "pass-switch",
+      "x": 1,
+      "y": 7,
+      "on": [],
+      "off": [
+        {
+          "type": "wall",
+          "x": 7,
+          "y": 7
+        }
+      ],
+      "active": false
     }
   ],
   "highlights": [

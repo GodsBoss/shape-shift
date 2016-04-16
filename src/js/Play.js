@@ -10,6 +10,8 @@ class Play {
 
   create () {
     this.holeGroup = this.add.group();
+    this.passSwitchGroup = this.add.group();
+    this.passSwitchGroup.classType = Switch;
     this.wallGroup = this.add.group();
     this.clickSwitchGroup = this.add.group();
     this.clickSwitchGroup.classType = Switch;
@@ -73,6 +75,7 @@ class Play {
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
     this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
+    this.passSwitches = this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch));
   }
 
   createClickSwitch(clickSwitch) {
@@ -87,6 +90,17 @@ class Play {
       this.currentlyControlledShape = null;
       this.hideArrows();
     });
+    return sprite;
+  }
+
+  createPassSwitch(passSwitch) {
+    let sprite = this.clickSwitchGroup.create(this.calcX(passSwitch.x), this.calcY(passSwitch.y), 'pass-switch');
+    sprite.gridX = passSwitch.x;
+    sprite.gridY = passSwitch.y;
+    sprite.playState = this;
+    sprite.on = passSwitch.on;
+    sprite.off = passSwitch.off;
+    sprite[passSwitch.active ? 'activate' : 'deactivate']();
     return sprite;
   }
 
@@ -203,6 +217,10 @@ class Play {
         --this.holesToFill;
         this.removeFromArray(this.shapes, shape);
         shape.destroy();
+      }
+      let passSwitchIndex = this.passSwitches.findIndex((pSwitch) => pSwitch.gridX === shape.gridX && pSwitch.gridY === shape.gridY);
+      if (passSwitchIndex !== -1) {
+        this.passSwitches[passSwitchIndex].switchState();
       }
     }
   }

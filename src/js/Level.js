@@ -8,6 +8,7 @@ class Level {
     this.holes = [];
     this.highlights = [];
     this.clickSwitches = [];
+    this.passSwitches = [];
     this.index = index;
   }
 
@@ -42,6 +43,9 @@ class Level {
     if (object.type === 'click-switch') {
       this.clickSwitches.push(object);
     }
+    if (object.type === 'pass-switch') {
+      this.passSwitches.push(object);
+    }
   }
 
   getWalls() {
@@ -66,6 +70,10 @@ class Level {
 
   getClickSwitches() {
     return this.clickSwitches;
+  }
+
+  getPassSwitches() {
+    return this.passSwitches;
   }
 }
 
