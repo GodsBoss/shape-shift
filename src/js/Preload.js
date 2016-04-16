@@ -8,6 +8,8 @@ class Preload {
     [
       'intro-background'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
+
+    this.load.json('level-data', 'levels.json');
   }
 
   create () {
