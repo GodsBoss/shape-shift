@@ -2,6 +2,7 @@ class Level {
   constructor(key, accessible) {
     this.key = key;
     this.accessible = accessible;
+    this.unlocks = [];
   }
 
   getKey() {
@@ -13,11 +14,16 @@ class Level {
   }
 
   unlockedLevels() {
-    return [];
+    return this.unlocks;
+  }
+
+  setUnlocks(unlocks) {
+    this.unlocks = unlocks;
   }
 }
 
 Level.fromData = (data) => {
   var level = new Level(data.key, !!data.access);
+  level.setUnlocks(data.unlocks || []);
   return level;
 };

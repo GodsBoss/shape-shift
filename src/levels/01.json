@@ -1,4 +1,5 @@
 {
   "key": "tutorial-1",
-  "access": true
+  "access": true,
+  "unlocks": ["tutorial-2"]
 }
