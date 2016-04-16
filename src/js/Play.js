@@ -242,7 +242,7 @@ class Play {
         shape.stop();
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
-      let holeIndex = this.getEmptyHoleIndex(shape.gridX, shape.gridY);
+      let holeIndex = this.holes.findIndex((hole) => hole.gridX == shape.gridX && hole.gridY == shape.gridY);
       if (holeIndex !== -1) {
         this.holes[holeIndex].accept(shape);
       }
@@ -256,10 +256,6 @@ class Play {
         this.vertexChanges[vertexChangeIndex].applyChangeTo(shape);
       }
     }
-  }
-
-  getEmptyHoleIndex(gridX, gridY) {
-    return this.holes.findIndex((hole) => hole.gridX == gridX && hole.gridY == gridY);
   }
 
   removeFromArray(array, item) {
