@@ -1,5 +1,6 @@
 {
   "key": "tutorial-1",
+  "comment": "Shows how shapes fit into holes.",
   "index": 1,
   "access": true,
   "unlocks": ["tutorial-2"],

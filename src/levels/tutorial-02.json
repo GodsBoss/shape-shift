@@ -1,5 +1,6 @@
 {
   "key": "tutorial-2",
+  "comment": "Present switches, both clickable (mouse) and passable (shape runs over it.",
   "index": 2,
   "unlocks": ["tutorial-3"],
   "objects": [

@@ -1,5 +1,6 @@
 {
   "key": "tutorial-3",
+  "comment": "Turning fields change the direction of a moving shape.",
   "index": 3,
   "unlocks": ["tutorial-4"],
   "objects": [
