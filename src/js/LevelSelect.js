@@ -24,6 +24,7 @@ class LevelSelect {
     button.inputEnabled = true;
     button.events.onInputOver.add((button, event) => this.showLevelSelectMarkerAt(button.x, button.y));
     button.events.onInputOut.add(() => this.hideLevelSelectMarker());
+    button.events.onInputUp.add((button, event) => this.startLevel(level));
   }
 
   showLevelSelectMarkerAt(x, y) {
@@ -33,6 +34,10 @@ class LevelSelect {
 
   hideLevelSelectMarker() {
     this.levelSelectMarker.visible = false;
+  }
+
+  startLevel(level) {
+    this.state.start('Play', /*clearWorld=*/true, /*clearCache=*/false, level);
   }
 
   update () {
