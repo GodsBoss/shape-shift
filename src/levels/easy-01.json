@@ -1,6 +1,7 @@
 {
   "key": "easy-1",
   "index": 1001,
+  "unlocks": ["easy-2"],
   "objects": [
     {
       "type": "wall",

@@ -1,0 +1,106 @@
+{
+  "key": "easy-2",
+  "index": 1002,
+  "objects": [
+    {
+      "type": "wall",
+      "x": 7,
+      "y": 0
+    },
+    {
+      "type": "hole-pentagon",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "type": "shape-hexagon",
+      "x": 7,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 9,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "x": 10,
+      "y": 4
+    },
+    {
+      "type": "shape-pentagon",
+      "x": 9,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "x": 9,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 7,
+      "y": 7
+    },
+    {
+      "type": "shape-triangle",
+      "x": 7,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 4
+    },
+    {
+      "type": "hole-hexagon",
+      "x": 5,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 1
+    },
+    {
+      "type": "trap",
+      "x": 7,
+      "y": 4
+    }
+  ]
+}
