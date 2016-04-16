@@ -82,7 +82,11 @@ class Play {
     sprite.off = clickSwitch.off;
     sprite[clickSwitch.active ? 'activate' : 'deactivate']();
     sprite.inputEnabled = true;
-    sprite.events.onInputUp.add((sprite) => sprite.switchState());
+    sprite.events.onInputUp.add((sprite) => {
+      sprite.switchState();
+      this.currentlyControlledShape = null;
+      this.hideArrows();
+    });
     return sprite;
   }
 
