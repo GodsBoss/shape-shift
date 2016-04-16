@@ -1,3 +1,4 @@
+var del = require('del');
 var gulp = require('gulp');
 var babel = require('gulp-babel');
 var concat = require('gulp-concat');
@@ -71,5 +72,12 @@ gulp.task(
       src(SRC + '/gfx/*.xcf').
       pipe(exec('node src/scripts/gfx.js <%= file.path %> ' + DIST + '/gfx')).
       pipe(exec.reporter());
+  }
+);
+
+gulp.task(
+  'clean',
+  function() {
+    return del(DIST);
   }
 );
