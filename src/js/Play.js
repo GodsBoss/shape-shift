@@ -14,6 +14,7 @@ class Play {
     this.shapeGroup = this.add.group();
     this.shapeGroup.classType = Shape;
     this.highlightGroup = this.add.group();
+    this.highlightGroup.classType = Highlight;
     this.arrowGroup = this.add.group();
     this.createArrows();
     this.createResetButton();
@@ -72,14 +73,7 @@ class Play {
   }
 
   createHighlight(highlight) {
-    let sprite = this.highlightGroup.create(this.calcX(highlight.x), this.calcY(highlight.y), 'highlight');
-    sprite.anchor.setTo(0.5, 0.5);
-    sprite.rotation = Math.random() * Math.PI * 2;
-    sprite.rotationSpeed = 0.2;
-    sprite.rotationSpeedFactor = 0.95;
-    sprite.scale = { x: 2, y: 2 };
-    sprite.scaleFactor = 0.98;
-    return sprite;
+    return this.highlightGroup.create(this.calcX(highlight.x), this.calcY(highlight.y), 'highlight');
   }
 
   createWall(wall) {
@@ -195,11 +189,7 @@ class Play {
   }
 
   updateHighlight(highlight) {
-    highlight.rotationSpeed *= highlight.rotationSpeedFactor;
-    highlight.rotation += highlight.rotationSpeed;
-    highlight.scale.x *= highlight.scaleFactor;
-    highlight.scale.y *= highlight.scaleFactor;
-    if (highlight.scale.x < 0.5) {
+    if (highlight.canBeRemoved()) {
       this.removeFromArray(this.highlights, highlight);
       highlight.destroy();
     }

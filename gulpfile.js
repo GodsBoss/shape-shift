@@ -42,6 +42,7 @@ gulp.task(
       'PlayerProgress',
 
       // Sprite classes
+      'Highlight',
       'Shape',
 
       // States
