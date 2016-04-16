@@ -1,5 +1,32 @@
 {
   "key": "tutorial-1",
   "access": true,
-  "unlocks": ["tutorial-2"]
+  "unlocks": ["tutorial-2"],
+  "objects": [
+    {
+      "type": "shape-triangle",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "type": "hole-triangle",
+      "x": 10,
+      "y": 7
+    },
+    {
+      "type": "wall",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 8
+    }
+  ]
 }

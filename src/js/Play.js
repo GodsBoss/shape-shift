@@ -44,9 +44,31 @@ class Play {
   }
 
   createLevelObjects() {
-    this.walls = [];
-    this.shapes = [];
-    this.holes = [];
+    this.holesToFill = 0;
+    this.walls = this.level.getWalls().forEach((wall) => this.createWall(wall));
+    this.shapes = this.level.getShapes().forEach((shape) => this.createShape(shape));
+    this.holes = this.level.getHoles().forEach((hole) => this.createHole(hole));
+  }
+
+  createWall(wall) {
+    return this.createObject('wall', wall);
+  }
+
+  createShape(shape) {
+    return this.createObject('shape-' + shape.type, shape);
+  }
+
+  createHole(hole) {
+    ++this.holesToFill;
+    return this.createObject('hole-' + hole.type, hole);
+  }
+
+  createObject(spriteKey, object) {
+    let x = (object.x + 0.5) * 16 + 4;
+    let y = (object.y + 0.5) * 16 + 4;
+    let sprite = this.add.sprite(x, y, spriteKey);
+    sprite.anchor.setTo(0.5, 0.5);
+    return sprite;
   }
 
   clearLevelObjects() {
