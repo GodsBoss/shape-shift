@@ -41,5 +41,11 @@
       "off": [],
       "active": true
     }
+  ],
+  "highlights": [
+    {
+      "x": 4,
+      "y": 2
+    }
   ]
 }
