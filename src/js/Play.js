@@ -5,6 +5,7 @@ class Play {
 
   init(level) {
     this.level = level;
+    this.shapeSpeed = 2.5;
   }
 
   create () {
@@ -149,7 +150,7 @@ class Play {
   }
 
   moveShape(shape) {
-    shape.position.setTo(shape.x + shape.velocity.x, shape.y + shape.velocity.y);
+    shape.position.setTo(shape.x + shape.velocity.x * this.shapeSpeed, shape.y + shape.velocity.y * this.shapeSpeed);
     let newGridX = this.calcBackX(shape.x);
     let newGridY = this.calcBackY(shape.y);
     if (Math.abs(newGridX - shape.gridX) >= 1 || Math.abs(newGridY - shape.gridY) >= 1) {
