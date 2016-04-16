@@ -24,7 +24,8 @@ class Preload {
       'shape-hexagon',
       'shape-pentagon',
       'shape-square',
-      'shape-triangle'
+      'shape-triangle',
+      'wall'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
 
     this.load.json('level-data', 'levels.json');
