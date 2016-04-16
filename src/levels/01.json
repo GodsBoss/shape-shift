@@ -27,6 +27,31 @@
       "type": "wall",
       "x": 4,
       "y": 8
+    },
+    {
+      "type": "shape-square",
+      "x": 13,
+      "y": 7
+    },
+    {
+      "type": "hole-square",
+      "x": 6,
+      "y": 7
+    },
+    {
+      "type": "wall",
+      "x": 14,
+      "y": 7
+    },
+    {
+      "type": "wall",
+      "x": 13,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 13,
+      "y": 8
     }
   ]
 }
