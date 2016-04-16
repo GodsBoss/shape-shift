@@ -4,7 +4,7 @@ class Hole extends Phaser.Sprite {
   }
 
   accept(shape) {
-    if (shape.shapeType === this.holeType) {
+    if (this.empty && shape.shapeType === this.holeType) {
       let newHole = this.playState.createHole({x: this.gridX, y: this.gridY, type: this.holeType}, /*empty=*/false);
       --this.playState.holesToFill;
       this.playState.removeFromArray(this.playState.shapes, shape);
