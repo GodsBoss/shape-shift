@@ -44,7 +44,7 @@ class PlayerProgress {
 
   load() {
     try {
-      var data = JSON.parse(PlayerProgress.fromJson(this.store.getItem(this.key)));
+      var data = JSON.parse(this.store.getItem(this.key));
     } catch (e) {
       console.log('Loading player progress failed, do not refresh.', e);
       return;
