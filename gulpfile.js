@@ -43,6 +43,7 @@ gulp.task(
 
       // Sprite classes
       'Highlight',
+      'Hole',
       'Shape',
       'Switch',
       'Turn',

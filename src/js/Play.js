@@ -10,6 +10,7 @@ class Play {
 
   create () {
     this.holeGroup = this.add.group();
+    this.holeGroup.classType = Hole;
     this.passSwitchGroup = this.add.group();
     this.passSwitchGroup.classType = Switch;
     this.turnGroup = this.add.group();
@@ -144,6 +145,7 @@ class Play {
       ++this.holesToFill;
     }
     let sprite = this.createObject(this.holeGroup, (empty ? '' : 'filled-') + 'hole-' + hole.type, hole);
+    sprite.playState = this;
     sprite.holeType = hole.type;
     sprite.empty = empty;
     return sprite;
@@ -240,15 +242,9 @@ class Play {
         shape.stop();
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
-      let holeIndex = this.getEmptyHoleIndex(shape.gridX, shape.gridY, shape.shapeType);
+      let holeIndex = this.getEmptyHoleIndex(shape.gridX, shape.gridY);
       if (holeIndex !== -1) {
-        let hole = this.holes[holeIndex];
-        let newHole = this.createHole({x: hole.gridX, y: hole.gridY, type: hole.holeType}, /*empty=*/false);
-        this.holes[holeIndex] = newHole;
-        hole.destroy();
-        --this.holesToFill;
-        this.removeFromArray(this.shapes, shape);
-        shape.destroy();
+        this.holes[holeIndex].accept(shape);
       }
       let passSwitchIndex = this.passSwitches.findIndex((pSwitch) => pSwitch.gridX === shape.gridX && pSwitch.gridY === shape.gridY);
       if (passSwitchIndex !== -1) {
@@ -263,7 +259,7 @@ class Play {
   }
 
   getEmptyHoleIndex(gridX, gridY, type) {
-    return this.holes.findIndex((hole) => hole.gridX == gridX && hole.gridY == gridY && hole.holeType == type);
+    return this.holes.findIndex((hole) => hole.gridX == gridX && hole.gridY == gridY);
   }
 
   removeFromArray(array, item) {
