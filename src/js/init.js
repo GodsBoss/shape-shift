@@ -5,7 +5,7 @@ function init(e) {
     /*width=*/320,
     /*height=*/200,
     /*renderer=*/Phaser.CANVAS,
-    /*element_id=*/'gfx',
+    /*element_id=*/'game',
     /*state=*/ null,
     /*transparent=*/false,
     /*anti_aliasing=*/false
