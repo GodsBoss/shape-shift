@@ -10,7 +10,7 @@ class PlayerProgress {
   }
 
   makeAvailable (levelKey) {
-    if (!this.availableLevels.includes(levelKey)) {
+    if (!this.isAvailable(levelKey)) {
       this.availableLevels.push(levelKey);
     }
   }
