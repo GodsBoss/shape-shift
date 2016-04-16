@@ -37,6 +37,7 @@ class Preload {
 
     this.load.spritesheet('click-switch', 'gfx/click-switch.png', 16, 16);
     this.load.spritesheet('pass-switch', 'gfx/pass-switch.png', 16, 16);
+    this.load.spritesheet('teleporter', 'gfx/teleporter.png', 16, 16);
 
     this.load.json('level-data', 'levels.json');
   }

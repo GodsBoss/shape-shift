@@ -1,0 +1,128 @@
+{
+  "key": "tutorial-5",
+  "comment": "Shows how teleporters work.",
+  "index": 5,
+  "objects": [
+    {
+      "type": "wall",
+      "x": 2,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 1,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 2,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "x": 1,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "x": 2,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 7,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "x": 7,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 5
+    },
+    {
+      "type": "shape-square",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "type": "shape-triangle",
+      "x": 6,
+      "y": 4
+    },
+    {
+      "type": "hole-triangle",
+      "x": 2,
+      "y": 2
+    },
+    {
+      "type": "hole-square",
+      "x": 2,
+      "y": 4
+    },
+    {
+      "type": "teleporter",
+      "x": 4,
+      "y": 2,
+      "target-x": 4,
+      "target-y": 4
+    },
+    {
+      "type": "teleporter",
+      "x": 4,
+      "y": 4,
+      "target-x": 4,
+      "target-y": 2
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 5
+    },
+    {
+      "type": "shape-hexagon",
+      "x": 7,
+      "y": 5
+    },
+    {
+      "type": "shape-pentagon",
+      "x": 7,
+      "y": 3
+    },
+    {
+      "type": "hole-hexagon",
+      "x": 9,
+      "y": 6
+    },
+    {
+      "type": "hole-pentagon",
+      "x": 11,
+      "y": 3
+    },
+    {
+      "type": "teleporter",
+      "x": 9,
+      "y": 3
+    },
+    {
+      "type": "teleporter",
+      "x": 7,
+      "y": 7,
+      "target-x": 9,
+      "target-y": 3
+    }
+  ]
+}

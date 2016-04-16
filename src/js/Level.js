@@ -11,6 +11,7 @@ class Level {
     this.passSwitches = [];
     this.turns = [];
     this.vertexChanges = [];
+    this.teleporters = [];
     this.index = index;
   }
 
@@ -54,6 +55,9 @@ class Level {
     if (object.type.substring(0, 7) === 'vertex-') {
       this.vertexChanges.push({x: x, y: y, change: object.type.substring(7)});
     }
+    if (object.type === 'teleporter') {
+      this.teleporters.push(object);
+    }
   }
 
   getWalls() {
@@ -90,6 +94,10 @@ class Level {
 
   getVertexChanges() {
     return this.vertexChanges;
+  }
+
+  getTeleporters() {
+    return this.teleporters;
   }
 }
 

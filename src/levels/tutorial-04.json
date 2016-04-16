@@ -2,6 +2,7 @@
   "key": "tutorial-4",
   "comment": "Adding or removing vertices from a shape.",
   "index": 4,
+  "unlocks": ["tutorial-5"],
   "objects": [
     {
       "type": "shape-triangle",
