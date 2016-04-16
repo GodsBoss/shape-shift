@@ -1,14 +1,15 @@
 var gulp = require('gulp');
 var babel = require('gulp-babel');
 var concat = require('gulp-concat');
+var exec = require('gulp-exec');
 var sourcemaps = require('gulp-sourcemaps');
 
-var DIST = 'dist';
+var DIST = process.cwd() + '/dist';
 var SRC = 'src';
 
 gulp.task(
   'default',
-  ['build:index.html', 'build:phaser', 'build:game.js', 'build:style.css']
+  ['build:index.html', 'build:phaser', 'build:game.js', 'build:style.css', 'build:gfx']
 );
 
 gulp.task(
@@ -60,5 +61,15 @@ gulp.task(
     gulp.
       src(SRC + '/css/style.css').
       pipe(gulp.dest(DIST));
+  }
+);
+
+gulp.task(
+  'build:gfx',
+  function() {
+    gulp.
+      src(SRC + '/gfx/*.xcf').
+      pipe(exec('node src/scripts/gfx.js <%= file.path %> ' + DIST + '/gfx')).
+      pipe(exec.reporter());
   }
 );

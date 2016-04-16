@@ -9,6 +9,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
+    "gulp-exec": "^2.1.2",
     "gulp-sourcemaps": "^1.6.0",
     "phaser": "^2.4.6"
   }

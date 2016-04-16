@@ -15,5 +15,8 @@ class Initializer {
     );
     this.game.state.add('Boot', new Boot(), /*autostart=*/true);
     this.game.state.add('Preload', new Preload());
+    this.game.state.add('Intro', new Intro());
+    this.game.state.add('LevelSelect', new LevelSelect());
+    this.game.state.add('Play', new Play());
   }
 }
