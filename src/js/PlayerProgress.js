@@ -49,6 +49,10 @@ class PlayerProgress {
       console.log('Loading player progress failed, do not refresh.', e);
       return;
     }
+    if (data === null) {
+      console.log('No stored player progress found.');
+      return;
+    }
     this.clearAvailableLevels();
     data.availableLevels.forEach((levelKey) => this.makeAvailable(levelKey));
   }
