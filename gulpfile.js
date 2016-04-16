@@ -36,6 +36,10 @@ gulp.task(
   'build:game.js',
   function() {
     var FILES = [
+      // Plain old JS
+      'PlayerProgress',
+      'PlayerProgressStore',
+
       // States
       'Boot',
       'Intro',
