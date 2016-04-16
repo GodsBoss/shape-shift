@@ -41,6 +41,9 @@ gulp.task(
       'Levels',
       'PlayerProgress',
 
+      // Sprite classes
+      'Shape',
+
       // States
       'Boot',
       'Intro',

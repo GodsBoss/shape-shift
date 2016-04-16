@@ -12,6 +12,7 @@ class Play {
     this.holeGroup = this.add.group();
     this.wallGroup = this.add.group();
     this.shapeGroup = this.add.group();
+    this.shapeGroup.classType = Shape;
     this.highlightGroup = this.add.group();
     this.arrowGroup = this.add.group();
     this.createArrows();
@@ -55,12 +56,8 @@ class Play {
   }
 
   moveCurrentShape(arrow) {
-    if (this.currentlyControlledShape && !this.currentlyControlledShape.currentlyMoving) {
-      this.currentlyControlledShape.currentlyMoving = true;
-      this.currentlyControlledShape.velocity = {
-        x: arrow.vx,
-        y: arrow.vy
-      };
+    if (this.currentlyControlledShape && !this.currentlyControlledShape.currentlyMoving()) {
+      this.currentlyControlledShape.initiateMove(arrow);
     }
     this.hideArrows();
     this.currentlyControlledShape = null;
@@ -93,9 +90,8 @@ class Play {
     let sprite = this.createObject(this.shapeGroup, 'shape-' + shape.type, shape);
     sprite.inputEnabled = true;
     sprite.events.onInputUp.add((sprite) => this.openShapeControls(sprite));
-    sprite.currentlyMoving = false;
-    sprite.velocity = { x: 0, y: 0 }; // Not a real velocity, more a direction.
     sprite.shapeType = shape.type;
+    sprite.speed = this.shapeSpeed;
     return sprite;
   }
 
@@ -134,7 +130,7 @@ class Play {
   }
 
   openShapeControls(shape) {
-    if (shape === this.currentlyControlledShape || shape.currentlyMoving) {
+    if (shape === this.currentlyControlledShape || shape.currentlyMoving()) {
       return;
     }
     this.currentlyControlledShape = shape;
@@ -164,7 +160,7 @@ class Play {
   }
 
   update () {
-    this.shapes.filter((shape) => shape.currentlyMoving).forEach((shape) => this.moveShape(shape));
+    this.shapes.filter((shape) => shape.currentlyMoving()).forEach((shape) => this.moveShape(shape));
     if (this.holesToFill <= 0) {
       this.playerProgress.levelBeaten(this.level);
       this.backToLevelSelection();
@@ -173,15 +169,12 @@ class Play {
   }
 
   moveShape(shape) {
-    shape.position.setTo(shape.x + shape.velocity.x * this.shapeSpeed, shape.y + shape.velocity.y * this.shapeSpeed);
     let newGridX = this.calcBackX(shape.x);
     let newGridY = this.calcBackY(shape.y);
-    if (Math.abs(newGridX - shape.gridX) >= 1 || Math.abs(newGridY - shape.gridY) >= 1) {
-      shape.gridX = shape.gridX + shape.velocity.x;
-      shape.gridY = shape.gridY + shape.velocity.y;
+    if (shape.hasGridPositionChanged(newGridX, newGridY)) {
+      shape.setGridPosition(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y);
       if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y)) {
-        shape.velocity = { x: 0, y: 0 };
-        shape.currentlyMoving = false;
+        shape.stop();
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
       let holeIndex = this.getEmptyHoleIndex(shape.gridX, shape.gridY, shape.shapeType);
