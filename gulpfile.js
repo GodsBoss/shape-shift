@@ -37,6 +37,7 @@ gulp.task(
   function() {
     var FILES = [
       // Plain old JS
+      'Level',
       'Levels',
       'PlayerProgress',
       'PlayerProgressStore',

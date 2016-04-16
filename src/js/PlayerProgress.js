@@ -9,6 +9,10 @@ class PlayerProgress {
     }
   }
 
+  isAvailable (levelKey) {
+    return this.availableLevels.includes(levelKey);
+  }
+
   toJson () {
     return JSON.stringify(
       {

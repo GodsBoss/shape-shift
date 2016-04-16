@@ -6,7 +6,8 @@ class Preload {
     this.load.setPreloadSprite(preloaderBar);
 
     [
-      'intro-background'
+      'intro-background',
+      'level-playable'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
 
     this.load.json('level-data', 'levels.json');
