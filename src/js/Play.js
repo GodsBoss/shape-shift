@@ -170,6 +170,10 @@ class Play {
         this.holes[holeIndex] = newHole;
         hole.destroy();
         --this.holesToFill;
+        let shapeIndex = this.shapes.findIndex((otherShape) => shape === otherShape);
+        this.shapes[shapeIndex] = this.shapes[this.shapes.length-1];
+        this.shapes.pop();
+        shape.destroy();
       }
     }
   }
