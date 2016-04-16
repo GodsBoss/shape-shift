@@ -147,6 +147,7 @@ class Play {
   }
 
   clearLevelObjects() {
+    [this.walls, this.holes, this.shapes].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
   }
 
   update () {
