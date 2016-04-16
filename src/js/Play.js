@@ -85,12 +85,16 @@ class Play {
     sprite.events.onInputUp.add((sprite) => this.openShapeControls(sprite));
     sprite.currentlyMoving = false;
     sprite.velocity = { x: 0, y: 0 }; // Not a real velocity, more a direction.
+    sprite.shapeType = shape.type;
     return sprite;
   }
 
-  createHole(hole) {
+  createHole(hole, empty = true) {
     ++this.holesToFill;
-    return this.createObject('hole-' + hole.type, hole);
+    let sprite = this.createObject((empty ? '' : 'filled-') + 'hole-' + hole.type, hole);
+    sprite.holeType = hole.type;
+    sprite.empty = empty;
+    return sprite;
   }
 
   createObject(spriteKey, object) {
@@ -162,7 +166,21 @@ class Play {
         shape.currentlyMoving = false;
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
+      let holeIndex = this.getEmptyHoleIndex(shape.gridX, shape.gridY, shape.shapeType);
+      if (holeIndex !== -1) {
+        let hole = this.holes[holeIndex];
+        let newHole = this.createHole({x: hole.gridX, y: hole.gridY, type: hole.holeType}, /*empty=*/false);
+        this.holes[holeIndex] = newHole;
+        hole.destroy();
+        this.shapes.forEach((shape) => shape.bringToTop());
+        this.bringArrowsToTop();
+        --this.holesToFill;
+      }
     }
+  }
+
+  getEmptyHoleIndex(gridX, gridY, type) {
+    return this.holes.findIndex((hole) => hole.gridX == gridX && hole.gridY == gridY && hole.holeType == type);
   }
 
   backToLevelSelection() {
