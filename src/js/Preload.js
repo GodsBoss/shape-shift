@@ -6,13 +6,13 @@ class Preload {
     this.load.setPreloadSprite(preloaderBar);
 
     [
-      'hexagon',
       'intro-background',
       'level-playable',
       'level-select-marker',
-      'pentagon',
-      'square',
-      'triangle'
+      'shape-hexagon',
+      'shape-pentagon',
+      'shape-square',
+      'shape-triangle'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
 
     this.load.json('level-data', 'levels.json');
