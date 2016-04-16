@@ -7,7 +7,8 @@ class Preload {
 
     [
       'intro-background',
-      'level-playable'
+      'level-playable',
+      'level-select-marker'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
 
     this.load.json('level-data', 'levels.json');
