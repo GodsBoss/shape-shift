@@ -228,10 +228,11 @@ class Play {
     }
   }
 
-  gridIsFreeAt(gridX, gridY) {
+  gridIsFreeAt(gridX, gridY, myself) {
     return gridX >= 0 && gridY >= 0 && gridX <= 15 && gridY <= 11 &&
       this.walls.every((wall) => wall.gridX !== gridX || wall.gridY !== gridY) &&
-      this.clickSwitches.every((sw) => sw.gridX !== gridX || sw.gridY !== gridY);
+      this.clickSwitches.every((sw) => sw.gridX !== gridX || sw.gridY !== gridY) &&
+      this.shapes.every((shape) => shape === myself || shape.currentlyMoving() || shape.gridX !== gridX || shape.gridY !== gridY);
   }
 
   clearLevelObjects() {
@@ -272,7 +273,7 @@ class Play {
       this.findAndHandleSpecialField(this.turns, shape, 'turn');
       this.findAndHandleSpecialField(this.teleporters, shape, 'teleport');
       this.findAndHandleSpecialField(this.traps, shape, 'trap');
-      if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y)) {
+      if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y, shape)) {
         shape.stop();
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
