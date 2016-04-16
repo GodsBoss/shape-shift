@@ -1,0 +1,92 @@
+{
+  "key": "tutorial-6",
+  "comment": "Demonstrates shape traps.",
+  "index": 6,
+  "objects": [
+    {
+      "type": "wall",
+      "x": 7,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 1
+    },
+    {
+      "type": "shape-hexagon",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "type": "hole-pentagon",
+      "x": 7,
+      "y": 11
+    },
+    {
+      "type": "trap",
+      "x": 7,
+      "y": 9
+    },
+    {
+      "type": "pass-switch",
+      "x": 8,
+      "y": 9,
+      "on": [
+        {
+          "type": "wall",
+          "x": 7,
+          "y": 2
+        }
+      ],
+      "off": [],
+      "active": true
+    },
+    {
+      "type": "shape-pentagon",
+      "x": 12,
+      "y": 9
+    },
+    {
+      "type": "wall",
+      "x": 12,
+      "y": 8
+    },
+    {
+      "type": "wall",
+      "x": 13,
+      "y": 9
+    },
+    {
+      "type": "wall",
+      "x": 12,
+      "y": 10
+    },
+    {
+      "type": "wall",
+      "x": 14,
+      "y": 8
+    },
+    {
+      "type": "shape-triangle",
+      "x": 13,
+      "y": 8
+    },
+    {
+      "type": "trap",
+      "x": 13,
+      "y": 5,
+      "prisoner": "shape-square"
+    },
+    {
+      "type": "hole-square",
+      "x": 13,
+      "y": 1
+    }
+  ]
+}

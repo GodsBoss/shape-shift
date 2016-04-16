@@ -2,6 +2,7 @@
   "key": "tutorial-5",
   "comment": "Shows how teleporters work.",
   "index": 5,
+  "unlocks": ["tutorial-6"],
   "objects": [
     {
       "type": "wall",

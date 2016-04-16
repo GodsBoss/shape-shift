@@ -28,6 +28,7 @@ class Preload {
       'shape-pentagon',
       'shape-square',
       'shape-triangle',
+      'trap',
       'turn-left',
       'turn-right',
       'vertex-add',

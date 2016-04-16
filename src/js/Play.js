@@ -15,6 +15,7 @@ class Play {
       turn: Turn,
       vertexChange: VertexChange,
       teleporter: Teleporter,
+      trap: Trap,
       wall: null,
       clickSwitch: Switch,
       shape: Shape,
@@ -84,6 +85,16 @@ class Play {
     this.turns = this.level.getTurns().map((turn) => this.createTurn(turn));
     this.vertexChanges = this.level.getVertexChanges().map((change) => this.createVertexChange(change));
     this.teleporters = this.level.getTeleporters().map((teleporter) => this.createTeleporter(teleporter));
+    this.traps = this.level.getTraps().map((trap) => this.createTrap(trap));
+  }
+
+  createTrap(trap) {
+    let sprite = this.createObject(this.trapGroup, 'trap', trap);
+    sprite.playState = this;
+    if (trap.prisoner) {
+      sprite.imprison(trap.prisoner);
+    }
+    return sprite;
   }
 
   createTeleporter(teleporter) {
@@ -231,6 +242,10 @@ class Play {
       this.vertexChanges,
       this.teleporters
     ].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
+    this.traps.forEach((trap) => {
+      trap.destroyTrappedSprite();
+      trap.destroy();
+    });
   }
 
   update () {
@@ -251,6 +266,7 @@ class Play {
       shape.setGridPosition(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y);
       this.findAndHandleSpecialField(this.turns, shape, 'turn');
       this.findAndHandleSpecialField(this.teleporters, shape, 'teleport');
+      this.findAndHandleSpecialField(this.traps, shape, 'trap');
       if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y)) {
         shape.stop();
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));

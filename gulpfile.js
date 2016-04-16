@@ -47,6 +47,7 @@ gulp.task(
       'Shape',
       'Switch',
       'Teleporter',
+      'Trap',
       'Turn',
       'VertexChange',
 

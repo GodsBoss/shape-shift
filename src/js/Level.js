@@ -12,6 +12,7 @@ class Level {
     this.turns = [];
     this.vertexChanges = [];
     this.teleporters = [];
+    this.traps = [];
     this.index = index;
   }
 
@@ -58,6 +59,9 @@ class Level {
     if (object.type === 'teleporter') {
       this.teleporters.push(object);
     }
+    if (object.type === 'trap') {
+      this.traps.push(object);
+    }
   }
 
   getWalls() {
@@ -98,6 +102,10 @@ class Level {
 
   getTeleporters() {
     return this.teleporters;
+  }
+
+  getTraps() {
+    return this.traps;
   }
 }
 
