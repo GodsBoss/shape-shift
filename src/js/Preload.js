@@ -24,6 +24,7 @@ class Preload {
       'intro-background',
       'level-playable',
       'level-select-marker',
+      'play-background-1',
       'shape-hexagon',
       'shape-pentagon',
       'shape-square',

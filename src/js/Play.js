@@ -9,6 +9,8 @@ class Play {
   }
 
   create () {
+    let backgroundGroup = this.add.group();
+    let background = backgroundGroup.create(0, 0, 'play-background-1');
     let groupKeys = {
       hole: Hole,
       passSwitch: Switch,
