@@ -16,10 +16,10 @@ class Play {
 
   createArrows() {
     this.arrows = {
-      down : this.createArrow('down'),
-      left : this.createArrow('left'),
-      right: this.createArrow('right'),
-      up   : this.createArrow('up')
+      down : this.createArrow('down', 0, 1),
+      left : this.createArrow('left', -1, 0),
+      right: this.createArrow('right', 1, 0),
+      up   : this.createArrow('up', 0, -1)
     };
   }
 
@@ -43,10 +43,12 @@ class Play {
     backToLevelSelectionButton.events.onInputUp.add(() => this.backToLevelSelection());
   }
 
-  createArrow (direction) {
+  createArrow (direction, vx, vy) {
     var arrow = this.add.sprite(0, 0, 'arrow-' + direction);
     arrow.visible = false;
     arrow.anchor.setTo(0.5, 0.5);
+    arrow.vx = vx;
+    arrow.vy = vy;
     return arrow;
   }
 
@@ -96,15 +98,9 @@ class Play {
       return;
     }
     this.hideArrows();
-    let possibleArrowPositions = {
-      down: { x: shape.gridX, y: shape.gridY + 1 },
-      left: { x: shape.gridX - 1, y: shape.gridY },
-      right: { x: shape.gridX + 1, y: shape.gridY },
-      up: { x: shape.gridX, y: shape.gridY - 1 }
-    };
-    for(let arrow in possibleArrowPositions) {
-      let gridX = possibleArrowPositions[arrow].x;
-      let gridY = possibleArrowPositions[arrow].y;
+    for(let arrow in this.arrows) {
+      let gridX = shape.gridX + this.arrows[arrow].vx;
+      let gridY = shape.gridY + this.arrows[arrow].vy;
       if (this.gridIsFreeAt(gridX, gridY)) {
         this.arrows[arrow].visible = true;
         this.arrows[arrow].position.setTo(this.calcX(gridX), this.calcY(gridY));
