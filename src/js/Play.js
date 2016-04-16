@@ -105,10 +105,7 @@ class Play {
     sprite.off = clickSwitch.off;
     sprite[clickSwitch.active ? 'activate' : 'deactivate']();
     sprite.inputEnabled = true;
-    sprite.events.onInputUp.add((sprite) => {
-      sprite.switchState();
-      this.refreshShapeControls();
-    });
+    sprite.events.onInputUp.add((sprite) => sprite.switchState());
     return sprite;
   }
 
@@ -249,7 +246,6 @@ class Play {
       let passSwitchIndex = this.passSwitches.findIndex((pSwitch) => pSwitch.gridX === shape.gridX && pSwitch.gridY === shape.gridY);
       if (passSwitchIndex !== -1) {
         this.passSwitches[passSwitchIndex].switchState();
-        this.refreshShapeControls();
       }
       let vertexChangeIndex = this.vertexChanges.findIndex((change) => change.gridX === shape.gridX && change.gridY === shape.gridY);
       if (vertexChangeIndex !== -1) {

@@ -25,6 +25,7 @@ class Switch extends Phaser.Sprite {
 
   switchState() {
     this[this.clickState ? 'deactivate' : 'activate']();
+    this.playState.refreshShapeControls();
   }
 
   addObjects(specs) {
