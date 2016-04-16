@@ -103,8 +103,16 @@ class Play {
     return (gridX + 0.5) * 16 + 4;
   }
 
+  calcBackX(x) {
+    return (x - 4) / 16 - 0.5;
+  }
+
   calcY(gridY) {
     return (gridY + 0.5) * 16 + 4;
+  }
+
+  calcBackY(y) {
+    return (y - 4) / 16 - 0.5;
   }
 
   openShapeControls(shape) {
@@ -142,6 +150,17 @@ class Play {
 
   moveShape(shape) {
     shape.position.setTo(shape.x + shape.velocity.x, shape.y + shape.velocity.y);
+    let newGridX = this.calcBackX(shape.x);
+    let newGridY = this.calcBackY(shape.y);
+    if (Math.abs(newGridX - shape.gridX) >= 1 || Math.abs(newGridY - shape.gridY) >= 1) {
+      shape.gridX = shape.gridX + shape.velocity.x;
+      shape.gridY = shape.gridY + shape.velocity.y;
+      if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y)) {
+        shape.velocity = { x: 0, y: 0 };
+        shape.currentlyMoving = false;
+        shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
+      }
+    }
   }
 
   backToLevelSelection() {
