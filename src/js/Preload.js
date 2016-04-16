@@ -6,6 +6,10 @@ class Preload {
     this.load.setPreloadSprite(preloaderBar);
 
     [
+      'hole-hexagon',
+      'hole-pentagon',
+      'hole-square',
+      'hole-triangle',
       'intro-background',
       'level-playable',
       'level-select-marker',
