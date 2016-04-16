@@ -9,6 +9,10 @@ class Play {
   }
 
   create () {
+    this.holeGroup = this.add.group();
+    this.wallGroup = this.add.group();
+    this.shapeGroup = this.add.group();
+    this.arrowGroup = this.add.group();
     this.createArrows();
     this.createResetButton();
     this.createBackToLevelSelectionButton();
@@ -22,12 +26,6 @@ class Play {
       right: this.createArrow('right', 1, 0),
       up   : this.createArrow('up', 0, -1)
     };
-  }
-
-  bringArrowsToTop() {
-    for(let direction in this.arrows) {
-      this.arrows[direction].bringToTop();
-    }
   }
 
   createResetButton() {
@@ -45,7 +43,7 @@ class Play {
   }
 
   createArrow (direction, vx, vy) {
-    var arrow = this.add.sprite(0, 0, 'arrow-' + direction);
+    var arrow = this.arrowGroup.create(0, 0, 'arrow-' + direction);
     arrow.visible = false;
     arrow.anchor.setTo(0.5, 0.5);
     arrow.vx = vx;
@@ -72,15 +70,14 @@ class Play {
     this.walls = this.level.getWalls().map((wall) => this.createWall(wall));
     this.holes = this.level.getHoles().map((hole) => this.createHole(hole));
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
-    this.bringArrowsToTop();
   }
 
   createWall(wall) {
-    return this.createObject('wall', wall);
+    return this.createObject(this.wallGroup, 'wall', wall);
   }
 
   createShape(shape) {
-    let sprite = this.createObject('shape-' + shape.type, shape);
+    let sprite = this.createObject(this.shapeGroup, 'shape-' + shape.type, shape);
     sprite.inputEnabled = true;
     sprite.events.onInputUp.add((sprite) => this.openShapeControls(sprite));
     sprite.currentlyMoving = false;
@@ -91,14 +88,14 @@ class Play {
 
   createHole(hole, empty = true) {
     ++this.holesToFill;
-    let sprite = this.createObject((empty ? '' : 'filled-') + 'hole-' + hole.type, hole);
+    let sprite = this.createObject(this.holeGroup, (empty ? '' : 'filled-') + 'hole-' + hole.type, hole);
     sprite.holeType = hole.type;
     sprite.empty = empty;
     return sprite;
   }
 
-  createObject(spriteKey, object) {
-    let sprite = this.add.sprite(this.calcX(object.x), this.calcY(object.y), spriteKey);
+  createObject(group, spriteKey, object) {
+    let sprite = group.create(this.calcX(object.x), this.calcY(object.y), spriteKey);
     sprite.gridX = object.x;
     sprite.gridY = object.y;
     sprite.anchor.setTo(0.5, 0.5);
@@ -172,8 +169,6 @@ class Play {
         let newHole = this.createHole({x: hole.gridX, y: hole.gridY, type: hole.holeType}, /*empty=*/false);
         this.holes[holeIndex] = newHole;
         hole.destroy();
-        this.shapes.forEach((shape) => shape.bringToTop());
-        this.bringArrowsToTop();
         --this.holesToFill;
       }
     }
