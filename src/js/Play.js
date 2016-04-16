@@ -64,6 +64,7 @@ class Play {
       };
     }
     this.hideArrows();
+    this.currentlyControlledShape = null;
   }
 
   createLevelObjects() {
