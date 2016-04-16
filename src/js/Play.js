@@ -23,6 +23,12 @@ class Play {
     };
   }
 
+  bringArrowsToTop() {
+    for(let direction in this.arrows) {
+      this.arrows[direction].bringToTop();
+    }
+  }
+
   createResetButton() {
     var resetButton = this.add.sprite(272, 184, 'button-reset-level');
     resetButton.anchor.setTo(0.5, 0.5);
@@ -40,14 +46,16 @@ class Play {
   createArrow (direction) {
     var arrow = this.add.sprite(0, 0, 'arrow-' + direction);
     arrow.visible = false;
+    arrow.anchor.setTo(0.5, 0.5);
     return arrow;
   }
 
   createLevelObjects() {
     this.holesToFill = 0;
-    this.walls = this.level.getWalls().forEach((wall) => this.createWall(wall));
-    this.shapes = this.level.getShapes().forEach((shape) => this.createShape(shape));
-    this.holes = this.level.getHoles().forEach((hole) => this.createHole(hole));
+    this.walls = this.level.getWalls().map((wall) => this.createWall(wall));
+    this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
+    this.holes = this.level.getHoles().map((hole) => this.createHole(hole));
+    this.bringArrowsToTop();
   }
 
   createWall(wall) {
@@ -55,7 +63,11 @@ class Play {
   }
 
   createShape(shape) {
-    return this.createObject('shape-' + shape.type, shape);
+    let sprite = this.createObject('shape-' + shape.type, shape);
+    sprite.inputEnabled = true;
+    sprite.events.onInputUp.add((sprite) => this.openShapeControls(sprite));
+    sprite.currentlyMoving = false;
+    return sprite;
   }
 
   createHole(hole) {
@@ -64,11 +76,50 @@ class Play {
   }
 
   createObject(spriteKey, object) {
-    let x = (object.x + 0.5) * 16 + 4;
-    let y = (object.y + 0.5) * 16 + 4;
-    let sprite = this.add.sprite(x, y, spriteKey);
+    let sprite = this.add.sprite(this.calcX(object.x), this.calcY(object.y), spriteKey);
+    sprite.gridX = object.x;
+    sprite.gridY = object.y;
     sprite.anchor.setTo(0.5, 0.5);
     return sprite;
+  }
+
+  calcX(gridX) {
+    return (gridX + 0.5) * 16 + 4;
+  }
+
+  calcY(gridY) {
+    return (gridY + 0.5) * 16 + 4;
+  }
+
+  openShapeControls(shape) {
+    if (shape === this.currentlyControlledShape || shape.currentlyMoving) {
+      return;
+    }
+    this.hideArrows();
+    let possibleArrowPositions = {
+      down: { x: shape.gridX, y: shape.gridY + 1 },
+      left: { x: shape.gridX - 1, y: shape.gridY },
+      right: { x: shape.gridX + 1, y: shape.gridY },
+      up: { x: shape.gridX, y: shape.gridY - 1 }
+    };
+    for(let arrow in possibleArrowPositions) {
+      let gridX = possibleArrowPositions[arrow].x;
+      let gridY = possibleArrowPositions[arrow].y;
+      if (this.gridIsFreeAt(gridX, gridY)) {
+        this.arrows[arrow].visible = true;
+        this.arrows[arrow].position.setTo(this.calcX(gridX), this.calcY(gridY));
+      }
+    }
+  }
+
+  hideArrows() {
+    for(let arrow in this.arrows) {
+      this.arrows[arrow].visible = false;
+    }
+  }
+
+  gridIsFreeAt(gridX, gridY) {
+    return this.walls.every((wall) => wall.gridX !== gridX || wall.gridY !== gridY);
   }
 
   clearLevelObjects() {
