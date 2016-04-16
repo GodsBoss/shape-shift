@@ -130,7 +130,7 @@ class Play {
   }
 
   gridIsFreeAt(gridX, gridY) {
-    return this.walls.every((wall) => wall.gridX !== gridX || wall.gridY !== gridY);
+    return gridX >= 0 && gridY >= 0 && gridX <= 15 && gridY <= 11 && this.walls.every((wall) => wall.gridX !== gridX || wall.gridY !== gridY);
   }
 
   clearLevelObjects() {
