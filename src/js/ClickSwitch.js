@@ -5,16 +5,20 @@ class ClickSwitch extends Phaser.Sprite {
   }
 
   activate() {
+    if (this.clickState !== null) {
+      this.removeObjects(this.off);
+    }
     this.clickState = true;
     this.frame = 0;
-    this.removeObjects(this.off);
     this.addObjects(this.on);
   }
 
   deactivate() {
+    if (this.clickState !== null) {
+      this.removeObjects(this.on);
+    }
     this.clickState = false;
     this.frame = 1;
-    this.removeObjects(this.on);
     this.addObjects(this.off);
   }
 
