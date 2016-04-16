@@ -281,6 +281,8 @@ class Play {
 
   resetLevel() {
     this.clearLevelObjects();
+    this.hideArrows();
+    this.currentlyControlledShape = null;
     this.createLevelObjects();
   }
 }
