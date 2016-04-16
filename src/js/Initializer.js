@@ -13,7 +13,7 @@ class Initializer {
       /*transparent=*/false,
       /*anti_aliasing=*/false
     );
-    var playerProgress = new PlayerProgress(window.localStorage);
+    var playerProgress = new PlayerProgress(window.localStorage, 'player-progress');
     playerProgress.load();
     this.game.state.add('Boot', new Boot(), /*autostart=*/true);
     this.game.state.add('Preload', new Preload());
