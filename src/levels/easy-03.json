@@ -1,0 +1,61 @@
+{
+  "key": "easy-3",
+  "index": 1003,
+  "objects": [
+    {
+      "type": "click-switch",
+      "x": 0,
+      "y": 5,
+      "on": [
+        {
+          "type": "vertex-add",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "type": "vertex-add",
+          "x": 9,
+          "y": 6
+        }
+      ],
+      "off": [
+        {
+          "type": "vertex-add",
+          "x": 6,
+          "y": 6
+        },
+        {
+          "type": "vertex-add",
+          "x": 12,
+          "y": 6
+        }
+      ],
+      "active": true
+    },
+    {
+      "type": "wall",
+      "x": 1,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "x": 0,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 1,
+      "y": 7
+    },
+    {
+      "type": "shape-square",
+      "x": 1,
+      "y": 6
+    },
+    {
+      "type": "hole-square",
+      "x": 15,
+      "y": 6
+    }
+  ]
+}
