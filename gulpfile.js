@@ -13,3 +13,12 @@ gulp.task(
       pipe(gulp.dest('dist'));
   }
 );
+
+gulp.task(
+  'build:phaser',
+  function() {
+    gulp.
+      src('node_modules/phaser/build/phaser.*').
+      pipe(gulp.dest('dist'));
+  }
+);
