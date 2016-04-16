@@ -77,6 +77,8 @@ class Play {
 
   createClickSwitch(clickSwitch) {
     let sprite = this.clickSwitchGroup.create(this.calcX(clickSwitch.x), this.calcY(clickSwitch.y), 'click-switch');
+    sprite.on = clickSwitch.on;
+    sprite.off = clickSwitch.off;
     sprite[clickSwitch.active ? 'activate' : 'deactivate']();
     sprite.inputEnabled = true;
     sprite.events.onInputUp.add((sprite) => sprite.switchState());
