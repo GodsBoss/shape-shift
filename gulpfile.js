@@ -30,8 +30,12 @@ gulp.task(
 gulp.task(
   'build:game.js',
   function() {
+    var FILES = [
+      'Initializer',
+      'init'
+    ].map(function(file) { return 'src/js/' + file + '.js'; });
     gulp.
-      src(['src/js/Initializer.js', 'src/js/init.js']).
+      src(FILES).
       pipe(concat('game.js')).
       pipe(babel({presets: ['es2015']})).
       pipe(gulp.dest(DIST));
