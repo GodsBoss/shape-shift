@@ -6,6 +6,7 @@ class Level {
     this.walls = [];
     this.shapes = [];
     this.holes = [];
+    this.highlights = [];
   }
 
   getKey() {
@@ -49,11 +50,20 @@ class Level {
   getShapes() {
     return this.shapes;
   }
+
+  addHighlight(highlight) {
+    this.highlights.push(highlight);
+  }
+
+  getHighlights() {
+    return this.highlights;
+  }
 }
 
 Level.fromData = (data) => {
   var level = new Level(data.key, !!data.access);
   level.setUnlocks(data.unlocks || []);
   (data.objects||[]).forEach((object) => level.addObject(object));
+  (data.highlights||[]).forEach((highlight) => level.addHighlight(highlight));
   return level;
 };

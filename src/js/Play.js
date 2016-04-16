@@ -12,6 +12,7 @@ class Play {
     this.holeGroup = this.add.group();
     this.wallGroup = this.add.group();
     this.shapeGroup = this.add.group();
+    this.highlightGroup = this.add.group();
     this.arrowGroup = this.add.group();
     this.createArrows();
     this.createResetButton();
@@ -70,6 +71,18 @@ class Play {
     this.walls = this.level.getWalls().map((wall) => this.createWall(wall));
     this.holes = this.level.getHoles().map((hole) => this.createHole(hole));
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
+    this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
+  }
+
+  createHighlight(highlight) {
+    let sprite = this.highlightGroup.create(this.calcX(highlight.x), this.calcY(highlight.y), 'highlight');
+    sprite.anchor.setTo(0.5, 0.5);
+    sprite.rotation = Math.random() * Math.PI * 2;
+    sprite.rotationSpeed = 0.2;
+    sprite.rotationSpeedFactor = 0.95;
+    sprite.scale = { x: 2, y: 2 };
+    sprite.scaleFactor = 0.98;
+    return sprite;
   }
 
   createWall(wall) {
@@ -147,7 +160,7 @@ class Play {
   }
 
   clearLevelObjects() {
-    [this.walls, this.holes, this.shapes].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
+    [this.walls, this.holes, this.shapes, this.highlights].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
   }
 
   update () {
@@ -156,6 +169,7 @@ class Play {
       this.playerProgress.levelBeaten(this.level);
       this.backToLevelSelection();
     }
+    this.highlights.forEach((highlight) =>  this.updateHighlight(highlight));
   }
 
   moveShape(shape) {
@@ -177,9 +191,7 @@ class Play {
         this.holes[holeIndex] = newHole;
         hole.destroy();
         --this.holesToFill;
-        let shapeIndex = this.shapes.findIndex((otherShape) => shape === otherShape);
-        this.shapes[shapeIndex] = this.shapes[this.shapes.length-1];
-        this.shapes.pop();
+        this.removeFromArray(this.shapes, shape);
         shape.destroy();
       }
     }
@@ -187,6 +199,23 @@ class Play {
 
   getEmptyHoleIndex(gridX, gridY, type) {
     return this.holes.findIndex((hole) => hole.gridX == gridX && hole.gridY == gridY && hole.holeType == type);
+  }
+
+  updateHighlight(highlight) {
+    highlight.rotationSpeed *= highlight.rotationSpeedFactor;
+    highlight.rotation += highlight.rotationSpeed;
+    highlight.scale.x *= highlight.scaleFactor;
+    highlight.scale.y *= highlight.scaleFactor;
+    if (highlight.scale.x < 0.5) {
+      this.removeFromArray(this.highlights, highlight);
+      highlight.destroy();
+    }
+  }
+
+  removeFromArray(array, item) {
+    let index = array.findIndex((otherItem) => item === otherItem);
+    array[index] = array[array.length-1];
+    return array.pop();
   }
 
   backToLevelSelection() {

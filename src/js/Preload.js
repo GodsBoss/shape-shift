@@ -16,6 +16,7 @@ class Preload {
       'filled-hole-pentagon',
       'filled-hole-square',
       'filled-hole-triangle',
+      'highlight',
       'hole-hexagon',
       'hole-pentagon',
       'hole-square',
