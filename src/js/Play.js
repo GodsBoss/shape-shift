@@ -49,7 +49,20 @@ class Play {
     arrow.anchor.setTo(0.5, 0.5);
     arrow.vx = vx;
     arrow.vy = vy;
+    arrow.inputEnabled = true;
+    arrow.events.onInputUp.add((arrow) => this.moveCurrentShape(arrow));
     return arrow;
+  }
+
+  moveCurrentShape(arrow) {
+    if (this.currentlyControlledShape && !this.currentlyControlledShape.currentlyMoving) {
+      this.currentlyControlledShape.currentlyMoving = true;
+      this.currentlyControlledShape.velocity = {
+        x: arrow.vx,
+        y: arrow.vy
+      };
+    }
+    this.hideArrows();
   }
 
   createLevelObjects() {
@@ -69,6 +82,7 @@ class Play {
     sprite.inputEnabled = true;
     sprite.events.onInputUp.add((sprite) => this.openShapeControls(sprite));
     sprite.currentlyMoving = false;
+    sprite.velocity = { x: 0, y: 0 }; // Not a real velocity, more a direction.
     return sprite;
   }
 
@@ -97,6 +111,7 @@ class Play {
     if (shape === this.currentlyControlledShape || shape.currentlyMoving) {
       return;
     }
+    this.currentlyControlledShape = shape;
     this.hideArrows();
     for(let arrow in this.arrows) {
       let gridX = shape.gridX + this.arrows[arrow].vx;
@@ -121,7 +136,13 @@ class Play {
   clearLevelObjects() {
   }
 
-  update () {}
+  update () {
+    this.shapes.filter((shape) => shape.currentlyMoving).forEach((shape) => this.moveShape(shape));
+  }
+
+  moveShape(shape) {
+    shape.position.setTo(shape.x + shape.velocity.x, shape.y + shape.velocity.y);
+  }
 
   backToLevelSelection() {
     this.state.start('LevelSelect', /*clearWorld=*/true, /*clearCache=*/false);
