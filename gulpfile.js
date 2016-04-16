@@ -33,6 +33,8 @@ gulp.task(
   'build:game.js',
   function() {
     var FILES = [
+      'Boot',
+      'Preload',
       'Initializer',
       'init'
     ].map(function(file) { return SRC + '/js/' + file + '.js'; });
