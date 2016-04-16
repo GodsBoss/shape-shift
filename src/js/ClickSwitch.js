@@ -26,7 +26,26 @@ class ClickSwitch extends Phaser.Sprite {
     this[this.clickState ? 'deactivate' : 'activate']();
   }
 
-  addObjects(specs) {}
+  addObjects(specs) {
+    specs.forEach((spec) => this.addBySpec(spec));
+  }
 
-  removeObjects(specs) {}
+  addBySpec(spec) {
+    if (spec.type === 'wall') {
+      this.playState.walls.push(this.playState.createWall(spec));
+    }
+  }
+
+  removeObjects(specs) {
+    specs.forEach((spec) => this.removeBySpec(spec));
+  }
+
+  removeBySpec(spec) {
+    this.playState.walls.
+      filter((wall) => wall.gridX === spec.x && wall.gridY === spec.y).
+      forEach((wall) => {
+        this.playState.removeFromArray(this.playState.walls, wall);
+        wall.destroy();
+      });
+  }
 }
