@@ -7,6 +7,7 @@ class Level {
     this.shapes = [];
     this.holes = [];
     this.highlights = [];
+    this.clickSwitches = [];
     this.index = index;
   }
 
@@ -38,6 +39,9 @@ class Level {
     if (object.type.substring(0, 5) === 'hole-') {
       this.holes.push({x: x, y: y, type: object.type.substring(5)});
     }
+    if (object.type === 'click-switch') {
+      this.clickSwitches.push(object);
+    }
   }
 
   getWalls() {
@@ -58,6 +62,10 @@ class Level {
 
   getHighlights() {
     return this.highlights;
+  }
+
+  getClickSwitches() {
+    return this.clickSwitches;
   }
 }
 

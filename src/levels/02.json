@@ -1,4 +1,45 @@
 {
   "key": "tutorial-2",
-  "index": 2
+  "index": 2,
+  "objects": [
+    {
+      "type": "wall",
+      "x": 0,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 1,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "x": 2,
+      "y": 1
+    },
+    {
+      "type": "shape-pentagon",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "type": "hole-pentagon",
+      "x": 1,
+      "y": 9
+    },
+    {
+      "type": "click-switch",
+      "x": 4,
+      "y": 2,
+      "on": [
+        {
+          "type": "wall",
+          "x": 1,
+          "y": 2
+        }
+      ],
+      "off": [],
+      "active": true
+    }
+  ]
 }

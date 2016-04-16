@@ -11,6 +11,8 @@ class Play {
   create () {
     this.holeGroup = this.add.group();
     this.wallGroup = this.add.group();
+    this.clickSwitchGroup = this.add.group();
+    this.clickSwitchGroup.classType = ClickSwitch;
     this.shapeGroup = this.add.group();
     this.shapeGroup.classType = Shape;
     this.highlightGroup = this.add.group();
@@ -70,6 +72,15 @@ class Play {
     this.holes = this.level.getHoles().map((hole) => this.createHole(hole));
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
+    this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
+  }
+
+  createClickSwitch(clickSwitch) {
+    let sprite = this.clickSwitchGroup.create(this.calcX(clickSwitch.x), this.calcY(clickSwitch.y), 'click-switch');
+    sprite[clickSwitch.active ? 'activate' : 'deactivate']();
+    sprite.inputEnabled = true;
+    sprite.events.onInputUp.add((sprite) => sprite.switchState());
+    return sprite;
   }
 
   createHighlight(highlight) {

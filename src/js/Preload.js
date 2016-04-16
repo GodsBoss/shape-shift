@@ -31,6 +31,8 @@ class Preload {
       'wall'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
 
+    this.load.spritesheet('click-switch', 'gfx/click-switch.png', 16, 16);
+
     this.load.json('level-data', 'levels.json');
   }
 
