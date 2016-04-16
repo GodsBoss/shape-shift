@@ -171,6 +171,15 @@ class Play {
     }
   }
 
+  refreshShapeControls()
+  {
+    let currentlyControlledShape = this.currentlyControlledShape;
+    if (currentlyControlledShape) {
+      this.currentlyControlledShape = null;
+      this.openShapeControls(currentlyControlledShape);
+    }
+  }
+
   hideArrows() {
     for(let arrow in this.arrows) {
       this.arrows[arrow].visible = false;
@@ -221,6 +230,7 @@ class Play {
       let passSwitchIndex = this.passSwitches.findIndex((pSwitch) => pSwitch.gridX === shape.gridX && pSwitch.gridY === shape.gridY);
       if (passSwitchIndex !== -1) {
         this.passSwitches[passSwitchIndex].switchState();
+        this.refreshShapeControls();
       }
     }
   }
