@@ -5,7 +5,7 @@ var DIST = 'dist';
 
 gulp.task(
   'default',
-  ['build:index.html', 'build:phaser', 'build:game.js']
+  ['build:index.html', 'build:phaser', 'build:game.js', 'build:style.css']
 );
 
 gulp.task(
@@ -32,6 +32,15 @@ gulp.task(
     gulp.
       src('src/js/init.js').
       pipe(concat('game.js')).
+      pipe(gulp.dest(DIST));
+  }
+);
+
+gulp.task(
+  'build:style.css',
+  function() {
+    gulp.
+      src('src/css/style.css').
       pipe(gulp.dest(DIST));
   }
 );
