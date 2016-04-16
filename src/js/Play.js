@@ -220,7 +220,17 @@ class Play {
   }
 
   clearLevelObjects() {
-    [this.walls, this.holes, this.shapes, this.highlights].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
+    [
+      this.walls,
+      this.holes,
+      this.shapes,
+      this.highlights,
+      this.clickSwitches,
+      this.passSwitches,
+      this.turns,
+      this.vertexChanges,
+      this.teleporters
+    ].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
   }
 
   update () {
