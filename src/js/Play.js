@@ -218,10 +218,7 @@ class Play {
     }
     this.highlights.
       filter((highlight) => highlight.canBeRemoved()).
-      forEach((highlight) => {
-        this.destroySpriteInArray(this.highlights, highlight);
-        highlight.destroy();
-      });
+      forEach((highlight) => this.destroySpriteInArray(this.highlights, highlight));
   }
 
   moveShape(shape) {
@@ -247,10 +244,11 @@ class Play {
     }
   }
 
-  destroySpriteInArray(array, item) {
-    let index = array.findIndex((otherItem) => item === otherItem);
+  destroySpriteInArray(array, sprite) {
+    let index = array.findIndex((otherSprite) => otherSprite === sprite);
     array[index] = array[array.length-1];
-    return array.pop();
+    array.pop();
+    sprite.destroy();
   }
 
   backToLevelSelection() {

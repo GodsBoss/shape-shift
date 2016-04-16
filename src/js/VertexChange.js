@@ -20,7 +20,6 @@ class VertexChange extends Phaser.Sprite {
           newShape.position.setTo(shape.position.x, shape.position.y);
           newShape.velocity = shape.velocity;
           this.playState.destroySpriteInArray(this.playState.shapes, shape);
-          shape.destroy();
           this.playState.shapes.push(newShape);
         }
       }
