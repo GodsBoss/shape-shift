@@ -33,11 +33,13 @@ class Switch extends Phaser.Sprite {
   }
 
   addBySpec(spec) {
-    if (spec.type === 'wall') {
-      this.playState.walls.push(this.playState.createWall(spec));
-    }
-    if (spec.type === 'teleporter') {
-      this.playState.teleporters.push(this.playState.createTeleporter(spec));
+    this.addBySpecIfTypeMatches('wall', spec, 'walls', 'Wall');
+    this.addBySpecIfTypeMatches('teleporter', spec, 'teleporters', 'Teleporter');
+  }
+
+  addBySpecIfTypeMatches(type, spec, collectionName, entityName) {
+    if (spec.type === type) {
+      this.playState[collectionName].push(this.playState['create' + entityName](spec));
     }
   }
 
@@ -46,15 +48,15 @@ class Switch extends Phaser.Sprite {
   }
 
   removeBySpec(spec) {
-    if (spec.type === 'wall') {
-      this.playState.walls.
-        filter((wall) => wall.gridX === spec.x && wall.gridY === spec.y).
-        forEach((wall) => this.playState.destroySpriteInArray(this.playState.walls, wall));
-    }
-    if (spec.type === 'teleporter') {
-      this.playState.teleporters.
-        filter((teleporter) => teleporter.gridX === spec.x && teleporter.gridY === spec.y).
-        forEach((teleporter) => this.playState.destroySpriteInArray(this.playState.teleporters, teleporter));
+    this.removeBySpecIfTypeMatches('wall', spec, 'walls');
+    this.removeBySpecIfTypeMatches('teleporter', spec, 'teleporters');
+  }
+
+  removeBySpecIfTypeMatches(type, spec, collectionName) {
+    if (spec.type === type) {
+      this.playState[collectionName].
+        filter((entity) => entity.gridX === spec.x && entity.gridY === spec.y).
+        forEach((entity) => this.playState.destroySpriteInArray(this.playState[collectionName], entity));
     }
   }
 }
