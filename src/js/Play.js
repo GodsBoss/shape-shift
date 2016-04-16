@@ -11,6 +11,7 @@ class Play {
     this.createArrows();
     this.createResetButton();
     this.createBackToLevelSelectionButton();
+    this.createLevelObjects();
   }
 
   createArrows() {
@@ -26,6 +27,7 @@ class Play {
     var resetButton = this.add.sprite(272, 184, 'button-reset-level');
     resetButton.anchor.setTo(0.5, 0.5);
     resetButton.inputEnabled = true;
+    resetButton.events.onInputUp.add(() => this.resetLevel());
   }
 
   createBackToLevelSelectionButton() {
@@ -41,9 +43,20 @@ class Play {
     return arrow;
   }
 
+  createLevelObjects() {
+  }
+
+  clearLevelObjects() {
+  }
+
   update () {}
 
   backToLevelSelection() {
     this.state.start('LevelSelect', /*clearWorld=*/true, /*clearCache=*/false);
+  }
+
+  resetLevel() {
+    this.clearLevelObjects();
+    this.createLevelObjects();
   }
 }
