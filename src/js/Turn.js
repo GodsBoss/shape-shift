@@ -10,6 +10,7 @@ class Turn extends Phaser.Sprite {
       x: (this.direction === 'right' ? -1 : 1) * shape.velocity.y,
       y: (this.direction === 'right' ? 1 : -1) * shape.velocity.x
     };
+    shape.addRotation((this.direction === 'right' ? 1 : -1) * Math.random() * 0.1);
   }
 
   update() {

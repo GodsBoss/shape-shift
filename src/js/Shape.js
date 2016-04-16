@@ -3,6 +3,7 @@ class Shape extends Phaser.Sprite {
     super(game, x, y, key, frame);
     this.velocity = null;
     this.speed = 1;
+    this.rotationSpeed = 0;
   }
 
   currentlyMoving() {
@@ -15,6 +16,11 @@ class Shape extends Phaser.Sprite {
 
   stop() {
     this.velocity = null;
+    this.rotationSpeed = 0;
+  }
+
+  addRotation(rotation) {
+    this.rotationSpeed = Math.min(Shape.maxRotationSpeed, Math.max(-Shape.maxRotationSpeed, this.rotationSpeed + rotation));
   }
 
   hasGridPositionChanged(newGridX, newGridY) {
@@ -28,8 +34,11 @@ class Shape extends Phaser.Sprite {
 
   update() {
     super.update();
+    this.rotation += this.rotationSpeed;
     if (this.currentlyMoving()) {
       this.position.setTo(this.position.x + this.velocity.x * this.speed, this.position.y + this.velocity.y * this.speed);
     }
   }
 }
+
+Shape.maxRotationSpeed = 0.05;
