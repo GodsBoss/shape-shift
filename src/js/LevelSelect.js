@@ -39,7 +39,4 @@ class LevelSelect {
   startLevel(level) {
     this.state.start('Play', /*clearWorld=*/true, /*clearCache=*/false, level);
   }
-
-  update () {
-  }
 }
