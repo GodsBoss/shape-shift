@@ -9,6 +9,7 @@ class Level {
     this.highlights = [];
     this.clickSwitches = [];
     this.passSwitches = [];
+    this.turns = [];
     this.index = index;
   }
 
@@ -46,6 +47,9 @@ class Level {
     if (object.type === 'pass-switch') {
       this.passSwitches.push(object);
     }
+    if (object.type.substring(0, 5) === 'turn-') {
+      this.turns.push({x: x, y: y, direction: object.type.substring(5)});
+    }
   }
 
   getWalls() {
@@ -74,6 +78,10 @@ class Level {
 
   getPassSwitches() {
     return this.passSwitches;
+  }
+
+  getTurns() {
+    return this.turns;
   }
 }
 

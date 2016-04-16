@@ -28,6 +28,8 @@ class Preload {
       'shape-pentagon',
       'shape-square',
       'shape-triangle',
+      'turn-left',
+      'turn-right',
       'wall'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
 

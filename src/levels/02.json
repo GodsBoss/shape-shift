@@ -1,6 +1,7 @@
 {
   "key": "tutorial-2",
   "index": 2,
+  "unlocks": ["tutorial-3"],
   "objects": [
     {
       "type": "wall",

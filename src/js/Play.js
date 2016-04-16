@@ -12,6 +12,8 @@ class Play {
     this.holeGroup = this.add.group();
     this.passSwitchGroup = this.add.group();
     this.passSwitchGroup.classType = Switch;
+    this.turnGroup = this.add.group();
+    this.turnGroup.classType = Turn;
     this.wallGroup = this.add.group();
     this.clickSwitchGroup = this.add.group();
     this.clickSwitchGroup.classType = Switch;
@@ -76,6 +78,13 @@ class Play {
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
     this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
     this.passSwitches = this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch));
+    this.turns = this.level.getTurns().map((turn) => this.createTurn(turn));
+  }
+
+  createTurn(turn) {
+    let sprite = this.createObject(this.turnGroup, 'turn-' + turn.direction, turn);
+    sprite.direction = turn.direction;
+    return sprite;
   }
 
   createClickSwitch(clickSwitch) {
@@ -212,6 +221,11 @@ class Play {
     let newGridY = this.calcBackY(shape.y);
     if (shape.hasGridPositionChanged(newGridX, newGridY)) {
       shape.setGridPosition(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y);
+      let turnIndex = this.turns.findIndex((turn) => turn.gridX === shape.gridX && turn.gridY === shape.gridY);
+      if (turnIndex !== -1) {
+        shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
+        this.turns[turnIndex].turn(shape);
+      }
       if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y)) {
         shape.stop();
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));

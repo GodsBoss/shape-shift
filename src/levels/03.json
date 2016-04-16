@@ -1,0 +1,41 @@
+{
+  "key": "tutorial-3",
+  "index": 3,
+  "objects": [
+    {
+      "type": "shape-triangle",
+      "x": 14,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 14,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "x": 15,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 14,
+      "y": 2
+    },
+    {
+      "type": "hole-triangle",
+      "x": 1,
+      "y": 9
+    },
+    {
+      "type": "turn-left",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "type": "turn-right",
+      "x": 7,
+      "y": 9
+    }
+  ]
+}

@@ -45,6 +45,7 @@ gulp.task(
       'Highlight',
       'Shape',
       'Switch',
+      'Turn',
 
       // States
       'Boot',
