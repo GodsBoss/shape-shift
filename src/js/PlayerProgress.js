@@ -38,7 +38,7 @@ class PlayerProgress {
     try {
       this.store.setItem(this.key, this.toJson());
     } catch (e) {
-      console.log('Saving player progress failed.');
+      console.log('Saving player progress failed.', e);
     }
   }
 
@@ -46,7 +46,7 @@ class PlayerProgress {
     try {
       var data = JSON.parse(PlayerProgress.fromJson(this.store.getItem(this.key)));
     } catch (e) {
-      console.log('Loading player progress failed, do not refresh.');
+      console.log('Loading player progress failed, do not refresh.', e);
       return;
     }
     this.clearAvailableLevels();
@@ -57,7 +57,7 @@ class PlayerProgress {
     try {
       this.store.removeItem(this.key);
     } catch (e) {
-      console.log('Clearing player progress failed.');
+      console.log('Clearing player progress failed.', e);
     }
   }
 }
