@@ -44,6 +44,9 @@ class Play {
   }
 
   createLevelObjects() {
+    this.walls = [];
+    this.shapes = [];
+    this.holes = [];
   }
 
   clearLevelObjects() {
