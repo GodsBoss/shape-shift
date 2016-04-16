@@ -28,6 +28,7 @@ class Preload {
       'shape-pentagon',
       'shape-square',
       'shape-triangle',
+      'teleporter-particle',
       'trap',
       'turn-left',
       'turn-right',

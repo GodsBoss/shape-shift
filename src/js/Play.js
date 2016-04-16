@@ -19,6 +19,7 @@ class Play {
       wall: null,
       clickSwitch: Switch,
       shape: Shape,
+      teleporterParticle: TeleporterParticle,
       highlight: Highlight,
       arrow: null
     };
@@ -86,6 +87,7 @@ class Play {
     this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
     this.passSwitches = this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch));
     this.traps = this.level.getTraps().map((trap) => this.createTrap(trap));
+    this.teleporterParticles = [];
   }
 
   createTrap(trap) {
@@ -240,7 +242,8 @@ class Play {
       this.passSwitches,
       this.turns,
       this.vertexChanges,
-      this.teleporters
+      this.teleporters,
+      this.teleporterParticles
     ].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
     this.traps.forEach((trap) => {
       trap.destroyTrappedSprite();

@@ -3,6 +3,7 @@ class Teleporter extends Phaser.Sprite {
     super(game, x, y, key, frame);
     this.target = null;
     this.animations.add('...', null, /*fps=*/8, /*loop=*/true).play();
+    this.particlePressure = 0;
   }
 
   teleport(shape) {
@@ -12,4 +13,20 @@ class Teleporter extends Phaser.Sprite {
       shape.position.setTo(this.playState.calcX(shape.gridX), this.playState.calcY(shape.gridY));
     }
   }
+
+  update() {
+    super.update();
+    if (this.target) {
+      this.particlePressure += Math.random() * Teleporter.particleFrequency;
+      if (this.particlePressure >= 1) {
+        --this.particlePressure;
+        let particle = this.playState.teleporterParticleGroup.create(this.playState.calcX(this.gridX), this.playState.calcY(this.gridY), 'teleporter-particle');
+        particle.playState = this.playState;
+        particle.target = { x: this.playState.calcX(this.target.x), y: this.playState.calcY(this.target.y) };
+        this.playState.teleporterParticles.push(particle);
+      }
+    }
+  }
 }
+
+Teleporter.particleFrequency = 0.02;
