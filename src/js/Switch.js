@@ -36,6 +36,7 @@ class Switch extends Phaser.Sprite {
     this.addBySpecIfTypeMatches('wall', spec, 'walls', 'Wall');
     this.addBySpecIfTypeMatches('teleporter', spec, 'teleporters', 'Teleporter');
     this.addBySpecIfTypeMatches('turn', spec, 'turns', 'Turn', (spec) => Object.assign({direction: spec.type.substring(5)}, spec));
+    this.addBySpecIfTypeMatches('vertex', spec, 'vertexChanges', 'VertexChange', (spec) => Object.assign({change: spec.type.substring(7)}, spec));
   }
 
   addBySpecIfTypeMatches(type, spec, collectionName, entityName, specTransform) {
@@ -52,6 +53,7 @@ class Switch extends Phaser.Sprite {
     this.removeBySpecIfTypeMatches('wall', spec, 'walls');
     this.removeBySpecIfTypeMatches('teleporter', spec, 'teleporters');
     this.removeBySpecIfTypeMatches('turn', spec, 'turns');
+    this.removeBySpecIfTypeMatches('vertex', spec, 'vertexChanges');
   }
 
   removeBySpecIfTypeMatches(type, spec, collectionName) {
