@@ -46,6 +46,7 @@ gulp.task(
       'Shape',
       'Switch',
       'Turn',
+      'VertexChange',
 
       // States
       'Boot',

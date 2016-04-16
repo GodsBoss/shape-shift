@@ -1,0 +1,66 @@
+{
+  "key": "tutorial-4",
+  "index": 4,
+  "objects": [
+    {
+      "type": "shape-triangle",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 3,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 2
+    },
+    {
+      "type": "vertex-add",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "type": "hole-square",
+      "x": 4,
+      "y": 10
+    },
+    {
+      "type": "shape-hexagon",
+      "x": 9,
+      "y": 10
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 10
+    },
+    {
+      "type": "wall",
+      "x": 9,
+      "y": 11
+    },
+    {
+      "type": "wall",
+      "x": 10,
+      "y": 10
+    },
+    {
+      "type": "vertex-remove",
+      "x": 9,
+      "y": 6
+    },
+    {
+      "type": "hole-pentagon",
+      "x": 9,
+      "y": 1
+    }
+  ]
+}

@@ -30,6 +30,8 @@ class Preload {
       'shape-triangle',
       'turn-left',
       'turn-right',
+      'vertex-add',
+      'vertex-remove',
       'wall'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
 

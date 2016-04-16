@@ -14,6 +14,8 @@ class Play {
     this.passSwitchGroup.classType = Switch;
     this.turnGroup = this.add.group();
     this.turnGroup.classType = Turn;
+    this.vertexChangeGroup = this.add.group();
+    this.vertexChangeGroup.classType = VertexChange;
     this.wallGroup = this.add.group();
     this.clickSwitchGroup = this.add.group();
     this.clickSwitchGroup.classType = Switch;
@@ -79,6 +81,14 @@ class Play {
     this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
     this.passSwitches = this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch));
     this.turns = this.level.getTurns().map((turn) => this.createTurn(turn));
+    this.vertexChanges = this.level.getVertexChanges().map((change) => this.createVertexChange(change));
+  }
+
+  createVertexChange(change) {
+    let sprite = this.createObject(this.vertexChangeGroup, 'vertex-' + change.change, change);
+    sprite.playState = this;
+    sprite.change = change.change;
+    return sprite;
   }
 
   createTurn(turn) {
@@ -244,6 +254,10 @@ class Play {
       if (passSwitchIndex !== -1) {
         this.passSwitches[passSwitchIndex].switchState();
         this.refreshShapeControls();
+      }
+      let vertexChangeIndex = this.vertexChanges.findIndex((change) => change.gridX === shape.gridX && change.gridY === shape.gridY);
+      if (vertexChangeIndex !== -1) {
+        this.vertexChanges[vertexChangeIndex].applyChangeTo(shape);
       }
     }
   }

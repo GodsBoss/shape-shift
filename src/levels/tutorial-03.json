@@ -1,6 +1,7 @@
 {
   "key": "tutorial-3",
   "index": 3,
+  "unlocks": ["tutorial-4"],
   "objects": [
     {
       "type": "shape-triangle",

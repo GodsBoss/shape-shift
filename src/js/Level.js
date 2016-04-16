@@ -10,6 +10,7 @@ class Level {
     this.clickSwitches = [];
     this.passSwitches = [];
     this.turns = [];
+    this.vertexChanges = [];
     this.index = index;
   }
 
@@ -50,6 +51,9 @@ class Level {
     if (object.type.substring(0, 5) === 'turn-') {
       this.turns.push({x: x, y: y, direction: object.type.substring(5)});
     }
+    if (object.type.substring(0, 7) === 'vertex-') {
+      this.vertexChanges.push({x: x, y: y, change: object.type.substring(7)});
+    }
   }
 
   getWalls() {
@@ -82,6 +86,10 @@ class Level {
 
   getTurns() {
     return this.turns;
+  }
+
+  getVertexChanges() {
+    return this.vertexChanges;
   }
 }
 
