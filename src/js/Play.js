@@ -9,22 +9,21 @@ class Play {
   }
 
   create () {
-    this.holeGroup = this.add.group();
-    this.holeGroup.classType = Hole;
-    this.passSwitchGroup = this.add.group();
-    this.passSwitchGroup.classType = Switch;
-    this.turnGroup = this.add.group();
-    this.turnGroup.classType = Turn;
-    this.vertexChangeGroup = this.add.group();
-    this.vertexChangeGroup.classType = VertexChange;
-    this.wallGroup = this.add.group();
-    this.clickSwitchGroup = this.add.group();
-    this.clickSwitchGroup.classType = Switch;
-    this.shapeGroup = this.add.group();
-    this.shapeGroup.classType = Shape;
-    this.highlightGroup = this.add.group();
-    this.highlightGroup.classType = Highlight;
-    this.arrowGroup = this.add.group();
+    let groupKeys = {
+      hole: Hole,
+      passSwitch: Switch,
+      turn: Turn,
+      vertexChange: VertexChange,
+      wall: null,
+      clickSwitch: Switch,
+      shape: Shape,
+      highlight: Highlight,
+      arrow: null
+    };
+    for (let groupKey in groupKeys) {
+      this[groupKey + 'Group'] = this.add.group();
+      this[groupKey + 'Group'].classType = groupKeys[groupKey] || Phaser.Sprite;
+    }
     this.createArrows();
     this.createResetButton();
     this.createBackToLevelSelectionButton();
