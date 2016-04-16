@@ -258,7 +258,7 @@ class Play {
     }
   }
 
-  getEmptyHoleIndex(gridX, gridY, type) {
+  getEmptyHoleIndex(gridX, gridY) {
     return this.holes.findIndex((hole) => hole.gridX == gridX && hole.gridY == gridY);
   }
 
