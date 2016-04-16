@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 
+var DIST = 'dist';
+
 gulp.task(
   'default',
   ['build:index.html', 'build:phaser', 'build:game.js']
@@ -11,7 +13,7 @@ gulp.task(
   function() {
     gulp.
       src('src/html/index.html').
-      pipe(gulp.dest('dist'));
+      pipe(gulp.dest(DIST));
   }
 );
 
@@ -20,7 +22,7 @@ gulp.task(
   function() {
     gulp.
       src('node_modules/phaser/build/phaser.*').
-      pipe(gulp.dest('dist'));
+      pipe(gulp.dest(DIST));
   }
 );
 
@@ -30,6 +32,6 @@ gulp.task(
     gulp.
       src('src/js/init.js').
       pipe(concat('game.js')).
-      pipe(gulp.dest('dist'));
+      pipe(gulp.dest(DIST));
   }
 );
