@@ -126,6 +126,8 @@ class Play {
   createClickSwitch(clickSwitch) {
     let sprite = this.clickSwitchGroup.create(this.calcX(clickSwitch.x), this.calcY(clickSwitch.y), 'click-switch');
     sprite.playState = this;
+    sprite.gridX = clickSwitch.x;
+    sprite.gridY = clickSwitch.y;
     sprite.on = clickSwitch.on;
     sprite.off = clickSwitch.off;
     sprite[clickSwitch.active ? 'activate' : 'deactivate']();
