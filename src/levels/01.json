@@ -1,5 +1,6 @@
 {
   "key": "tutorial-1",
+  "index": 1,
   "access": true,
   "unlocks": ["tutorial-2"],
   "objects": [

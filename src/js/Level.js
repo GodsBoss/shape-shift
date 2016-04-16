@@ -1,5 +1,5 @@
 class Level {
-  constructor(key, accessible) {
+  constructor(key, accessible, index) {
     this.key = key;
     this.accessible = accessible;
     this.unlocks = [];
@@ -7,6 +7,7 @@ class Level {
     this.shapes = [];
     this.holes = [];
     this.highlights = [];
+    this.index = index;
   }
 
   getKey() {
@@ -61,7 +62,7 @@ class Level {
 }
 
 Level.fromData = (data) => {
-  var level = new Level(data.key, !!data.access);
+  var level = new Level(data.key, !!data.access, +data.index);
   level.setUnlocks(data.unlocks || []);
   (data.objects||[]).forEach((object) => level.addObject(object));
   (data.highlights||[]).forEach((highlight) => level.addHighlight(highlight));

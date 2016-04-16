@@ -5,6 +5,7 @@ class Levels {
 
   addLevel(level) {
     this.levels.push(level);
+    this.levels.sort((left, right) => left.index - right.index);
   }
 
   onlyAvailableLevels(playerProgress) {
