@@ -3,6 +3,7 @@ var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 
 var DIST = 'dist';
+var SRC = 'src';
 
 gulp.task(
   'default',
@@ -13,7 +14,7 @@ gulp.task(
   'build:index.html',
   function() {
     gulp.
-      src('src/html/index.html').
+      src(SRC + '/html/index.html').
       pipe(gulp.dest(DIST));
   }
 );
@@ -33,7 +34,7 @@ gulp.task(
     var FILES = [
       'Initializer',
       'init'
-    ].map(function(file) { return 'src/js/' + file + '.js'; });
+    ].map(function(file) { return SRC + '/js/' + file + '.js'; });
     gulp.
       src(FILES).
       pipe(concat('game.js')).
@@ -46,7 +47,7 @@ gulp.task(
   'build:style.css',
   function() {
     gulp.
-      src('src/css/style.css').
+      src(SRC + '/css/style.css').
       pipe(gulp.dest(DIST));
   }
 );
