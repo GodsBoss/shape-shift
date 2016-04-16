@@ -219,7 +219,7 @@ class Play {
     this.highlights.
       filter((highlight) => highlight.canBeRemoved()).
       forEach((highlight) => {
-        this.removeFromArray(this.highlights, highlight);
+        this.destroySpriteInArray(this.highlights, highlight);
         highlight.destroy();
       });
   }
@@ -247,7 +247,7 @@ class Play {
     }
   }
 
-  removeFromArray(array, item) {
+  destroySpriteInArray(array, item) {
     let index = array.findIndex((otherItem) => item === otherItem);
     array[index] = array[array.length-1];
     return array.pop();

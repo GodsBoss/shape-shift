@@ -46,7 +46,7 @@ class Switch extends Phaser.Sprite {
     this.playState.walls.
       filter((wall) => wall.gridX === spec.x && wall.gridY === spec.y).
       forEach((wall) => {
-        this.playState.removeFromArray(this.playState.walls, wall);
+        this.playState.destroySpriteInArray(this.playState.walls, wall);
         wall.destroy();
       });
   }
