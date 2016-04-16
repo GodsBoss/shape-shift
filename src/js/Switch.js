@@ -1,4 +1,4 @@
-class ClickSwitch extends Phaser.Sprite {
+class Switch extends Phaser.Sprite {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
     this.anchor.setTo(0.5, 0.5);

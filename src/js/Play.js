@@ -12,7 +12,7 @@ class Play {
     this.holeGroup = this.add.group();
     this.wallGroup = this.add.group();
     this.clickSwitchGroup = this.add.group();
-    this.clickSwitchGroup.classType = ClickSwitch;
+    this.clickSwitchGroup.classType = Switch;
     this.shapeGroup = this.add.group();
     this.shapeGroup.classType = Shape;
     this.highlightGroup = this.add.group();

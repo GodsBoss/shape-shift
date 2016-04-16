@@ -42,9 +42,9 @@ gulp.task(
       'PlayerProgress',
 
       // Sprite classes
-      'ClickSwitch',
       'Highlight',
       'Shape',
+      'Switch',
 
       // States
       'Boot',
