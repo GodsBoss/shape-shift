@@ -3,5 +3,9 @@
   "version": "0.0.1",
   "description": "Ludum Dare 35 (Shapeshift).",
   "author": "Timo Reitz",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "phaser": "^2.4.6"
+  }
 }
