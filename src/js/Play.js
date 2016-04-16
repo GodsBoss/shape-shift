@@ -87,8 +87,7 @@ class Play {
     sprite.inputEnabled = true;
     sprite.events.onInputUp.add((sprite) => {
       sprite.switchState();
-      this.currentlyControlledShape = null;
-      this.hideArrows();
+      this.refreshShapeControls();
     });
     return sprite;
   }
