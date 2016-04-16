@@ -2,6 +2,7 @@ class Teleporter extends Phaser.Sprite {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
     this.target = null;
+    this.animations.add('...', null, /*fps=*/8, /*loop=*/true).play();
   }
 
   teleport(shape) {
