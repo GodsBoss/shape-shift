@@ -36,6 +36,9 @@ class Switch extends Phaser.Sprite {
     if (spec.type === 'wall') {
       this.playState.walls.push(this.playState.createWall(spec));
     }
+    if (spec.type === 'teleporter') {
+      this.playState.teleporters.push(this.playState.createTeleporter(spec));
+    }
   }
 
   removeObjects(specs) {
@@ -47,6 +50,11 @@ class Switch extends Phaser.Sprite {
       this.playState.walls.
         filter((wall) => wall.gridX === spec.x && wall.gridY === spec.y).
         forEach((wall) => this.playState.destroySpriteInArray(this.playState.walls, wall));
+    }
+    if (spec.type === 'teleporter') {
+      this.playState.teleporters.
+        filter((teleporter) => teleporter.gridX === spec.x && teleporter.gridY === spec.y).
+        forEach((teleporter) => this.playState.destroySpriteInArray(this.playState.teleporters, teleporter));
     }
   }
 }

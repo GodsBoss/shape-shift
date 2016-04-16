@@ -80,11 +80,11 @@ class Play {
     this.holes = this.level.getHoles().map((hole) => this.createHole(hole));
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
-    this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
-    this.passSwitches = this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch));
     this.turns = this.level.getTurns().map((turn) => this.createTurn(turn));
     this.vertexChanges = this.level.getVertexChanges().map((change) => this.createVertexChange(change));
     this.teleporters = this.level.getTeleporters().map((teleporter) => this.createTeleporter(teleporter));
+    this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
+    this.passSwitches = this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch));
     this.traps = this.level.getTraps().map((trap) => this.createTrap(trap));
   }
 
