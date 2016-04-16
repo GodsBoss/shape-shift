@@ -1,3 +1,4 @@
+var cp = require('child_process');
 var del = require('del');
 var gulp = require('gulp');
 var babel = require('gulp-babel');
@@ -10,7 +11,7 @@ var SRC = 'src';
 
 gulp.task(
   'default',
-  ['build:index.html', 'build:phaser', 'build:game.js', 'build:style.css', 'build:gfx']
+  ['build:index.html', 'build:phaser', 'build:game.js', 'build:style.css', 'build:gfx', 'build:levels']
 );
 
 gulp.task(
@@ -72,6 +73,21 @@ gulp.task(
       src(SRC + '/gfx/*.xcf').
       pipe(exec('node src/scripts/gfx.js <%= file.path %> ' + DIST + '/gfx')).
       pipe(exec.reporter());
+  }
+);
+
+gulp.task(
+  'build:levels',
+  function() {
+    cp.exec(
+      'node src/scripts/join_levels.js ' + process.cwd() + '/' + SRC + '/levels ' + DIST + '/levels.json',
+      function(error, stdout, stderr) {
+        if (error) {
+          throw error;
+        }
+        console.log(stdout);
+      }
+    );
   }
 );
 
