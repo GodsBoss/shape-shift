@@ -10,6 +10,8 @@ class Preload {
       'arrow-left',
       'arrow-right',
       'arrow-up',
+      'button-back-to-level-selection',
+      'button-reset-level',
       'filled-hole-hexagon',
       'filled-hole-pentagon',
       'filled-hole-square',
