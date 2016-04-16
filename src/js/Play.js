@@ -159,7 +159,12 @@ class Play {
       this.playerProgress.levelBeaten(this.level);
       this.backToLevelSelection();
     }
-    this.highlights.forEach((highlight) =>  this.updateHighlight(highlight));
+    this.highlights.
+      filter((highlight) => highlight.canBeRemoved()).
+      forEach((highlight) => {
+        this.removeFromArray(this.highlights, highlight);
+        highlight.destroy();
+      });
   }
 
   moveShape(shape) {
@@ -186,13 +191,6 @@ class Play {
 
   getEmptyHoleIndex(gridX, gridY, type) {
     return this.holes.findIndex((hole) => hole.gridX == gridX && hole.gridY == gridY && hole.holeType == type);
-  }
-
-  updateHighlight(highlight) {
-    if (highlight.canBeRemoved()) {
-      this.removeFromArray(this.highlights, highlight);
-      highlight.destroy();
-    }
   }
 
   removeFromArray(array, item) {
