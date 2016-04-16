@@ -229,27 +229,21 @@ class Play {
     let newGridY = this.calcBackY(shape.y);
     if (shape.hasGridPositionChanged(newGridX, newGridY)) {
       shape.setGridPosition(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y);
-      let turnIndex = this.turns.findIndex((turn) => turn.gridX === shape.gridX && turn.gridY === shape.gridY);
-      if (turnIndex !== -1) {
-        shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
-        this.turns[turnIndex].turn(shape);
-      }
+      this.findAndHandleSpecialField(this.turns, shape, 'turn');
       if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y)) {
         shape.stop();
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
-      let holeIndex = this.holes.findIndex((hole) => hole.gridX == shape.gridX && hole.gridY == shape.gridY);
-      if (holeIndex !== -1) {
-        this.holes[holeIndex].accept(shape);
-      }
-      let passSwitchIndex = this.passSwitches.findIndex((pSwitch) => pSwitch.gridX === shape.gridX && pSwitch.gridY === shape.gridY);
-      if (passSwitchIndex !== -1) {
-        this.passSwitches[passSwitchIndex].switchState();
-      }
-      let vertexChangeIndex = this.vertexChanges.findIndex((change) => change.gridX === shape.gridX && change.gridY === shape.gridY);
-      if (vertexChangeIndex !== -1) {
-        this.vertexChanges[vertexChangeIndex].applyChangeTo(shape);
-      }
+      this.findAndHandleSpecialField(this.holes, shape, 'accept');
+      this.findAndHandleSpecialField(this.passSwitches, shape, 'switchState');
+      this.findAndHandleSpecialField(this.vertexChanges, shape, 'applyChangeTo');
+    }
+  }
+
+  findAndHandleSpecialField(fields, shape, method) {
+    let index = fields.findIndex((field) => field.gridX === shape.gridX && field.gridY === shape.gridY);
+    if (index !== -1) {
+      fields[index][method](shape);
     }
   }
 
