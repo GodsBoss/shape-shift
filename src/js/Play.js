@@ -68,8 +68,8 @@ class Play {
   createLevelObjects() {
     this.holesToFill = 0;
     this.walls = this.level.getWalls().map((wall) => this.createWall(wall));
-    this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.holes = this.level.getHoles().map((hole) => this.createHole(hole));
+    this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.bringArrowsToTop();
   }
 
