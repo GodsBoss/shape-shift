@@ -1,7 +1,7 @@
 {
   "key": "medium-1",
   "index": 2001,
-  "unlocks": [],
+  "unlocks": ["medium-2"],
   "objects": [
     {
       "type": "wall",
