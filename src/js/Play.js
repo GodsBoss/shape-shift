@@ -30,8 +30,8 @@ class Play {
       this[groupKey + 'Group'].classType = groupKeys[groupKey] || Phaser.Sprite;
     }
     this.createArrows();
-    this.createResetButton();
-    this.createBackToLevelSelectionButton();
+    this.createSidebarButton(168, 'button-reset-level', 'resetLevel');
+    this.createSidebarButton(200, 'button-back-to-level-selection', 'backToLevelSelection');
     this.createLevelObjects();
   }
 
@@ -42,14 +42,6 @@ class Play {
       right: this.createArrow('right', 1, 0),
       up   : this.createArrow('up', 0, -1)
     };
-  }
-
-  createResetButton() {
-    this.createSidebarButton(168, 'button-reset-level', 'resetLevel');
-  }
-
-  createBackToLevelSelectionButton() {
-    this.createSidebarButton(200, 'button-back-to-level-selection', 'backToLevelSelection');
   }
 
   createSidebarButton(bottom, key, onClick) {
