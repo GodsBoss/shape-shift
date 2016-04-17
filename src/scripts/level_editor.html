@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>(Half-assed) Level editor</title>
+    <style type="text/css">
+      #tools,
+      #board {
+        cursor: pointer;
+      }
+      #tools {
+        float: left;
+        margin-right: 20px;
+      }
+      #tools ul,
+      #tools li {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+      #tools li.active {
+        border: 1px solid #000000;
+        background-color:#eeeeee;
+      }
+      #board {
+        float: left;
+      }
+      #board table {
+        border-collapse: separate;
+        border-spacing: 1px;
+      }
+      #board table td,
+      #tools ul li {
+        border: 1px solid #aaaaaa;
+        height: 32px;
+        padding: 0;
+        margin: 1px;
+        text-align: center;
+        width: 32px;
+      }
+      #board table td:hover,
+      #tools ul li:hover {
+        background-color: #dddddd;
+      }
+      #json {
+        clear:both;
+        font-family: monospace;
+        margin-top: 10px;
+      }
+    </style>
+    <script type="text/javascript">
+      window.addEventListener('load', init, false);
+
+      function init() {
+        var tools = new Tools();
+        var board = new Board();
+        board.onChange = function(board) {
+          document.getElementById('json').innerHTML = board.toJSON();
+        };
+        addBoard(document.getElementById('board'), board, tools);
+        addTools(document.getElementById('tools'), tools);
+      }
+
+      function addBoard(boardDiv, board, tools)
+      {
+        var table = document.createElement('table');
+        var tbody = table.createTBody();
+        for(var rowIndex = 0; rowIndex < 12; rowIndex++) {
+          var row = tbody.insertRow();
+          for(var colIndex = 0; colIndex < 16; colIndex++) {
+            var col = row.insertCell();
+            col.id = 'board-cell-' + colIndex + '-' + rowIndex;
+            col.setAttribute('data-grid-x', colIndex);
+            col.setAttribute('data-grid-y', rowIndex);
+          }
+        }
+        table.addEventListener(
+          'click',
+          function(e) {
+            if (typeof e.target.dataset.gridX !== 'undefined' && typeof e.target.dataset.gridY !== 'undefined') {
+              board.setCell(e.target.dataset.gridX, e.target.dataset.gridY, tools.getCurrent());
+              tbody.rows[e.target.dataset.gridY].cells[e.target.dataset.gridX].innerHTML = TOOLS[tools.getCurrent()].label;
+            }
+          },
+          false
+        );
+        boardDiv.appendChild(table);
+      }
+
+      function addTools(toolsDiv, tools)
+      {
+        var ul = document.createElement('ul');
+        for (var toolSpecId in TOOLS) {
+          var toolSpec = TOOLS[toolSpecId];
+          var li = document.createElement('li');
+          li.id = toolSpecId;
+          li.setAttribute('data-key', toolSpecId);
+          li.title = toolSpec.info;
+          li.innerHTML = toolSpec.label;
+          if (toolSpecId === 'empty') {
+            li.className = 'active';
+          }
+          ul.appendChild(li);
+        }
+        ul.addEventListener(
+          'click',
+          function(e) {
+            if (typeof e.target.dataset.key !== 'undefined') {
+              tools.setCurrent(e.target.dataset.key);
+              for(var liIndex=0; liIndex<ul.children.length; liIndex++) {
+                ul.children[liIndex].className = '';
+              }
+              e.target.className = 'active';
+            }
+          },
+          false
+        );
+        toolsDiv.appendChild(ul);
+      }
+
+      function Board() {
+        this.data = [];
+        for(var colIndex = 0; colIndex < 16; colIndex++) {
+          this.data[colIndex] = [];
+          for(var rowIndex = 0; rowIndex < 12; rowIndex++) {
+            this.data[colIndex][rowIndex] = 'empty';
+          }
+        }
+      }
+
+      Board.prototype.setCell = function(column, row, value) {
+        this.data[column][row] = value;
+        if (typeof this.onChange === 'function') {
+          this.onChange(this);
+        }
+      };
+
+      Board.prototype.toJSON = function(){
+        var obj = {};
+        obj.key = '';
+        obj.index = 1;
+        obj.unlocks = [];
+        obj.objects = [];
+        for(var colIndex = 0; colIndex < 16; colIndex++) {
+          for(var rowIndex = 0; rowIndex < 12; rowIndex++) {
+            var toolIndex = this.data[colIndex][rowIndex];
+            if (toolIndex !== 'empty') {
+              var cellObject =
+              {
+                key: TOOLS[toolIndex].key,
+                gridX: colIndex,
+                gridY: rowIndex
+              };
+              if (toolIndex === 'clickSwitch' || toolIndex === 'passSwitch') {
+                Object.assign(cellObject, { on: [], off: [], active: false });
+              }
+              obj.objects.push(cellObject);
+            }
+          }
+        }
+        return JSON.stringify(obj);
+      };
+
+      function Tools() {
+        this.current = 'empty';
+      }
+
+      Tools.prototype.setCurrent = function(current) {
+        this.current = current;
+      };
+
+      Tools.prototype.getCurrent = function() {
+        return this.current;
+      };
+
+      var TOOLS = {
+        empty: {
+          key: 'empty',
+          label: '',
+          info: 'Empty space'
+        },
+        wall: {
+          key: 'wall',
+          label: 'W',
+          info: 'Wall'
+        },
+        sh3: {
+          key: 'shape-triangle',
+          label: 'S3',
+          info: 'Triangle shape'
+        },
+        sh4: {
+          key: 'shape-square',
+          label: 'S4',
+          info: 'Square shape'
+        },
+        sh5: {
+          key: 'shape-pentagon',
+          label: 'S5',
+          info: 'Pentagon shape'
+        },
+        sh6: {
+          key: 'shape-hexagon',
+          label: 'S6',
+          info: 'Hexagon shape'
+        },
+        h3: {
+          key: 'hole-triangle',
+          label: 'H3',
+          info: 'Triangle hole'
+        },
+        h4: {
+          key: 'hole-square',
+          label: 'H4',
+          info: 'Square hole'
+        },
+        h5: {
+          key: 'hole-pentagon',
+          label: 'H5',
+          info: 'Pentagon hole'
+        },
+        h6: {
+          key: 'hole-hexagon',
+          label: 'H6',
+          info: 'Hexagon hole'
+        },
+        vertexAdd: {
+          key: 'vertex-add',
+          label: '+',
+          info: 'Add vertex'
+        },
+        vertexRemove: {
+          key: 'vertex-remove',
+          label: '-',
+          info: 'Remove vertex'
+        },
+        turnLeft: {
+          key: 'turn-left',
+          label: 'L',
+          info: 'Turn left'
+        },
+        turnRight: {
+          key: 'turn-right',
+          label: 'R',
+          info: 'Turn right'
+        },
+        teleporter: {
+          key: 'teleporter',
+          label: '@',
+          info: 'Teleporter'
+        },
+        trap: {
+          key: 'trap',
+          label: '[]',
+          info: 'Trap'
+        },
+        clickSwitch: {
+          key: 'click-switch',
+          label: '/',
+          info: 'Click switch'
+        },
+        passSwitch: {
+          key: 'pass-switch',
+          label: '.',
+          info: 'Pass switch'
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div id="tools"></div>
+    <div id="board"></div>
+    <div id="json"></div>
+  </body>
+</html>
