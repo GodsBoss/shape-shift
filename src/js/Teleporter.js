@@ -3,7 +3,7 @@ class Teleporter extends Phaser.Sprite {
     super(game, x, y, key, frame);
     this.target = null;
     this.animations.add('...', null, /*fps=*/8, /*loop=*/true).play();
-    this.particlePressure = 0;
+    this.particlePressure = 0.5 + Math.random() * 0.5;
   }
 
   teleport(shape) {
