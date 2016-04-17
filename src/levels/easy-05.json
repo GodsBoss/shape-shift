@@ -1,0 +1,77 @@
+{
+  "key": "easy-5",
+  "index": 1005,
+  "unlocks": [],
+  "objects": [
+    {
+      "type": "wall",
+      "x": 1,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 2,
+      "y": 9
+    },
+    {
+      "type": "turn-left",
+      "x": 3,
+      "y": 3
+    },
+    {
+      "type": "hole-hexagon",
+      "x": 3,
+      "y": 5
+    },
+    {
+      "type": "vertex-remove",
+      "x": 5,
+      "y": 1
+    },
+    {
+      "type": "turn-right",
+      "x": 5,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "type": "shape-hexagon",
+      "x": 7,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 10,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "x": 11,
+      "y": 8
+    },
+    {
+      "type": "vertex-remove",
+      "x": 12,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "x": 13,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 14,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 15,
+      "y": 5
+    }
+  ]
+}
