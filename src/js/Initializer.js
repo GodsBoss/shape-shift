@@ -21,5 +21,8 @@ class Initializer {
     this.game.state.add('LevelSelect', new LevelSelect(playerProgress));
     this.game.state.add('Play', new Play(playerProgress));
     this.game.state.add('Victory', new Victory());
+
+    // For testing purposes.
+    window.playerProgress = playerProgress;
   }
 }
