@@ -122,6 +122,7 @@ class Play {
   createTurn(turn) {
     let sprite = this.createObject(this.turnGroup, 'turn-' + turn.direction, turn);
     sprite.direction = turn.direction;
+    sprite.playState = this;
     return sprite;
   }
 

@@ -53,8 +53,10 @@ class Preload {
     [
       'down',
       'fall-in-hole',
+      'left',
       'level-beaten',
       'movement-stops',
+      'right',
       'switch-disable',
       'switch-enable',
       'teleport',
