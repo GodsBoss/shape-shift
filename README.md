@@ -16,6 +16,7 @@ Before end of LD#35
 -------------------
 
 - Sound!
+- Victory screen currently looks like shit.
 
 After end of LD#35
 ------------------
