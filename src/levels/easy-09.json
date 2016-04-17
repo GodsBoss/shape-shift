@@ -1,0 +1,74 @@
+{
+  "key": "easy-9",
+  "index": 1009,
+  "unlocks": [],
+  "objects": [
+    {
+      "type": "hole-square",
+      "x": 0,
+      "y": 3
+    },
+    {
+      "type": "shape-triangle",
+      "x": 2,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "x": 2,
+      "y": 10
+    },
+    {
+      "type": "shape-square",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "type": "trap",
+      "x": 4,
+      "y": 3,
+      "prisoner": "shape-pentagon"
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "type": "turn-left",
+      "x": 7,
+      "y": 3
+    },
+    {
+      "type": "trap",
+      "x": 7,
+      "y": 6,
+      "prisoner": "shape-hexagon"
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 9
+    },
+    {
+      "type": "turn-right",
+      "x": 9,
+      "y": 5
+    },
+    {
+      "type": "wall",
+      "x": 10,
+      "y": 0
+    },
+    {
+      "type": "hole-hexagon",
+      "x": 10,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 11,
+      "y": 6
+    }
+  ]
+}
