@@ -22,6 +22,10 @@ class Levels {
   hasAccess(playerProgress, level) {
     return (this.accessGainedBy[level.key] || []).some((level) => playerProgress.hasBeaten(level));
   }
+
+  getByKey(key) {
+    return this.levels.find((level) => level.key === key);
+  }
 }
 
 Levels.fromData = (data) => {

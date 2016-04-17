@@ -112,6 +112,14 @@ class Level {
   isLast() {
     return this.last;
   }
+
+  hasNextLevelKey() {
+    return this.unlocks.length > 0;
+  }
+
+  getNextLevelKey() {
+    return this.hasNextLevelKey() ? this.unlocks[0] : null;
+  }
 }
 
 Level.fromData = (data) => {

@@ -312,7 +312,14 @@ class Play {
     this.createLevelObjects();
   }
 
-  nextLevel() {}
+  nextLevel() {
+    if (this.level.hasNextLevelKey()) {
+      let nextLevel = Levels.fromData(this.cache.getJSON('level-data')).getByKey(this.level.getNextLevelKey());
+      if (nextLevel) {
+        this.state.start('Play', /*clearWorld=*/true, /*clearCache=*/false, nextLevel);
+      }
+    }
+  }
 
   viewVictory() {
     this.state.start('Victory');
