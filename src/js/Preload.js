@@ -1,8 +1,8 @@
 class Preload {
   preload () {
     var preloadBackground = this.add.sprite(0, 0, 'preload-background');
-    var preloaderBar = this.add.sprite(this.world.centerX, this.world.centerY, 'preload-progress');
-    preloaderBar.anchor.setTo(0.5, 0.5);
+    var preloaderBar = this.add.sprite(110, 110, 'preload-progress');
+    preloaderBar.anchor.setTo(0, 0);
     this.load.setPreloadSprite(preloaderBar);
 
     [
