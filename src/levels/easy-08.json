@@ -1,0 +1,82 @@
+{
+  "key": "easy-8",
+  "index": 1008,
+  "unlocks": [],
+  "objects": [
+    {
+      "type": "wall",
+      "x": 0,
+      "y": 4
+    },
+    {
+      "type": "turn-right",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "type": "turn-left",
+      "x": 1,
+      "y": 10
+    },
+    {
+      "type": "wall",
+      "x": 3,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "type": "turn-left",
+      "x": 4,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 11
+    },
+    {
+      "type": "shape-triangle",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 5
+    },
+    {
+      "type": "turn-right",
+      "x": 10,
+      "y": 7
+    },
+    {
+      "type": "wall",
+      "x": 11,
+      "y": 4
+    },
+    {
+      "type": "hole-triangle",
+      "x": 12,
+      "y": 8
+    },
+    {
+      "type": "wall",
+      "x": 13,
+      "y": 1
+    },
+    {
+      "type": "turn-left",
+      "x": 13,
+      "y": 8
+    },
+    {
+      "type": "turn-left",
+      "x": 14,
+      "y": 10
+    }
+  ]
+}
