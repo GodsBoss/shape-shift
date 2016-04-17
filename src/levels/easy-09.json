@@ -1,7 +1,7 @@
 {
   "key": "easy-9",
   "index": 1009,
-  "unlocks": [],
+  "unlocks": ["medium-1"],
   "objects": [
     {
       "type": "hole-square",

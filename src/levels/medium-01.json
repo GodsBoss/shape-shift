@@ -1,0 +1,98 @@
+{
+  "key": "medium-1",
+  "index": 2001,
+  "unlocks": [],
+  "objects": [
+    {
+      "type": "wall",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "type": "shape-triangle",
+      "x": 0,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 0,
+      "y": 2
+    },
+    {
+      "type": "turn-left",
+      "x": 1,
+      "y": 3
+    },
+    {
+      "type": "turn-left",
+      "x": 1,
+      "y": 5
+    },
+    {
+      "type": "click-switch",
+      "x": 4,
+      "y": 8,
+      "on": [
+        {
+          "type": "vertex-add",
+          "x": 8,
+          "y": 1
+        },
+        {
+          "type": "vertex-remove",
+          "x": 10,
+          "y": 3
+        }
+      ],
+      "off": [
+        {
+          "type": "vertex-remove",
+          "x": 4,
+          "y": 1
+        }
+      ],
+      "active": false
+    },
+    {
+      "type": "click-switch",
+      "x": 5,
+      "y": 8,
+      "on": [
+        {
+          "type": "vertex-add",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "type": "vertex-remove",
+          "x": 11,
+          "y": 1
+        }
+      ],
+      "off": [
+        {
+          "type": "vertex-remove",
+          "x": 10,
+          "y": 5
+        }
+      ],
+      "active": true
+    },
+
+    {
+      "type": "turn-right",
+      "x": 14,
+      "y": 1
+    },
+    {
+      "type": "turn-right",
+      "x": 14,
+      "y": 3
+    },
+    {
+      "type": "hole-pentagon",
+      "x": 14,
+      "y": 5
+    }
+  ]
+}
