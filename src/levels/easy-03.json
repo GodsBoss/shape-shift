@@ -1,6 +1,7 @@
 {
   "key": "easy-3",
   "index": 1003,
+  "unlocks": ["easy-4"],
   "objects": [
     {
       "type": "click-switch",
