@@ -73,5 +73,8 @@ class LevelSelect {
       this.nextLevelHighlight.destroy();
       this.nextLevelHighlight = null;
     }
+    this.levelSelectMarker.rotation += LevelSelect.MARKER_ROTATION_SPEED;
   }
 }
+
+LevelSelect.MARKER_ROTATION_SPEED = 0.01;
