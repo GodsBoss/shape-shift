@@ -262,7 +262,6 @@ class Play {
     this.shapes.filter((shape) => shape.currentlyMoving()).forEach((shape) => this.moveShape(shape));
     if (this.holesToFill <= 0) {
       this.playerProgress.levelBeaten(this.level);
-      this.backToLevelSelection();
     }
     this.highlights.
       filter((highlight) => highlight.canBeRemoved()).
