@@ -16,7 +16,6 @@ Before end of LD#35
 -------------------
 
 - Sound!
-- Highlight next level in level preview.
 
 After end of LD#35
 ------------------

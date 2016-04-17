@@ -10,6 +10,8 @@ class LevelSelect {
     this.levels.onlyAvailableLevels(this.playerProgress).forEach((level, index) => this.addLevelButton(level, index));
     if (this.playerProgress.hasBeatenLastLevel()) {
       this.addVictoryButton();
+    } else {
+      this.addNextLevelHighlight();
     }
   }
 
@@ -20,15 +22,21 @@ class LevelSelect {
   }
 
   addLevelButton(level, index) {
-    var grid = this.world.width / 10;
-    var x = (0.5 + index % 10) * grid;
-    var y = (0.5 + Math.floor(index / 10)) * grid;
-    var button = this.add.sprite(x, y, 'level-playable');
+    let position = this.calcPosition(index);
+    let button = this.add.sprite(position.x, position.y, 'level-playable');
     button.anchor.setTo(0.5, 0.5);
     button.inputEnabled = true;
     button.events.onInputOver.add((button, event) => this.showLevelSelectMarkerAt(button.x, button.y));
     button.events.onInputOut.add(() => this.hideLevelSelectMarker());
     button.events.onInputUp.add((button, event) => this.startLevel(level));
+  }
+
+  calcPosition(index) {
+    let grid = this.world.width / 10;
+    return {
+      x: (0.5 + index % 10) * grid,
+      y: (0.5 + Math.floor(index / 10)) * grid
+    };
   }
 
   showLevelSelectMarkerAt(x, y) {
@@ -51,5 +59,19 @@ class LevelSelect {
     button.events.onInputOver.add((button, event) => this.showLevelSelectMarkerAt(button.x - button.width/2, button.y - button.height/2));
     button.events.onInputOut.add(() => this.hideLevelSelectMarker());
     button.events.onInputUp.add(() => this.state.start('Victory'));
+  }
+
+  addNextLevelHighlight() {
+    let position = this.calcPosition(this.levels.onlyAvailableLevels(this.playerProgress).length - 1);
+    let group = this.add.group();
+    group.classType = Highlight;
+    this.nextLevelHighlight = group.create(position.x, position.y, 'highlight');
+  }
+
+  update() {
+    if (this.nextLevelHighlight && this.nextLevelHighlight.canBeRemoved()) {
+      this.nextLevelHighlight.destroy();
+      this.nextLevelHighlight = null;
+    }
   }
 }
