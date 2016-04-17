@@ -34,6 +34,7 @@ class Preload {
       'turn-right',
       'vertex-add',
       'vertex-remove',
+      'victory-background',
       'wall'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
 

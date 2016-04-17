@@ -58,6 +58,7 @@ gulp.task(
       'LevelSelect',
       'Play',
       'Preload',
+      'Victory',
 
       // Init
       'Initializer',
