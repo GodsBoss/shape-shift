@@ -11,6 +11,7 @@ class Teleporter extends Phaser.Sprite {
       shape.gridX = this.target.x;
       shape.gridY = this.target.y;
       shape.position.setTo(this.playState.calcX(shape.gridX), this.playState.calcY(shape.gridY));
+      this.playState.sound.play('teleport');
     }
   }
 

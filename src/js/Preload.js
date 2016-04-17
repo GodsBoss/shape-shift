@@ -55,6 +55,7 @@ class Preload {
       'fall-in-hole',
       'level-beaten',
       'movement-stops',
+      'teleport',
       'up'
     ].forEach((key) => this.load.audio(key, 'sfx/' + key + '.wav'));
 
