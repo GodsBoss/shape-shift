@@ -10,6 +10,7 @@ class Hole extends Phaser.Sprite {
       this.playState.destroySpriteInArray(this.playState.shapes, shape);
       this.playState.holes[this.playState.holes.findIndex((hole) => hole === this)] = newHole;
       this.destroy();
+      this.playState.sound.play('fall-in-hole');
     }
   }
 }

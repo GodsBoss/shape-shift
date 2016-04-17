@@ -11,7 +11,7 @@ var SRC = 'src';
 
 gulp.task(
   'default',
-  ['build:index.html', 'build:phaser', 'build:game.js', 'build:style.css', 'build:gfx', 'build:levels']
+  ['build:index.html', 'build:phaser', 'build:game.js', 'build:style.css', 'build:gfx', 'build:levels', 'build:sfx']
 );
 
 gulp.task(
@@ -105,6 +105,15 @@ gulp.task(
         console.log(stdout);
       }
     );
+  }
+);
+
+gulp.task(
+  'build:sfx',
+  function() {
+    gulp.
+      src(SRC + '/sfx/*.wav').
+      pipe(gulp.dest(DIST + '/sfx'));
   }
 );
 
