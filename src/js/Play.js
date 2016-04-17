@@ -57,6 +57,8 @@ class Play {
     button.anchor.setTo(1, 1);
     button.inputEnabled = true;
     button.events.onInputUp.add(() => this[onClick]());
+    button.events.onInputOver.add((sprite) => sprite.frame = 1);
+    button.events.onInputOut.add((sprite) => sprite.frame = 0);
   }
 
   createArrow (direction, vx, vy) {
