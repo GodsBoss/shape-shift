@@ -4,6 +4,7 @@ class LevelSelect {
   }
 
   create () {
+    var introBackground = this.add.sprite(0, 0, 'level-select-background');
     this.createLevelSelectMarker();
     this.levels = Levels.fromData(this.cache.getJSON('level-data'));
     this.levels.onlyAvailableLevels(this.playerProgress).forEach((level, index) => this.addLevelButton(level, index));

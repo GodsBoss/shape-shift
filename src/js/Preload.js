@@ -23,6 +23,7 @@ class Preload {
       'hole-triangle',
       'intro-background',
       'level-playable',
+      'level-select-background',
       'level-select-marker',
       'play-background-1',
       'shape-hexagon',
