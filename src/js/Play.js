@@ -30,6 +30,7 @@ class Play {
       this[groupKey + 'Group'].classType = groupKeys[groupKey] || Phaser.Sprite;
     }
     this.createArrows();
+    this.nextLevelButton = this.createSidebarButton(136, 'button-next-level', 'nextLevel', /*hide=*/true);
     this.victoryButton = this.createSidebarButton(136, 'button-victory', 'viewVictory', /*hide=*/true);
     this.createSidebarButton(168, 'button-reset-level', 'resetLevel');
     this.createSidebarButton(200, 'button-back-to-level-selection', 'backToLevelSelection');
@@ -305,6 +306,8 @@ class Play {
     this.currentlyControlledShape = null;
     this.createLevelObjects();
   }
+
+  nextLevel() {}
 
   viewVictory() {
     this.state.start('Victory');
