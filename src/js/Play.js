@@ -45,17 +45,18 @@ class Play {
   }
 
   createResetButton() {
-    var resetButton = this.add.sprite(320, 168, 'button-reset-level');
-    resetButton.anchor.setTo(1, 1);
-    resetButton.inputEnabled = true;
-    resetButton.events.onInputUp.add(() => this.resetLevel());
+    this.createSidebarButton(168, 'button-reset-level', 'resetLevel');
   }
 
   createBackToLevelSelectionButton() {
-    var backToLevelSelectionButton = this.add.sprite(320, 200, 'button-back-to-level-selection');
-    backToLevelSelectionButton.anchor.setTo(1, 1);
-    backToLevelSelectionButton.inputEnabled = true;
-    backToLevelSelectionButton.events.onInputUp.add(() => this.backToLevelSelection());
+    this.createSidebarButton(200, 'button-back-to-level-selection', 'backToLevelSelection');
+  }
+
+  createSidebarButton(bottom, key, onClick) {
+    let button = this.add.sprite(320, bottom, key);
+    button.anchor.setTo(1, 1);
+    button.inputEnabled = true;
+    button.events.onInputUp.add(() => this[onClick]());
   }
 
   createArrow (direction, vx, vy) {
