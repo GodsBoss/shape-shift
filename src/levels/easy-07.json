@@ -1,0 +1,92 @@
+{
+  "key": "easy-7",
+  "index": 1007,
+  "unlocks": [],
+  "objects": [
+    {
+      "type": "wall",
+      "x": 1,
+      "y": 7
+    },
+    {
+      "type": "wall",
+      "x": 2,
+      "y": 5
+    },
+    {
+      "type": "hole-square",
+      "x": 3,
+      "y": 8
+    },
+    {
+      "type": "wall",
+      "x": 4,
+      "y": 10
+    },
+    {
+      "type": "wall",
+      "x": 5,
+      "y": 6
+    },
+    {
+      "type": "vertex-add",
+      "x": 5,
+      "y": 9
+    },
+    {
+      "type": "shape-triangle",
+      "x": 5,
+      "y": 10
+    },
+    {
+      "type": "wall",
+      "x": 6,
+      "y": 1
+    },
+    {
+      "type": "wall",
+      "x": 7,
+      "y": 6
+    },
+    {
+      "type": "wall",
+      "x": 8,
+      "y": 0
+    },
+    {
+      "type": "wall",
+      "x": 9,
+      "y": 2
+    },
+    {
+      "type": "shape-hexagon",
+      "x": 11,
+      "y": 1
+    },
+    {
+      "type": "vertex-remove",
+      "x": 12,
+      "y": 1
+    },
+    {
+      "type": "hole-pentagon",
+      "x": 12,
+      "y": 4
+    },
+    {
+      "type": "wall",
+      "x": 13,
+      "y": 9
+    },
+    {
+      "type": "wall",
+      "x": 14,
+      "y": 3
+    },
+    {
+      "type": "wall",
+      "x": 15,
+      "y": 1
+    }
+  ]
+}
