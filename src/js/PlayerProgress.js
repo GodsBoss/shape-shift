@@ -2,34 +2,24 @@ class PlayerProgress {
   constructor (store, key) {
     this.store = store;
     this.key = key;
-    this.clearAvailableLevels();
-  }
-
-  clearAvailableLevels() {
-    this.availableLevels = [];
-  }
-
-  makeAvailable (levelKey) {
-    if (!this.isAvailable(levelKey)) {
-      this.availableLevels.push(levelKey);
-    }
-  }
-
-  isAvailable (levelKey) {
-    return this.availableLevels.includes(levelKey);
+    this.beatenLevels = [];
   }
 
   toJson () {
     return JSON.stringify(
       {
-        availableLevels: this.availableLevels
+        beatenLevels: this.beatenLevels
       }
     );
   }
 
+  hasBeaten(level) {
+    return this.beatenLevels.includes(typeof level === 'string' ? level : level.key);
+  }
+
   levelBeaten(level) {
-    if (level.unlockedLevels().length > 0) {
-      level.unlockedLevels().forEach((key) => this.makeAvailable(key));
+    if (!this.hasBeaten(level)) {
+      this.beatenLevels.push(level.key);
       this.save();
     }
   }
@@ -53,8 +43,10 @@ class PlayerProgress {
       console.log('No stored player progress found.');
       return;
     }
-    this.clearAvailableLevels();
-    data.availableLevels.forEach((levelKey) => this.makeAvailable(levelKey));
+    this.beatenLevels = [];
+    if (Array.isArray(data.beatenLevels)) {
+      this.beatenLevels = data.beatenLevels.slice();
+    }
   }
 
   clear() {
