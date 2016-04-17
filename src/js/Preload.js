@@ -40,8 +40,13 @@ class Preload {
     this.load.spritesheet('click-switch', 'gfx/click-switch.png', 16, 16);
     this.load.spritesheet('pass-switch', 'gfx/pass-switch.png', 16, 16);
     this.load.spritesheet('teleporter', 'gfx/teleporter.png', 16, 16);
-    this.load.spritesheet('button-back-to-level-selection', 'gfx/button-back-to-level-selection.png', 56, 32);
-    this.load.spritesheet('button-reset-level', 'gfx/button-reset-level.png', 56, 32);
+
+    [
+      'button-back-to-level-selection',
+      'button-next-level',
+      'button-reset-level',
+      'button-victory'
+    ].forEach((key) => this.load.spritesheet(key, 'gfx/' + key + '.png', 56, 32));
 
     this.load.json('level-data', 'levels.json');
   }
