@@ -17,7 +17,6 @@ Before end of LD#35
 
 - Sound!
 - Highlight next level in level preview.
-- Add button in level selection to access victory screen when last level was beaten.
 
 After end of LD#35
 ------------------

@@ -8,6 +8,9 @@ class LevelSelect {
     this.createLevelSelectMarker();
     this.levels = Levels.fromData(this.cache.getJSON('level-data'));
     this.levels.onlyAvailableLevels(this.playerProgress).forEach((level, index) => this.addLevelButton(level, index));
+    if (this.playerProgress.hasBeatenLastLevel()) {
+      this.addVictoryButton();
+    }
   }
 
   createLevelSelectMarker() {
@@ -39,5 +42,14 @@ class LevelSelect {
 
   startLevel(level) {
     this.state.start('Play', /*clearWorld=*/true, /*clearCache=*/false, level);
+  }
+
+  addVictoryButton() {
+    let button = this.add.sprite(310, 190, 'crown');
+    button.anchor.setTo(1, 1);
+    button.inputEnabled = true;
+    button.events.onInputOver.add((button, event) => this.showLevelSelectMarkerAt(button.x - button.width/2, button.y - button.height/2));
+    button.events.onInputOut.add(() => this.hideLevelSelectMarker());
+    button.events.onInputUp.add(() => this.state.start('Victory'));
   }
 }

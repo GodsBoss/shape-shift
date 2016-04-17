@@ -10,6 +10,7 @@ class Preload {
       'arrow-left',
       'arrow-right',
       'arrow-up',
+      'crown',
       'filled-hole-hexagon',
       'filled-hole-pentagon',
       'filled-hole-square',
