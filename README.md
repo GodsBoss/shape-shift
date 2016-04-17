@@ -12,5 +12,12 @@ Project for Ludum Dare 35, theme is "Shapeshift".
 TODO
 ====
 
-- Sprite atlas.
+Before end of LD#35
+-------------------
+
 - Sound!
+
+After end of LD#35
+------------------
+
+- Sprite atlas.
