@@ -21,6 +21,7 @@ Before end of LD#35
 - After beating a level:
   - Do not immediately go back to level selection.
   - Offer button for playing "next" level (first of the unlocked list).
+  - When this is already the last level, show a button for entering victory screen instead.
 
 After end of LD#35
 ------------------
