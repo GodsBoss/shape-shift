@@ -50,7 +50,10 @@ class Preload {
       'button-victory'
     ].forEach((key) => this.load.spritesheet(key, 'gfx/' + key + '.png', 56, 32));
 
-    this.load.audio('fall-in-hole', 'sfx/fall-in-hole.wav');
+    [
+      'fall-in-hole',
+      'level-beaten'
+    ].forEach((key) => this.load.audio(key, 'sfx/' + key + '.wav'));
 
     this.load.json('level-data', 'levels.json');
   }

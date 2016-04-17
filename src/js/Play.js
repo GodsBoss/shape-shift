@@ -6,6 +6,7 @@ class Play {
   init(level) {
     this.level = level;
     this.shapeSpeed = 2.5;
+    this.levelOver = false;
   }
 
   create () {
@@ -256,8 +257,10 @@ class Play {
 
   update () {
     this.shapes.filter((shape) => shape.currentlyMoving()).forEach((shape) => this.moveShape(shape));
-    if (this.holesToFill <= 0) {
+    if (this.holesToFill <= 0 && !this.levelOver) {
+      this.levelOver = true;
       this.playerProgress.levelBeaten(this.level);
+      this.sound.play('level-beaten');
       if (this.level.isLast()) {
         this.victoryButton.visible = true;
       } else {
