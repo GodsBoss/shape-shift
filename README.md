@@ -16,6 +16,12 @@ Before end of LD#35
 -------------------
 
 - Sound!
+- Highlight next level in level preview.
+- "Real" ending - after beating the last level, show a victory screen.
+- After beating a level:
+  - Do not immediately go back to level selection.
+  - Offer button for playing "next" level (first of the unlocked list).
+  - Change level related buttons.
 
 After end of LD#35
 ------------------
