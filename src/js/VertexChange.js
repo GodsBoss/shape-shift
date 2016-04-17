@@ -21,6 +21,7 @@ class VertexChange extends Phaser.Sprite {
           newShape.velocity = shape.velocity;
           this.playState.destroySpriteInArray(this.playState.shapes, shape);
           this.playState.shapes.push(newShape);
+          this.playState.sound.play(this.change === 'add' ? 'up' : 'down');
         }
       }
     }
