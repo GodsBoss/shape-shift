@@ -7,6 +7,7 @@ class Switch extends Phaser.Sprite {
 
   activate() {
     if (this.clickState !== null) {
+      this.playState.sound.play('switch-enable');
       this.removeObjects(this.off);
     }
     this.clickState = true;
@@ -17,6 +18,7 @@ class Switch extends Phaser.Sprite {
   deactivate() {
     if (this.clickState !== null) {
       this.removeObjects(this.on);
+      this.playState.sound.play('switch-disable');
     }
     this.clickState = false;
     this.frame = 1;
