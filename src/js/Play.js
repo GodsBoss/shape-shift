@@ -282,6 +282,7 @@ class Play {
       this.findAndHandleSpecialField(this.traps, shape, 'trap');
       if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y, shape)) {
         shape.stop();
+        this.sound.play('movement-stops');
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
       this.findAndHandleSpecialField(this.holes, shape, 'accept');

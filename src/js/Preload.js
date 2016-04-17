@@ -52,7 +52,8 @@ class Preload {
 
     [
       'fall-in-hole',
-      'level-beaten'
+      'level-beaten',
+      'movement-stops'
     ].forEach((key) => this.load.audio(key, 'sfx/' + key + '.wav'));
 
     this.load.json('level-data', 'levels.json');
