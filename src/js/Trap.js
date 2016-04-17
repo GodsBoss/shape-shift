@@ -41,4 +41,9 @@ class Trap extends Phaser.Sprite {
       this.prisoner.rotation += 0.01;
     }
   }
+
+  destroy() {
+    this.destroyTrappedSprite();
+    super.destroy();
+  }
 }

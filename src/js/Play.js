@@ -253,12 +253,9 @@ class Play {
       this.turns,
       this.vertexChanges,
       this.teleporters,
-      this.teleporterParticles
+      this.teleporterParticles,
+      this.traps
     ].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
-    this.traps.forEach((trap) => {
-      trap.destroyTrappedSprite();
-      trap.destroy();
-    });
   }
 
   update () {
