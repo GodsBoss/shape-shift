@@ -45,15 +45,15 @@ class Play {
   }
 
   createResetButton() {
-    var resetButton = this.add.sprite(272, 184, 'button-reset-level');
-    resetButton.anchor.setTo(0.5, 0.5);
+    var resetButton = this.add.sprite(320, 168, 'button-reset-level');
+    resetButton.anchor.setTo(1, 1);
     resetButton.inputEnabled = true;
     resetButton.events.onInputUp.add(() => this.resetLevel());
   }
 
   createBackToLevelSelectionButton() {
-    var backToLevelSelectionButton = this.add.sprite(304, 184, 'button-back-to-level-selection');
-    backToLevelSelectionButton.anchor.setTo(0.5, 0.5);
+    var backToLevelSelectionButton = this.add.sprite(320, 200, 'button-back-to-level-selection');
+    backToLevelSelectionButton.anchor.setTo(1, 1);
     backToLevelSelectionButton.inputEnabled = true;
     backToLevelSelectionButton.events.onInputUp.add(() => this.backToLevelSelection());
   }

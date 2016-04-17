@@ -10,8 +10,6 @@ class Preload {
       'arrow-left',
       'arrow-right',
       'arrow-up',
-      'button-back-to-level-selection',
-      'button-reset-level',
       'filled-hole-hexagon',
       'filled-hole-pentagon',
       'filled-hole-square',
@@ -42,6 +40,8 @@ class Preload {
     this.load.spritesheet('click-switch', 'gfx/click-switch.png', 16, 16);
     this.load.spritesheet('pass-switch', 'gfx/pass-switch.png', 16, 16);
     this.load.spritesheet('teleporter', 'gfx/teleporter.png', 16, 16);
+    this.load.spritesheet('button-back-to-level-selection', 'gfx/button-back-to-level-selection.png', 56, 32);
+    this.load.spritesheet('button-reset-level', 'gfx/button-reset-level.png', 56, 32);
 
     this.load.json('level-data', 'levels.json');
   }
