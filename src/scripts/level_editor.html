@@ -148,8 +148,8 @@
               var cellObject =
               {
                 type: TOOLS[toolIndex].key,
-                gridX: colIndex,
-                gridY: rowIndex
+                x: colIndex,
+                y: rowIndex
               };
               if (toolIndex === 'clickSwitch' || toolIndex === 'passSwitch') {
                 Object.assign(cellObject, { on: [], off: [], active: false });
