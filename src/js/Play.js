@@ -258,6 +258,11 @@ class Play {
     this.shapes.filter((shape) => shape.currentlyMoving()).forEach((shape) => this.moveShape(shape));
     if (this.holesToFill <= 0) {
       this.playerProgress.levelBeaten(this.level);
+      if (this.level.isLast()) {
+        this.victoryButton.visible = true;
+      } else {
+        this.nextLevelButton.visible = true;
+      }
     }
     this.highlights.
       filter((highlight) => highlight.canBeRemoved()).
