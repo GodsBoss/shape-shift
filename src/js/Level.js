@@ -14,6 +14,7 @@ class Level {
     this.teleporters = [];
     this.traps = [];
     this.index = index;
+    this.last = false;
   }
 
   getKey() {
@@ -107,6 +108,10 @@ class Level {
   getTraps() {
     return this.traps;
   }
+
+  isLast() {
+    return this.last;
+  }
 }
 
 Level.fromData = (data) => {
@@ -114,5 +119,6 @@ Level.fromData = (data) => {
   level.setUnlocks(data.unlocks || []);
   (data.objects||[]).forEach((object) => level.addObject(object));
   (data.highlights||[]).forEach((highlight) => level.addHighlight(highlight));
+  level.last = !!data.last;
   return level;
 };
