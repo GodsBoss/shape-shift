@@ -30,6 +30,7 @@ class Play {
       this[groupKey + 'Group'].classType = groupKeys[groupKey] || Phaser.Sprite;
     }
     this.createArrows();
+    this.victoryButton = this.createSidebarButton(136, 'button-victory', 'viewVictory', /*hide=*/true);
     this.createSidebarButton(168, 'button-reset-level', 'resetLevel');
     this.createSidebarButton(200, 'button-back-to-level-selection', 'backToLevelSelection');
     this.createLevelObjects();
@@ -44,13 +45,15 @@ class Play {
     };
   }
 
-  createSidebarButton(bottom, key, onClick) {
+  createSidebarButton(bottom, key, onClick, hide = false) {
     let button = this.add.sprite(320, bottom, key);
     button.anchor.setTo(1, 1);
     button.inputEnabled = true;
     button.events.onInputUp.add(() => this[onClick]());
     button.events.onInputOver.add((sprite) => sprite.frame = 1);
     button.events.onInputOut.add((sprite) => sprite.frame = 0);
+    button.visible = !hide;
+    return button;
   }
 
   createArrow (direction, vx, vy) {
@@ -301,5 +304,9 @@ class Play {
     this.hideArrows();
     this.currentlyControlledShape = null;
     this.createLevelObjects();
+  }
+
+  viewVictory() {
+    this.state.start('Victory');
   }
 }
