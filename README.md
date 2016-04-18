@@ -12,14 +12,6 @@ Project for Ludum Dare 35, theme is "Shapeshift".
 TODO
 ====
 
-Before end of LD#35
--------------------
-
-- Victory screen currently looks like shit.
-
-After end of LD#35
-------------------
-
 - Sprite atlas.
 - Much of the logic in the 'Play' state looks suspiciously generic and can very
   likely be extracted into methods and/or classes. Especially true for the
