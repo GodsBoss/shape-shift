@@ -12,6 +12,27 @@ Project for Ludum Dare 35, theme is "Shapeshift".
 TODO
 ====
 
+Game
+----
+
+- A *real* level editor. Preferably built in a similar way to the game, using
+  the game's graphics and including a testing mode.
+- Direct movement fields (down, left, right, up).
+- Switches should affect traps. Trapped shapes must be preserved.
+- Torus worlds: Levels should wrap around, so that left/right and/or up/down are
+  connected.
+- Diagonal mirrors.
+- One-time variants of existing permanent fields, e.g. a turn field which is
+  used up after a shape passes over it.
+- Different level sizes (maybe with scrolling and/or scaling?).
+- Timed and periodical switches. Instead of being triggered by clicks or a
+  passing shape, they are activated/deactivated when a certain amount of time
+  has passed.
+- Switch interactions should be visible.
+
+Tech
+----
+
 - Sprite atlas.
 - Much of the logic in the 'Play' state looks suspiciously generic and can very
   likely be extracted into methods and/or classes. Especially true for the
