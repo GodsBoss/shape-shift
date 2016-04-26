@@ -26,9 +26,41 @@ gulp.task(
 gulp.task(
   'build:phaser',
   function() {
-    gulp.
-      src('node_modules/phaser/build/phaser.*').
-      pipe(gulp.dest(DIST));
+    var excludes = [
+      'arcade',
+      'bitmaptext',
+      'color',
+      'creature',
+      'debug',
+      'flexgrid',
+      'intro',
+      'gamepad',
+      'net',
+      'ninja',
+      'outro',
+      'p2',
+      'particles',
+      'physics',
+      'rendertexture',
+      'retrofont',
+      'rope',
+      'text',
+      'tilemaps',
+      'tilesprite',
+      'tweens',
+      'video'
+    ].join(',');
+    var proc = cp.exec(
+      [
+        'cd node_modules/phaser',
+        'npm install --only:dev --progress=false',
+        'grunt custom --filename phaser --sourcemap true --uglify true --exclude ' + excludes,
+        'cp dist/phaser.min.js dist/phaser.map ../../dist'
+      ].join(' && ')
+    );
+    var log = console.log.bind(console);
+    proc.stdout.on('data', log);
+    proc.stderr.on('data', log);
   }
 );
 
