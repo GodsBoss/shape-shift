@@ -46,6 +46,8 @@ Game
 Tech
 ----
 
+- For development: Some watching / serving, so the game can be run locally
+  without hassle.
 - Sprite atlas.
 - Much of the logic in the 'Play' state looks suspiciously generic and can very
   likely be extracted into methods and/or classes. Especially true for the
