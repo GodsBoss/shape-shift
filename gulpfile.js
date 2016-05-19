@@ -67,37 +67,8 @@ gulp.task(
 gulp.task(
   'build:game.js',
   function() {
-    var FILES = [
-      // Plain old JS
-      'Level',
-      'Levels',
-      'PlayerProgress',
-
-      // Sprite classes
-      'Highlight',
-      'Hole',
-      'Shape',
-      'Switch',
-      'Teleporter',
-      'TeleporterParticle',
-      'Trap',
-      'Turn',
-      'VertexChange',
-
-      // States
-      'Boot',
-      'Intro',
-      'LevelSelect',
-      'Play',
-      'Preload',
-      'Victory',
-
-      // Init
-      'Initializer',
-      'init'
-    ].map(function(file) { return SRC + '/js/' + file + '.js'; });
     gulp.
-      src(FILES).
+      src(SRC + '/js/*.js').
       pipe(sourcemaps.init()).
       pipe(concat('game.js')).
       pipe(babel({presets: ['es2015']})).
