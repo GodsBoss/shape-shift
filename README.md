@@ -15,8 +15,10 @@ Build
 You need to have [Node.JS][node] with [npm][npm] installed. Also, you need
 [GIMP][gimp]. Then:
 
+```bash
   npm install
   npm run-script build
+```
 
 You'll find the game in the `dist` folder.
 
