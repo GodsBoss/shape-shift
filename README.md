@@ -12,9 +12,8 @@ Project for Ludum Dare 35, theme is "Shapeshift".
 Build
 -----
 
-You need to have [https://nodejs.org/](Node.js) with
-[https://www.npmjs.com/](npm) installed. Also, you need
-[http://www.gimp.org/](GIMP). Then:
+You need to have [Node.JS][node] with [npm][npm] installed. Also, you need
+[GIMP][gimp]. Then:
 
   npm install
   npm run-script build
@@ -58,13 +57,25 @@ libraries, etc., I used. Without them, this game would not have been possible.
 
 Alphabetically ordered.
 
-- [https://atom.io/](Atom) as text editor / IDE
-- [https://babeljs.io/](Babel), because writing plain JavaScript sucks
-- [http://www.bfxr.net/](Bfxr) for sounds
-- [https://www.debian.org/](Debian) as operating system
-- [https://www.mozilla.org/firefox](Firefox) for testing purposes
-- [http://www.gimp.org/](GIMP) for graphics
-- [https://git-scm.com/](Git) for version control
-- [http://gulpjs.com/](gulp.js) as build tool (including several plugins)
-- [https://nodejs.org/](Node.js) is used by gulp
-- [http://phaser.io/](Phaser) (game framework)
+- [Atom][atom] as text editor / IDE
+- [Babel][babel], because writing plain JavaScript sucks
+- [Bfxr][bfxr] for sounds
+- [Debian GNU/Linux][debian] as operating system
+- [Mozilla Firefox][firefox] for testing purposes
+- [GIMP][gimp] for graphics
+- [Git][git] for version control
+- [gulp.js][gulp] as build tool (including several plugins)
+- [Node.js][node] is used by gulp
+- [Phaser][phaser] (game framework)
+
+[atom]: https://atom.io/
+[babel]: https://babeljs.io/
+[bfxr]: http://www.bfxr.net/
+[debian]: https://www.debian.org/
+[firefox]: https://www.mozilla.org/firefox
+[gimp]: http://www.gimp.org/
+[git]: https://git-scm.com/
+[gulp]: http://gulpjs.com/
+[node]: https://nodejs.org/
+[npm]: https://www.npmjs.com/
+[phaser]: http://phaser.io/
