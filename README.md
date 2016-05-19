@@ -9,6 +9,18 @@ squares, pentagons, hexagons around. They (you) solve puzzles.
 
 Project for Ludum Dare 35, theme is "Shapeshift".
 
+Build
+-----
+
+You need to have [https://nodejs.org/](Node.js) with
+[https://www.npmjs.com/](npm) installed. Also, you need
+[http://www.gimp.org/](GIMP). Then:
+
+  npm install
+  npm run-script build
+
+You'll find the game in the `dist` folder.
+
 TODO
 ====
 
