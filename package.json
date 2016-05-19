@@ -13,5 +13,9 @@
     "gulp-exec": "^2.1.2",
     "gulp-sourcemaps": "^1.6.0",
     "phaser": "^2.4.6"
+  },
+  "scripts": {
+    "build": "gulp",
+    "clean": "gulp clean"
   }
 }
