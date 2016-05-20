@@ -3,6 +3,7 @@ var del = require('del');
 var gulp = require('gulp');
 var babel = require('gulp-babel');
 var concat = require('gulp-concat');
+var eslint = require('gulp-eslint');
 var exec = require('gulp-exec');
 var sourcemaps = require('gulp-sourcemaps');
 
@@ -124,5 +125,20 @@ gulp.task(
   'clean',
   function() {
     return del(DIST);
+  }
+);
+
+gulp.task(
+  'lint',
+  function() {
+    var options = {
+      parser: 'babel-eslint',
+      ecmaVersion: 6
+    };
+    return gulp.
+      src(SRC + '/js/*.js').
+      pipe(eslint(options)).
+      pipe(eslint.format()).
+      pipe(eslint.failAfterError());
   }
 );
