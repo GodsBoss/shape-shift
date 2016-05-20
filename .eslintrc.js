@@ -237,7 +237,7 @@ module.exports = {
         "require-jsdoc": "warn",
         "require-yield": "error",
         "semi": [
-          "warn",
+          "error",
           "always"
         ],
         "semi-spacing": "error",
