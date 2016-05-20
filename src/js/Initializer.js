@@ -1,9 +1,9 @@
 class Initializer {
-  constructor (elementId) {
+  constructor(elementId) {
     this.elementId = elementId;
   }
 
-  init () {
+  init() {
     this.game = new Phaser.Game(
       /*width=*/320,
       /*height=*/200,

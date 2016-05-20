@@ -1,5 +1,5 @@
 class Preload {
-  preload () {
+  preload() {
     const preloadBackground = this.add.sprite(0, 0, 'preload-background');
     const preloaderBar = this.add.sprite(110, 110, 'preload-progress');
     preloaderBar.anchor.setTo(0, 0);
@@ -67,7 +67,7 @@ class Preload {
     this.load.json('level-data', 'levels.json');
   }
 
-  create () {
+  create() {
     this.state.start('Intro');
   }
 }

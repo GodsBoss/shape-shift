@@ -1,12 +1,12 @@
 class PlayerProgress {
-  constructor (store, key) {
+  constructor(store, key) {
     this.store = store;
     this.key = key;
     this.beatenLevels = [];
     this.beatenLastLevel = false;
   }
 
-  toJson () {
+  toJson() {
     return JSON.stringify(
       {
         beatenLevels: this.beatenLevels,
@@ -38,7 +38,7 @@ class PlayerProgress {
     }
   }
 
-  save () {
+  save() {
     try {
       this.store.setItem(this.key, this.toJson());
     } catch (e) {

@@ -1,9 +1,9 @@
 class LevelSelect {
-  constructor (playerProgress) {
+  constructor(playerProgress) {
     this.playerProgress = playerProgress;
   }
 
-  create () {
+  create() {
     const introBackground = this.add.sprite(0, 0, 'level-select-background');
     this.levels = Levels.fromData(this.cache.getJSON('level-data'));
     this.levels.onlyAvailableLevels(this.playerProgress).forEach((level, index) => this.addLevelButton(level, index));

@@ -9,7 +9,7 @@ class Boot {
     this.load.image('preload-progress', 'gfx/preload-progress.png');
   }
 
-  create () {
+  create() {
     this.state.start('Preload');
   }
 }

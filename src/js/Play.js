@@ -9,7 +9,7 @@ class Play {
     this.levelOver = false;
   }
 
-  create () {
+  create() {
     const backgroundGroup = this.add.group();
     const background = backgroundGroup.create(0, 0, 'play-background-1');
     const groupKeys = {
@@ -58,7 +58,7 @@ class Play {
     return button;
   }
 
-  createArrow (direction, vx, vy) {
+  createArrow(direction, vx, vy) {
     const arrow = this.arrowGroup.create(0, 0, 'arrow-' + direction);
     arrow.visible = false;
     arrow.anchor.setTo(0.5, 0.5);
@@ -256,7 +256,7 @@ class Play {
     ].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
   }
 
-  update () {
+  update() {
     this.shapes.filter((shape) => shape.currentlyMoving()).forEach((shape) => this.moveShape(shape));
     if (this.holesToFill <= 0 && !this.levelOver) {
       this.levelOver = true;

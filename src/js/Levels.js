@@ -1,5 +1,5 @@
 class Levels {
-  constructor () {
+  constructor() {
     this.levels = [];
     this.accessGainedBy = {};
   }
