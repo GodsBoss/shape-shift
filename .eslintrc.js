@@ -245,7 +245,7 @@ module.exports = {
         "sort-vars": "error",
         "space-before-blocks": "error",
         "space-before-function-paren": [
-          "warn",
+          "error",
           "never"
         ],
         "space-in-parens": [
