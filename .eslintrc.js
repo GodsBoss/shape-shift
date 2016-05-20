@@ -246,7 +246,7 @@ module.exports = {
         "space-before-blocks": "error",
         "space-before-function-paren": [
           "warn",
-          "always"
+          "never"
         ],
         "space-in-parens": [
             "error",
