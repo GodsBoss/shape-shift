@@ -218,8 +218,7 @@ class Play {
     }
   }
 
-  refreshShapeControls()
-  {
+  refreshShapeControls() {
     const currentlyControlledShape = this.currentlyControlledShape;
     if (currentlyControlledShape) {
       this.currentlyControlledShape = null;
