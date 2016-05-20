@@ -226,7 +226,7 @@ module.exports = {
         "prefer-spread": "error",
         "prefer-template": "warn",
         "quote-props": [
-          "warn",
+          "error",
           "as-needed"
         ],
         "quotes": [
