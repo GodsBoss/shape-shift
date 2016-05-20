@@ -5,12 +5,12 @@ class VertexChange extends Phaser.Sprite {
   }
 
   applyChangeTo(shape) {
-    let currentVertices = VertexChange.vertices[shape.shapeType];
-    let changedVertices = currentVertices + (this.change === 'add' ? 1 : -1);
+    const currentVertices = VertexChange.vertices[shape.shapeType];
+    const changedVertices = currentVertices + (this.change === 'add' ? 1 : -1);
     if (changedVertices >= 3 && changedVertices <= 6) {
-      for(let type in VertexChange.vertices) {
+      for(const type in VertexChange.vertices) {
         if (VertexChange.vertices[type] === changedVertices) {
-          let newShape = this.playState.createShape(
+          const newShape = this.playState.createShape(
             {
               type: type,
               x: shape.gridX,

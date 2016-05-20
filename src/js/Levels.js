@@ -29,7 +29,7 @@ class Levels {
 }
 
 Levels.fromData = (data) => {
-  var levels = new Levels();
+  const levels = new Levels();
   data.levels.forEach(
     (levelData) => levels.addLevel(Level.fromData(levelData))
   );

@@ -34,8 +34,8 @@ class Level {
   }
 
   addObject(object) {
-    let x = object.x;
-    let y = object.y;
+    const x = object.x;
+    const y = object.y;
     if (object.type === 'wall') {
       this.walls.push({x: x, y: y});
     }
@@ -123,7 +123,7 @@ class Level {
 }
 
 Level.fromData = (data) => {
-  var level = new Level(data.key, !!data.access, +data.index);
+  const level = new Level(data.key, !!data.access, +data.index);
   level.setUnlocks(data.unlocks || []);
   (data.objects||[]).forEach((object) => level.addObject(object));
   (data.highlights||[]).forEach((highlight) => level.addHighlight(highlight));

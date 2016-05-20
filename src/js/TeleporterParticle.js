@@ -5,7 +5,7 @@ class TeleporterParticle extends Phaser.Sprite {
 
   update() {
     if (this.target) {
-      let distance = Math.sqrt(Math.pow(this.target.x - this.x, 2) + Math.pow(this.target.y - this.y, 2));
+      const distance = Math.sqrt(Math.pow(this.target.x - this.x, 2) + Math.pow(this.target.y - this.y, 2));
       if (distance < TeleporterParticle.distanceThreshold) {
         this.playState.destroySpriteInArray(this.playState.teleporterParticles, this);
       } else {

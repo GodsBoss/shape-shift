@@ -21,7 +21,7 @@ class Teleporter extends Phaser.Sprite {
       this.particlePressure += Math.random() * Teleporter.particleFrequency;
       if (this.particlePressure >= 1) {
         --this.particlePressure;
-        let particle = this.playState.teleporterParticleGroup.create(this.playState.calcX(this.gridX), this.playState.calcY(this.gridY), 'teleporter-particle');
+        const particle = this.playState.teleporterParticleGroup.create(this.playState.calcX(this.gridX), this.playState.calcY(this.gridY), 'teleporter-particle');
         particle.playState = this.playState;
         particle.target = { x: this.playState.calcX(this.target.x), y: this.playState.calcY(this.target.y) };
         this.playState.teleporterParticles.push(particle);

@@ -4,7 +4,7 @@ class LevelSelect {
   }
 
   create () {
-    var introBackground = this.add.sprite(0, 0, 'level-select-background');
+    const introBackground = this.add.sprite(0, 0, 'level-select-background');
     this.levels = Levels.fromData(this.cache.getJSON('level-data'));
     this.levels.onlyAvailableLevels(this.playerProgress).forEach((level, index) => this.addLevelButton(level, index));
     if (this.playerProgress.hasBeatenLastLevel()) {
@@ -22,8 +22,8 @@ class LevelSelect {
   }
 
   addLevelButton(level, index) {
-    let position = this.calcPosition(index);
-    let button = this.add.sprite(position.x, position.y, 'level-playable');
+    const position = this.calcPosition(index);
+    const button = this.add.sprite(position.x, position.y, 'level-playable');
     button.anchor.setTo(0.5, 0.5);
     button.inputEnabled = true;
     button.events.onInputOver.add((button, event) => this.showLevelSelectMarkerAt(button.x, button.y));
@@ -32,7 +32,7 @@ class LevelSelect {
   }
 
   calcPosition(index) {
-    let grid = this.world.width / 10;
+    const grid = this.world.width / 10;
     return {
       x: (0.5 + index % 10) * grid,
       y: (0.5 + Math.floor(index / 10)) * grid
@@ -53,7 +53,7 @@ class LevelSelect {
   }
 
   addVictoryButton() {
-    let button = this.add.sprite(310, 190, 'crown');
+    const button = this.add.sprite(310, 190, 'crown');
     button.anchor.setTo(1, 1);
     button.inputEnabled = true;
     button.events.onInputOver.add((button, event) => this.showLevelSelectMarkerAt(button.x - button.width/2, button.y - button.height/2));
@@ -62,8 +62,8 @@ class LevelSelect {
   }
 
   addNextLevelHighlight() {
-    let position = this.calcPosition(this.levels.onlyAvailableLevels(this.playerProgress).length - 1);
-    let group = this.add.group();
+    const position = this.calcPosition(this.levels.onlyAvailableLevels(this.playerProgress).length - 1);
+    const group = this.add.group();
     group.classType = Highlight;
     this.nextLevelHighlight = group.create(position.x, position.y, 'highlight');
   }

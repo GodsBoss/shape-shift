@@ -10,9 +10,9 @@ class Play {
   }
 
   create () {
-    let backgroundGroup = this.add.group();
-    let background = backgroundGroup.create(0, 0, 'play-background-1');
-    let groupKeys = {
+    const backgroundGroup = this.add.group();
+    const background = backgroundGroup.create(0, 0, 'play-background-1');
+    const groupKeys = {
       hole: Hole,
       passSwitch: Switch,
       turn: Turn,
@@ -26,7 +26,7 @@ class Play {
       highlight: Highlight,
       arrow: null
     };
-    for (let groupKey in groupKeys) {
+    for (const groupKey in groupKeys) {
       this[groupKey + 'Group'] = this.add.group();
       this[groupKey + 'Group'].classType = groupKeys[groupKey] || Phaser.Sprite;
     }
@@ -48,7 +48,7 @@ class Play {
   }
 
   createSidebarButton(bottom, key, onClick, hide = false) {
-    let button = this.add.sprite(320, bottom, key);
+    const button = this.add.sprite(320, bottom, key);
     button.anchor.setTo(1, 1);
     button.inputEnabled = true;
     button.events.onInputUp.add(() => this[onClick]());
@@ -59,7 +59,7 @@ class Play {
   }
 
   createArrow (direction, vx, vy) {
-    var arrow = this.arrowGroup.create(0, 0, 'arrow-' + direction);
+    const arrow = this.arrowGroup.create(0, 0, 'arrow-' + direction);
     arrow.visible = false;
     arrow.anchor.setTo(0.5, 0.5);
     arrow.vx = vx;
@@ -93,7 +93,7 @@ class Play {
   }
 
   createTrap(trap) {
-    let sprite = this.createObject(this.trapGroup, 'trap', trap);
+    const sprite = this.createObject(this.trapGroup, 'trap', trap);
     sprite.playState = this;
     if (trap.prisoner) {
       sprite.imprison(trap.prisoner);
@@ -102,10 +102,10 @@ class Play {
   }
 
   createTeleporter(teleporter) {
-    let sprite = this.createObject(this.teleporterGroup, 'teleporter', teleporter);
+    const sprite = this.createObject(this.teleporterGroup, 'teleporter', teleporter);
     sprite.playState = this;
-    let targetX = teleporter['target-x'];
-    let targetY = teleporter['target-y'];
+    const targetX = teleporter['target-x'];
+    const targetY = teleporter['target-y'];
     if (typeof targetX === 'number' && typeof targetY === 'number') {
       sprite.target = { x: targetX, y: targetY };
     }
@@ -113,21 +113,21 @@ class Play {
   }
 
   createVertexChange(change) {
-    let sprite = this.createObject(this.vertexChangeGroup, 'vertex-' + change.change, change);
+    const sprite = this.createObject(this.vertexChangeGroup, 'vertex-' + change.change, change);
     sprite.playState = this;
     sprite.change = change.change;
     return sprite;
   }
 
   createTurn(turn) {
-    let sprite = this.createObject(this.turnGroup, 'turn-' + turn.direction, turn);
+    const sprite = this.createObject(this.turnGroup, 'turn-' + turn.direction, turn);
     sprite.direction = turn.direction;
     sprite.playState = this;
     return sprite;
   }
 
   createClickSwitch(clickSwitch) {
-    let sprite = this.clickSwitchGroup.create(this.calcX(clickSwitch.x), this.calcY(clickSwitch.y), 'click-switch');
+    const sprite = this.clickSwitchGroup.create(this.calcX(clickSwitch.x), this.calcY(clickSwitch.y), 'click-switch');
     sprite.playState = this;
     sprite.gridX = clickSwitch.x;
     sprite.gridY = clickSwitch.y;
@@ -140,7 +140,7 @@ class Play {
   }
 
   createPassSwitch(passSwitch) {
-    let sprite = this.clickSwitchGroup.create(this.calcX(passSwitch.x), this.calcY(passSwitch.y), 'pass-switch');
+    const sprite = this.clickSwitchGroup.create(this.calcX(passSwitch.x), this.calcY(passSwitch.y), 'pass-switch');
     sprite.gridX = passSwitch.x;
     sprite.gridY = passSwitch.y;
     sprite.playState = this;
@@ -159,7 +159,7 @@ class Play {
   }
 
   createShape(shape) {
-    let sprite = this.createObject(this.shapeGroup, 'shape-' + shape.type, shape);
+    const sprite = this.createObject(this.shapeGroup, 'shape-' + shape.type, shape);
     sprite.inputEnabled = true;
     sprite.events.onInputUp.add((sprite) => this.openShapeControls(sprite));
     sprite.shapeType = shape.type;
@@ -171,7 +171,7 @@ class Play {
     if (empty) {
       ++this.holesToFill;
     }
-    let sprite = this.createObject(this.holeGroup, (empty ? '' : 'filled-') + 'hole-' + hole.type, hole);
+    const sprite = this.createObject(this.holeGroup, (empty ? '' : 'filled-') + 'hole-' + hole.type, hole);
     sprite.playState = this;
     sprite.holeType = hole.type;
     sprite.empty = empty;
@@ -179,7 +179,7 @@ class Play {
   }
 
   createObject(group, spriteKey, object) {
-    let sprite = group.create(this.calcX(object.x), this.calcY(object.y), spriteKey);
+    const sprite = group.create(this.calcX(object.x), this.calcY(object.y), spriteKey);
     sprite.gridX = object.x;
     sprite.gridY = object.y;
     sprite.anchor.setTo(0.5, 0.5);
@@ -208,9 +208,9 @@ class Play {
     }
     this.currentlyControlledShape = shape;
     this.hideArrows();
-    for(let arrow in this.arrows) {
-      let gridX = shape.gridX + this.arrows[arrow].vx;
-      let gridY = shape.gridY + this.arrows[arrow].vy;
+    for(const arrow in this.arrows) {
+      const gridX = shape.gridX + this.arrows[arrow].vx;
+      const gridY = shape.gridY + this.arrows[arrow].vy;
       if (this.gridIsFreeAt(gridX, gridY)) {
         this.arrows[arrow].visible = true;
         this.arrows[arrow].position.setTo(this.calcX(gridX), this.calcY(gridY));
@@ -220,7 +220,7 @@ class Play {
 
   refreshShapeControls()
   {
-    let currentlyControlledShape = this.currentlyControlledShape;
+    const currentlyControlledShape = this.currentlyControlledShape;
     if (currentlyControlledShape) {
       this.currentlyControlledShape = null;
       this.openShapeControls(currentlyControlledShape);
@@ -228,7 +228,7 @@ class Play {
   }
 
   hideArrows() {
-    for(let arrow in this.arrows) {
+    for(const arrow in this.arrows) {
       this.arrows[arrow].visible = false;
     }
   }
@@ -274,8 +274,8 @@ class Play {
   }
 
   moveShape(shape) {
-    let newGridX = this.calcBackX(shape.x);
-    let newGridY = this.calcBackY(shape.y);
+    const newGridX = this.calcBackX(shape.x);
+    const newGridY = this.calcBackY(shape.y);
     if (shape.hasGridPositionChanged(newGridX, newGridY)) {
       shape.setGridPosition(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y);
       this.findAndHandleSpecialField(this.turns, shape, 'turn');
@@ -293,14 +293,14 @@ class Play {
   }
 
   findAndHandleSpecialField(fields, shape, method) {
-    let index = fields.findIndex((field) => field.gridX === shape.gridX && field.gridY === shape.gridY);
+    const index = fields.findIndex((field) => field.gridX === shape.gridX && field.gridY === shape.gridY);
     if (index !== -1) {
       fields[index][method](shape);
     }
   }
 
   destroySpriteInArray(array, sprite) {
-    let index = array.findIndex((otherSprite) => otherSprite === sprite);
+    const index = array.findIndex((otherSprite) => otherSprite === sprite);
     array[index] = array[array.length-1];
     array.pop();
     sprite.destroy();
@@ -319,7 +319,7 @@ class Play {
 
   nextLevel() {
     if (this.level.hasNextLevelKey()) {
-      let nextLevel = Levels.fromData(this.cache.getJSON('level-data')).getByKey(this.level.getNextLevelKey());
+      const nextLevel = Levels.fromData(this.cache.getJSON('level-data')).getByKey(this.level.getNextLevelKey());
       if (nextLevel) {
         this.state.start('Play', /*clearWorld=*/true, /*clearCache=*/false, nextLevel);
       }
