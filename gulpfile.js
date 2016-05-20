@@ -131,13 +131,9 @@ gulp.task(
 gulp.task(
   'lint',
   function() {
-    var options = {
-      parser: 'babel-eslint',
-      ecmaVersion: 6
-    };
     return gulp.
       src(SRC + '/js/*.js').
-      pipe(eslint(options)).
+      pipe(eslint()).
       pipe(eslint.format()).
       pipe(eslint.failAfterError());
   }
