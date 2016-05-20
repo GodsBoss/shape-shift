@@ -25,7 +25,7 @@ module.exports = {
         "block-scoped-var": "off",
         "block-spacing": "error",
         "brace-style": [
-          "warn",
+          "error",
           "1tbs",
           {
             allowSingleLine: false
