@@ -4,9 +4,11 @@ class Initializer {
   }
 
   init() {
+    const WIDTH = 320;
+    const HEIGHT = 200;
     this.game = new Phaser.Game(
-      /*width=*/320,
-      /*height=*/200,
+      WIDTH,
+      HEIGHT,
       /*renderer=*/Phaser.CANVAS,
       /*element_id=*/this.elementId,
       /*state=*/ null,

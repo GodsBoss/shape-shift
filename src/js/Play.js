@@ -49,7 +49,7 @@ class Play {
 
   createSidebarButton(bottom, key, onClick, hide = false) {
     const button = this.add.sprite(320, bottom, key);
-    button.anchor.setTo(1, 1);
+    button.anchor.setTo(PhaserConstants.ANCHOR_RIGHT, PhaserConstants.ANCHOR_BOTTOM);
     button.inputEnabled = true;
     button.events.onInputUp.add(() => this[onClick]());
     button.events.onInputOver.add((sprite) => sprite.frame = 1);
@@ -61,7 +61,7 @@ class Play {
   createArrow(direction, vx, vy) {
     const arrow = this.arrowGroup.create(0, 0, 'arrow-' + direction);
     arrow.visible = false;
-    arrow.anchor.setTo(0.5, 0.5);
+    arrow.anchor.setTo(PhaserConstants.ANCHOR_CENTER, PhaserConstants.ANCHOR_CENTER);
     arrow.vx = vx;
     arrow.vy = vy;
     arrow.inputEnabled = true;
@@ -182,7 +182,7 @@ class Play {
     const sprite = group.create(this.calcX(object.x), this.calcY(object.y), spriteKey);
     sprite.gridX = object.x;
     sprite.gridY = object.y;
-    sprite.anchor.setTo(0.5, 0.5);
+    sprite.anchor.setTo(PhaserConstants.ANCHOR_CENTER, PhaserConstants.ANCHOR_CENTER);
     return sprite;
   }
 

@@ -1,7 +1,7 @@
 class Switch extends Phaser.Sprite {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
-    this.anchor.setTo(0.5, 0.5);
+    this.anchor.setTo(PhaserConstants.ANCHOR_CENTER, PhaserConstants.ANCHOR_CENTER);
     this.clickState = null;
   }
 
@@ -11,7 +11,7 @@ class Switch extends Phaser.Sprite {
       this.removeObjects(this.off);
     }
     this.clickState = true;
-    this.frame = 0;
+    this.frame = Switch.ACTIVE_FRAME;
     this.addObjects(this.on);
   }
 
@@ -21,7 +21,7 @@ class Switch extends Phaser.Sprite {
       this.playState.sound.play('switch-disable');
     }
     this.clickState = false;
-    this.frame = 1;
+    this.frame = Switch.INACTIVE_FRAME;
     this.addObjects(this.off);
   }
 
@@ -37,8 +37,8 @@ class Switch extends Phaser.Sprite {
   addBySpec(spec) {
     this.addBySpecIfTypeMatches('wall', spec, 'walls', 'Wall');
     this.addBySpecIfTypeMatches('teleporter', spec, 'teleporters', 'Teleporter');
-    this.addBySpecIfTypeMatches('turn', spec, 'turns', 'Turn', (spec) => Object.assign({direction: spec.type.substring(5)}, spec));
-    this.addBySpecIfTypeMatches('vertex', spec, 'vertexChanges', 'VertexChange', (spec) => Object.assign({change: spec.type.substring(7)}, spec));
+    this.addBySpecIfTypeMatches('turn', spec, 'turns', 'Turn', (spec) => Object.assign({direction: spec.type.substring('turn-'.length)}, spec));
+    this.addBySpecIfTypeMatches('vertex', spec, 'vertexChanges', 'VertexChange', (spec) => Object.assign({change: spec.type.substring('vertex-'.length)}, spec));
   }
 
   addBySpecIfTypeMatches(type, spec, collectionName, entityName, specTransform) {
@@ -66,3 +66,6 @@ class Switch extends Phaser.Sprite {
     }
   }
 }
+
+Switch.ACTIVE_FRAME = 0;
+Switch.INACTIVE_FRAME = 1;

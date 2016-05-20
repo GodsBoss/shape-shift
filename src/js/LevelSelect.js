@@ -17,14 +17,14 @@ class LevelSelect {
 
   createLevelSelectMarker() {
     this.levelSelectMarker = this.add.sprite(0, 0, 'level-select-marker');
-    this.levelSelectMarker.anchor.setTo(0.5, 0.5);
+    this.levelSelectMarker.anchor.setTo(PhaserConstants.ANCHOR_CENTER, PhaserConstants.ANCHOR_CENTER);
     this.hideLevelSelectMarker();
   }
 
   addLevelButton(level, index) {
     const position = this.calcPosition(index);
     const button = this.add.sprite(position.x, position.y, 'level-playable');
-    button.anchor.setTo(0.5, 0.5);
+    button.anchor.setTo(PhaserConstants.ANCHOR_CENTER, PhaserConstants.ANCHOR_CENTER);
     button.inputEnabled = true;
     button.events.onInputOver.add((button, event) => this.showLevelSelectMarkerAt(button.x, button.y));
     button.events.onInputOut.add(() => this.hideLevelSelectMarker());

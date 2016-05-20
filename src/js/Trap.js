@@ -33,13 +33,13 @@ class Trap extends Phaser.Sprite {
       prisoner,
       { x: this.gridX, y: this.gridY }
     );
-    this.prisoner.scale = { x: 0.75, y: 0.75 };
-    this.prisoner.prisonerType = prisoner.substring(6);
+    this.prisoner.scale = { x: Trap.PRISONER_SCALE, y: Trap.PRISONER_SCALE };
+    this.prisoner.prisonerType = prisoner.substring('shape-'.length);
   }
 
   update() {
     if (this.prisoner) {
-      this.prisoner.rotation += 0.01;
+      this.prisoner.rotation += Trap.ROTATION_SPEED;
     }
   }
 
@@ -48,3 +48,6 @@ class Trap extends Phaser.Sprite {
     super.destroy();
   }
 }
+
+Trap.ROTATION_SPEED = 0.01;
+Trap.PRISONER_SCALE = 0.75;

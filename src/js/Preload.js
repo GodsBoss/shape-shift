@@ -2,7 +2,7 @@ class Preload {
   preload() {
     const preloadBackground = this.add.sprite(0, 0, 'preload-background');
     const preloaderBar = this.add.sprite(110, 110, 'preload-progress');
-    preloaderBar.anchor.setTo(0, 0);
+    preloaderBar.anchor.setTo(PhaserConstants.LEFT, PhaserConstants.TOP);
     this.load.setPreloadSprite(preloaderBar);
 
     [
@@ -39,16 +39,20 @@ class Preload {
       'wall'
     ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
 
-    this.load.spritesheet('click-switch', 'gfx/click-switch.png', 16, 16);
-    this.load.spritesheet('pass-switch', 'gfx/pass-switch.png', 16, 16);
-    this.load.spritesheet('teleporter', 'gfx/teleporter.png', 16, 16);
+    const SPRITE_WIDTH = 16;
+    const SPRITE_HEIGHT = 16;
+    this.load.spritesheet('click-switch', 'gfx/click-switch.png', SPRITE_WIDTH, SPRITE_HEIGHT);
+    this.load.spritesheet('pass-switch', 'gfx/pass-switch.png', SPRITE_WIDTH, SPRITE_HEIGHT);
+    this.load.spritesheet('teleporter', 'gfx/teleporter.png', SPRITE_WIDTH, SPRITE_HEIGHT);
 
+    const BUTTON_WIDTH = 56;
+    const BUTTON_HEIGHT = 32;
     [
       'button-back-to-level-selection',
       'button-next-level',
       'button-reset-level',
       'button-victory'
-    ].forEach((key) => this.load.spritesheet(key, 'gfx/' + key + '.png', 56, 32));
+    ].forEach((key) => this.load.spritesheet(key, 'gfx/' + key + '.png', BUTTON_WIDTH, BUTTON_HEIGHT));
 
     [
       'down',

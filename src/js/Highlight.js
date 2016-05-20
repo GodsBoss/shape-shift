@@ -1,7 +1,7 @@
 class Highlight extends Phaser.Sprite {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
-    this.anchor.setTo(0.5, 0.5);
+    this.anchor.setTo(PhaserConstants.ANCHOR_CENTER, PhaserConstants.ANCHOR_CENTER);
     this.rotation = Math.random() * Math.PI * 2;
     this.rotationSpeed = 0.2;
     this.rotationSpeedFactor = 0.95;

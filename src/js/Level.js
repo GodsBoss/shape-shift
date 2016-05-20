@@ -34,16 +34,17 @@ class Level {
   }
 
   addObject(object) {
+    const START = 0;
     const x = object.x;
     const y = object.y;
     if (object.type === 'wall') {
       this.walls.push({x: x, y: y});
     }
-    if (object.type.substring(0, 6) === 'shape-') {
-      this.shapes.push({x: x, y: y, type: object.type.substring(6)});
+    if (object.type.substring(START, 'shape-'.length) === 'shape-') {
+      this.shapes.push({x: x, y: y, type: object.type.substring('shape-'.length)});
     }
-    if (object.type.substring(0, 5) === 'hole-') {
-      this.holes.push({x: x, y: y, type: object.type.substring(5)});
+    if (object.type.substring(START, 'hole-'.length) === 'hole-') {
+      this.holes.push({x: x, y: y, type: object.type.substring('hole-'.length)});
     }
     if (object.type === 'click-switch') {
       this.clickSwitches.push(object);
@@ -51,11 +52,11 @@ class Level {
     if (object.type === 'pass-switch') {
       this.passSwitches.push(object);
     }
-    if (object.type.substring(0, 5) === 'turn-') {
-      this.turns.push({x: x, y: y, direction: object.type.substring(5)});
+    if (object.type.substring(START, 'turn-'.length) === 'turn-') {
+      this.turns.push({x: x, y: y, direction: object.type.substring('turn-'.length)});
     }
-    if (object.type.substring(0, 7) === 'vertex-') {
-      this.vertexChanges.push({x: x, y: y, change: object.type.substring(7)});
+    if (object.type.substring(START, 'vertex-'.length) === 'vertex-') {
+      this.vertexChanges.push({x: x, y: y, change: object.type.substring('vertex-'.length)});
     }
     if (object.type === 'teleporter') {
       this.teleporters.push(object);

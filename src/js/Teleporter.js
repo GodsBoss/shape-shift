@@ -3,7 +3,7 @@ class Teleporter extends Phaser.Sprite {
     super(game, x, y, key, frame);
     this.target = null;
     this.animations.add('...', null, /*fps=*/8, /*loop=*/true).play();
-    this.particlePressure = 0.5 + Math.random() * 0.5;
+    this.particlePressure = Teleporter.INITIAL_PARTICLE_PRESSURE + Math.random() * Teleporter.INITIAL_PARTICLE_PRESSURE;
   }
 
   teleport(shape) {
@@ -19,7 +19,7 @@ class Teleporter extends Phaser.Sprite {
     super.update();
     if (this.target) {
       this.particlePressure += Math.random() * Teleporter.particleFrequency;
-      if (this.particlePressure >= 1) {
+      if (this.particlePressure >= Teleporter.PARTICLE_PRESSURE_THRESHOLD) {
         --this.particlePressure;
         const particle = this.playState.teleporterParticleGroup.create(this.playState.calcX(this.gridX), this.playState.calcY(this.gridY), 'teleporter-particle');
         particle.playState = this.playState;
@@ -31,3 +31,5 @@ class Teleporter extends Phaser.Sprite {
 }
 
 Teleporter.particleFrequency = 0.02;
+Teleporter.INITIAL_PARTICLE_PRESSURE = 0.5;
+Teleporter.PARTICLE_PRESSURE_THRESHOLD = 1;
