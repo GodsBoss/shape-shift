@@ -220,7 +220,7 @@ module.exports = {
         "operator-linebreak": "error",
         "padded-blocks": "off",
         "prefer-arrow-callback": "error",
-        "prefer-const": "warn",
+        "prefer-const": "error",
         "prefer-reflect": "error",
         "prefer-rest-params": "error",
         "prefer-spread": "error",
