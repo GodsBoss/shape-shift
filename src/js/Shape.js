@@ -20,7 +20,7 @@ class Shape extends Phaser.Sprite {
   }
 
   addRotation(rotation) {
-    this.rotationSpeed = Math.min(Shape.maxRotationSpeed, Math.max(-Shape.maxRotationSpeed, this.rotationSpeed + rotation));
+    this.rotationSpeed = Math.min(Shape.MAX_ROTATION_SPEED, Math.max(-Shape.MAX_ROTATION_SPEED, this.rotationSpeed + rotation));
   }
 
   hasGridPositionChanged(newGridX, newGridY) {
@@ -41,4 +41,4 @@ class Shape extends Phaser.Sprite {
   }
 }
 
-Shape.maxRotationSpeed = 0.05;
+Shape.MAX_ROTATION_SPEED = 0.05;

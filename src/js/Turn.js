@@ -16,11 +16,11 @@ class Turn extends Phaser.Sprite {
 
   update() {
     super.update();
-    this.rotation += (this.direction === 'right' ? Turn.POSITIVE : Turn.NEGATIVE) * Turn.rotationSpeed;
+    this.rotation += (this.direction === 'right' ? Turn.POSITIVE : Turn.NEGATIVE) * Turn.ROTATION_SPEED;
   }
 }
 
-Turn.rotationSpeed = 0.02;
+Turn.ROTATION_SPEED = 0.02;
 Turn.SHAPE_ROTATION_FACTOR = 0.1;
 Turn.POSITIVE = 1;
 Turn.NEGATIVE = -1;

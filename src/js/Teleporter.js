@@ -18,7 +18,7 @@ class Teleporter extends Phaser.Sprite {
   update() {
     super.update();
     if (this.target) {
-      this.particlePressure += Math.random() * Teleporter.particleFrequency;
+      this.particlePressure += Math.random() * Teleporter.PARTICLE_FREQUENCY;
       if (this.particlePressure >= Teleporter.PARTICLE_PRESSURE_THRESHOLD) {
         --this.particlePressure;
         const particle = this.playState.teleporterParticleGroup.create(this.playState.calcX(this.gridX), this.playState.calcY(this.gridY), 'teleporter-particle');
@@ -30,6 +30,6 @@ class Teleporter extends Phaser.Sprite {
   }
 }
 
-Teleporter.particleFrequency = 0.02;
+Teleporter.PARTICLE_FREQUENCY = 0.02;
 Teleporter.INITIAL_PARTICLE_PRESSURE = 0.5;
 Teleporter.PARTICLE_PRESSURE_THRESHOLD = 1;
