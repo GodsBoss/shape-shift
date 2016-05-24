@@ -31,11 +31,13 @@
     },
     {
       "type": "turn-left",
+      "direction": "left",
       "x": 7,
       "y": 1
     },
     {
       "type": "turn-right",
+      "direction": "right",
       "x": 7,
       "y": 9
     }

@@ -10,11 +10,13 @@
     },
     {
       "type": "turn-right",
+      "direction": "right",
       "x": 1,
       "y": 1
     },
     {
       "type": "turn-left",
+      "direction": "left",
       "x": 1,
       "y": 10
     },
@@ -30,6 +32,7 @@
     },
     {
       "type": "turn-left",
+      "direction": "left",
       "x": 4,
       "y": 4
     },
@@ -50,6 +53,7 @@
     },
     {
       "type": "turn-right",
+      "direction": "right",
       "x": 10,
       "y": 7
     },
@@ -70,11 +74,13 @@
     },
     {
       "type": "turn-left",
+      "direction": "left",
       "x": 13,
       "y": 8
     },
     {
       "type": "turn-left",
+      "direction": "left",
       "x": 14,
       "y": 10
     }

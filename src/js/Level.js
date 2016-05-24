@@ -53,7 +53,7 @@ class Level {
       this.passSwitches.push(object);
     }
     if (object.type.substring(START, 'turn-'.length) === 'turn-') {
-      this.turns.push({x: x, y: y, direction: object.type.substring('turn-'.length)});
+      this.turns.push(object);
     }
     if (object.type.substring(START, 'vertex-'.length) === 'vertex-') {
       this.vertexChanges.push({x: x, y: y, change: object.type.substring('vertex-'.length)});
