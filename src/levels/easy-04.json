@@ -24,13 +24,13 @@
       "y": 6
     },
     {
-      "type": "hole-triangle",
+      "type": "hole",
       "polygon": "triangle",
       "x": 3,
       "y": 11
     },
     {
-      "type": "shape-square",
+      "type": "shape",
       "polygon": "square",
       "x": 5,
       "y": 0
@@ -46,7 +46,7 @@
       "y": 0
     },
     {
-      "type": "shape-triangle",
+      "type": "shape",
       "polygon": "triangle",
       "x": 10,
       "y": 2
@@ -57,7 +57,7 @@
       "y": 9
     },
     {
-      "type": "hole-square",
+      "type": "hole",
       "polygon": "square",
       "x": 11,
       "y": 4

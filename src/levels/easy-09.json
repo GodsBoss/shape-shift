@@ -4,13 +4,13 @@
   "unlocks": ["medium-1"],
   "objects": [
     {
-      "type": "hole-square",
+      "type": "hole",
       "polygon": "square",
       "x": 0,
       "y": 3
     },
     {
-      "type": "shape-triangle",
+      "type": "shape",
       "polygon": "triangle",
       "x": 2,
       "y": 3
@@ -21,7 +21,7 @@
       "y": 10
     },
     {
-      "type": "shape-square",
+      "type": "shape",
       "polygon": "square",
       "x": 4,
       "y": 1
@@ -66,7 +66,7 @@
       "y": 0
     },
     {
-      "type": "hole-hexagon",
+      "type": "hole",
       "polygon": "hexagon",
       "x": 10,
       "y": 1

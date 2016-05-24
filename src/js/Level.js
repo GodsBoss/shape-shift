@@ -40,10 +40,10 @@ class Level {
     if (object.type === 'wall') {
       this.walls.push({x: x, y: y});
     }
-    if (object.type.substring(START, 'shape-'.length) === 'shape-') {
+    if (object.type === 'shape') {
       this.shapes.push(object);
     }
-    if (object.type.substring(START, 'hole-'.length) === 'hole-') {
+    if (object.type === 'hole') {
       this.holes.push(object);
     }
     if (object.type === 'click-switch') {

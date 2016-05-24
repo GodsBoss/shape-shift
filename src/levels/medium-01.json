@@ -9,7 +9,7 @@
       "y": 0
     },
     {
-      "type": "shape-triangle",
+      "type": "shape",
       "polygon": "triangle",
       "x": 0,
       "y": 1
@@ -101,7 +101,7 @@
       "y": 3
     },
     {
-      "type": "hole-pentagon",
+      "type": "hole",
       "polygon": "pentagon",
       "x": 14,
       "y": 5

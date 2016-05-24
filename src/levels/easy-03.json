@@ -53,13 +53,13 @@
       "y": 7
     },
     {
-      "type": "shape-square",
+      "type": "shape",
       "polygon": "square",
       "x": 1,
       "y": 6
     },
     {
-      "type": "hole-square",
+      "type": "hole",
       "polygon": "square",
       "x": 15,
       "y": 6

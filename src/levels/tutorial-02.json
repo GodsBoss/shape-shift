@@ -20,13 +20,13 @@
       "y": 1
     },
     {
-      "type": "shape-pentagon",
+      "type": "shape",
       "polygon": "pentagon",
       "x": 1,
       "y": 1
     },
     {
-      "type": "hole-pentagon",
+      "type": "hole",
       "polygon": "pentagon",
       "x": 1,
       "y": 9
@@ -46,13 +46,13 @@
       "active": true
     },
     {
-      "type": "shape-hexagon",
+      "type": "shape",
       "polygon": "hexagon",
       "x": 6,
       "y": 7
     },
     {
-      "type": "hole-hexagon",
+      "type": "hole",
       "polygon": "hexagon",
       "x": 10,
       "y": 7

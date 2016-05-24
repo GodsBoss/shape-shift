@@ -5,7 +5,7 @@
   "unlocks": ["tutorial-4"],
   "objects": [
     {
-      "type": "shape-triangle",
+      "type": "shape",
       "polygon": "triangle",
       "x": 14,
       "y": 1
@@ -26,7 +26,7 @@
       "y": 2
     },
     {
-      "type": "hole-triangle",
+      "type": "hole",
       "polygon": "triangle",
       "x": 1,
       "y": 9

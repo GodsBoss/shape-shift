@@ -6,13 +6,13 @@
   "unlocks": ["tutorial-2"],
   "objects": [
     {
-      "type": "shape-triangle",
+      "type": "shape",
       "polygon": "triangle",
       "x": 4,
       "y": 7
     },
     {
-      "type": "hole-triangle",
+      "type": "hole",
       "polygon": "triangle",
       "x": 10,
       "y": 7
@@ -33,13 +33,13 @@
       "y": 8
     },
     {
-      "type": "shape-square",
+      "type": "shape",
       "polygon": "square",
       "x": 13,
       "y": 7
     },
     {
-      "type": "hole-square",
+      "type": "hole",
       "polygon": "square",
       "x": 6,
       "y": 7
@@ -95,13 +95,13 @@
       "y": 4
     },
     {
-      "type": "shape-pentagon",
+      "type": "shape",
       "polygon": "pentagon",
       "x": 4,
       "y": 2
     },
     {
-      "type": "shape-hexagon",
+      "type": "shape",
       "polygon": "hexagon",
       "x": 8,
       "y": 2
@@ -127,13 +127,13 @@
       "y": 3
     },
     {
-      "type": "hole-pentagon",
+      "type": "hole",
       "polygon": "pentagon",
       "x": 8,
       "y": 3
     },
     {
-      "type": "hole-hexagon",
+      "type": "hole",
       "polygon": "hexagon",
       "x": 5,
       "y": 3

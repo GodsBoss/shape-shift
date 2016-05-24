@@ -20,7 +20,7 @@
       "y": 3
     },
     {
-      "type": "hole-hexagon",
+      "type": "hole",
       "polygon": "hexagon",
       "x": 3,
       "y": 5
@@ -43,7 +43,7 @@
       "y": 1
     },
     {
-      "type": "shape-hexagon",
+      "type": "shape",
       "polygon": "hexagon",
       "x": 7,
       "y": 6

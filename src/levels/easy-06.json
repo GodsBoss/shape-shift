@@ -9,7 +9,7 @@
       "y": 6
     },
     {
-      "type": "shape-hexagon",
+      "type": "shape",
       "polygon": "hexagon",
       "x": 0,
       "y": 7
@@ -25,7 +25,7 @@
       "y": 7
     },
     {
-      "type": "shape-pentagon",
+      "type": "shape",
       "polygon": "pentagon",
       "x": 2,
       "y": 0
@@ -36,7 +36,7 @@
       "y": 1
     },
     {
-      "type": "hole-hexagon",
+      "type": "hole",
       "polygon": "hexagon",
       "x": 2,
       "y": 2
@@ -73,7 +73,7 @@
       "target-y": 7
     },
     {
-      "type": "shape-triangle",
+      "type": "shape",
       "polygon": "triangle",
       "x": 9,
       "y": 1
@@ -96,7 +96,7 @@
       "y": 11
     },
     {
-      "type": "hole-square",
+      "type": "hole",
       "polygon": "square",
       "x": 11,
       "y": 11
@@ -117,13 +117,13 @@
       "y": 1
     },
     {
-      "type": "hole-triangle",
+      "type": "hole",
       "polygon": "triangle",
       "x": 13,
       "y": 2
     },
     {
-      "type": "shape-square",
+      "type": "shape",
       "polygon": "square",
       "x": 14,
       "y": 3
@@ -134,7 +134,7 @@
       "y": 11
     },
     {
-      "type": "hole-pentagon",
+      "type": "hole",
       "polygon": "pentagon",
       "x": 15,
       "y": 11

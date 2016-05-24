@@ -42,7 +42,7 @@
       "y": 11
     },
     {
-      "type": "shape-triangle",
+      "type": "shape",
       "polygon": "triangle",
       "x": 6,
       "y": 2
@@ -64,7 +64,7 @@
       "y": 4
     },
     {
-      "type": "hole-triangle",
+      "type": "hole",
       "polygon": "triangle",
       "x": 12,
       "y": 8
