@@ -30,6 +30,7 @@
       "on": [
         {
           "type": "vertex-add",
+          "change": "add",
           "x": 7,
           "y": 9
         }
@@ -55,6 +56,7 @@
     },
     {
       "type": "vertex-add",
+      "change": "add",
       "x": 6,
       "y": 0
     },
@@ -99,6 +101,7 @@
     },
     {
       "type": "vertex-remove",
+      "change": "remove",
       "x": 13,
       "y": 8
     },

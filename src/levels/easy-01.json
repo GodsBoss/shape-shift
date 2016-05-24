@@ -130,11 +130,13 @@
     },
     {
       "type": "vertex-add",
+      "change": "add",
       "x": 8,
       "y": 2
     },
     {
       "type": "vertex-remove",
+      "change": "remove",
       "x": 10,
       "y": 4
     }

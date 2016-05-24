@@ -10,11 +10,13 @@
       "on": [
         {
           "type": "vertex-add",
+          "change": "add",
           "x": 3,
           "y": 6
         },
         {
           "type": "vertex-add",
+          "change": "add",
           "x": 9,
           "y": 6
         }
@@ -22,11 +24,13 @@
       "off": [
         {
           "type": "vertex-add",
+          "change": "add",
           "x": 6,
           "y": 6
         },
         {
           "type": "vertex-add",
+          "change": "add",
           "x": 12,
           "y": 6
         }

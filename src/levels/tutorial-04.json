@@ -26,6 +26,7 @@
     },
     {
       "type": "vertex-add",
+      "change": "add",
       "x": 4,
       "y": 6
     },
@@ -56,6 +57,7 @@
     },
     {
       "type": "vertex-remove",
+      "change": "remove",
       "x": 9,
       "y": 6
     },

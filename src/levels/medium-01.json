@@ -37,11 +37,13 @@
       "on": [
         {
           "type": "vertex-add",
+          "change": "add",
           "x": 8,
           "y": 1
         },
         {
           "type": "vertex-remove",
+          "change": "remove",
           "x": 10,
           "y": 3
         }
@@ -49,6 +51,7 @@
       "off": [
         {
           "type": "vertex-remove",
+          "change": "remove",
           "x": 4,
           "y": 1
         }
@@ -62,11 +65,13 @@
       "on": [
         {
           "type": "vertex-add",
+          "change": "add",
           "x": 6,
           "y": 3
         },
         {
           "type": "vertex-remove",
+          "change": "remove",
           "x": 11,
           "y": 1
         }
@@ -74,6 +79,7 @@
       "off": [
         {
           "type": "vertex-remove",
+          "change": "remove",
           "x": 10,
           "y": 5
         }

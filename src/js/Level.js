@@ -56,7 +56,7 @@ class Level {
       this.turns.push(object);
     }
     if (object.type.substring(START, 'vertex-'.length) === 'vertex-') {
-      this.vertexChanges.push({x: x, y: y, change: object.type.substring('vertex-'.length)});
+      this.vertexChanges.push(object);
     }
     if (object.type === 'teleporter') {
       this.teleporters.push(object);
