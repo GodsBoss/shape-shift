@@ -102,6 +102,7 @@
     },
     {
       "type": "hole-pentagon",
+      "polygon": "pentagon",
       "x": 14,
       "y": 5
     }

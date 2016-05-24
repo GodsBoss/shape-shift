@@ -10,6 +10,7 @@
     },
     {
       "type": "hole-pentagon",
+      "polygon": "pentagon",
       "x": 7,
       "y": 1
     },
@@ -83,6 +84,7 @@
     },
     {
       "type": "hole-hexagon",
+      "polygon": "hexagon",
       "x": 5,
       "y": 4
     },

@@ -110,11 +110,13 @@
     },
     {
       "type": "hole-triangle",
+      "polygon": "triangle",
       "x": 6,
       "y": 2
     },
     {
       "type": "hole-pentagon",
+      "polygon": "pentagon",
       "x": 10,
       "y": 6
     },

@@ -15,6 +15,7 @@
     },
     {
       "type": "hole-square",
+      "polygon": "square",
       "x": 3,
       "y": 8
     },
@@ -74,6 +75,7 @@
     },
     {
       "type": "hole-pentagon",
+      "polygon": "pentagon",
       "x": 12,
       "y": 4
     },

@@ -60,6 +60,7 @@
     },
     {
       "type": "hole-square",
+      "polygon": "square",
       "x": 15,
       "y": 6
     }

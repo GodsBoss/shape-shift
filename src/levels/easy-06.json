@@ -37,6 +37,7 @@
     },
     {
       "type": "hole-hexagon",
+      "polygon": "hexagon",
       "x": 2,
       "y": 2
     },
@@ -96,6 +97,7 @@
     },
     {
       "type": "hole-square",
+      "polygon": "square",
       "x": 11,
       "y": 11
     },
@@ -116,6 +118,7 @@
     },
     {
       "type": "hole-triangle",
+      "polygon": "triangle",
       "x": 13,
       "y": 2
     },
@@ -132,6 +135,7 @@
     },
     {
       "type": "hole-pentagon",
+      "polygon": "pentagon",
       "x": 15,
       "y": 11
     }

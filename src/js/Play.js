@@ -171,9 +171,9 @@ class Play {
     if (empty) {
       ++this.holesToFill;
     }
-    const sprite = this.createObject(this.holeGroup, (empty ? '' : 'filled-') + 'hole-' + hole.type, hole);
+    const sprite = this.createObject(this.holeGroup, (empty ? '' : 'filled-') + 'hole-' + hole.polygon, hole);
     sprite.playState = this;
-    sprite.holeType = hole.type;
+    sprite.holeType = hole.polygon;
     sprite.empty = empty;
     return sprite;
   }

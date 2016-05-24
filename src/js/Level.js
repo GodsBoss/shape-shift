@@ -44,7 +44,7 @@ class Level {
       this.shapes.push(object);
     }
     if (object.type.substring(START, 'hole-'.length) === 'hole-') {
-      this.holes.push({x: x, y: y, type: object.type.substring('hole-'.length)});
+      this.holes.push(object);
     }
     if (object.type === 'click-switch') {
       this.clickSwitches.push(object);

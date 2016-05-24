@@ -65,6 +65,7 @@
     },
     {
       "type": "hole-triangle",
+      "polygon": "triangle",
       "x": 12,
       "y": 8
     },

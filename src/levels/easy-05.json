@@ -21,6 +21,7 @@
     },
     {
       "type": "hole-hexagon",
+      "polygon": "hexagon",
       "x": 3,
       "y": 5
     },
