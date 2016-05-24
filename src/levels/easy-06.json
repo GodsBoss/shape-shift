@@ -10,6 +10,7 @@
     },
     {
       "type": "shape-hexagon",
+      "polygon": "hexagon",
       "x": 0,
       "y": 7
     },
@@ -25,6 +26,7 @@
     },
     {
       "type": "shape-pentagon",
+      "polygon": "pentagon",
       "x": 2,
       "y": 0
     },
@@ -71,6 +73,7 @@
     },
     {
       "type": "shape-triangle",
+      "polygon": "triangle",
       "x": 9,
       "y": 1
     },
@@ -118,6 +121,7 @@
     },
     {
       "type": "shape-square",
+      "polygon": "square",
       "x": 14,
       "y": 3
     },

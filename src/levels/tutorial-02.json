@@ -21,6 +21,7 @@
     },
     {
       "type": "shape-pentagon",
+      "polygon": "pentagon",
       "x": 1,
       "y": 1
     },
@@ -45,6 +46,7 @@
     },
     {
       "type": "shape-hexagon",
+      "polygon": "hexagon",
       "x": 6,
       "y": 7
     },

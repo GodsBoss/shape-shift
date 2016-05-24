@@ -56,11 +56,13 @@
     },
     {
       "type": "shape-square",
+      "polygon": "square",
       "x": 6,
       "y": 2
     },
     {
       "type": "shape-triangle",
+      "polygon": "triangle",
       "x": 6,
       "y": 4
     },
@@ -95,11 +97,13 @@
     },
     {
       "type": "shape-hexagon",
+      "polygon": "hexagon",
       "x": 7,
       "y": 5
     },
     {
       "type": "shape-pentagon",
+      "polygon": "pentagon",
       "x": 7,
       "y": 3
     },

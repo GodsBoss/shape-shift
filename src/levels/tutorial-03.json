@@ -6,6 +6,7 @@
   "objects": [
     {
       "type": "shape-triangle",
+      "polygon": "triangle",
       "x": 14,
       "y": 1
     },

@@ -120,11 +120,13 @@
     },
     {
       "type": "shape-square",
+      "polygon": "square",
       "x": 10,
       "y": 2
     },
     {
       "type": "shape-square",
+      "polygon": "square",
       "x": 6,
       "y": 6
     },

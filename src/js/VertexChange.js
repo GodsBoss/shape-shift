@@ -12,7 +12,7 @@ class VertexChange extends Phaser.Sprite {
         if (VertexChange.vertices[type] === changedVertices) {
           const newShape = this.playState.createShape(
             {
-              type: type,
+              polygon: type,
               x: shape.gridX,
               y: shape.gridY
             }

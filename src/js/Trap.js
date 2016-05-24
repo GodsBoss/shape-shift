@@ -7,7 +7,7 @@ class Trap extends Phaser.Sprite {
     if (this.prisoner) { // Release old prisoner
       const newShape = this.playState.createShape(
         {
-          type: this.prisoner.prisonerType,
+          polygon: this.prisoner.prisonerType,
           x: this.gridX,
           y: this.gridY
         }

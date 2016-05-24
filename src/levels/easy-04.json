@@ -30,6 +30,7 @@
     },
     {
       "type": "shape-square",
+      "polygon": "square",
       "x": 5,
       "y": 0
     },
@@ -45,6 +46,7 @@
     },
     {
       "type": "shape-triangle",
+      "polygon": "triangle",
       "x": 10,
       "y": 2
     },

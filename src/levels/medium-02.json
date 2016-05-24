@@ -62,6 +62,7 @@
     },
     {
       "type": "shape-triangle",
+      "polygon": "triangle",
       "x": 8,
       "y": 0
     },
@@ -72,11 +73,13 @@
     },
     {
       "type": "shape-square",
+      "polygon": "square",
       "x": 8,
       "y": 2
     },
     {
       "type": "shape-hexagon",
+      "polygon": "hexagon",
       "x": 11,
       "y": 6
     },

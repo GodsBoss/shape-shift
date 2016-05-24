@@ -10,6 +10,7 @@
     },
     {
       "type": "shape-triangle",
+      "polygon": "triangle",
       "x": 0,
       "y": 1
     },

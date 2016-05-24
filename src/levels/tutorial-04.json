@@ -6,6 +6,7 @@
   "objects": [
     {
       "type": "shape-triangle",
+      "polygon": "triangle",
       "x": 4,
       "y": 2
     },
@@ -37,6 +38,7 @@
     },
     {
       "type": "shape-hexagon",
+      "polygon": "hexagon",
       "x": 9,
       "y": 10
     },

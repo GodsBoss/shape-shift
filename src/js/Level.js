@@ -41,7 +41,7 @@ class Level {
       this.walls.push({x: x, y: y});
     }
     if (object.type.substring(START, 'shape-'.length) === 'shape-') {
-      this.shapes.push({x: x, y: y, type: object.type.substring('shape-'.length)});
+      this.shapes.push(object);
     }
     if (object.type.substring(START, 'hole-'.length) === 'hole-') {
       this.holes.push({x: x, y: y, type: object.type.substring('hole-'.length)});

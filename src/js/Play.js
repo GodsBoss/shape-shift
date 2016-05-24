@@ -159,10 +159,10 @@ class Play {
   }
 
   createShape(shape) {
-    const sprite = this.createObject(this.shapeGroup, 'shape-' + shape.type, shape);
+    const sprite = this.createObject(this.shapeGroup, 'shape-' + shape.polygon, shape);
     sprite.inputEnabled = true;
     sprite.events.onInputUp.add((sprite) => this.openShapeControls(sprite));
-    sprite.shapeType = shape.type;
+    sprite.shapeType = shape.polygon;
     sprite.speed = this.shapeSpeed;
     return sprite;
   }

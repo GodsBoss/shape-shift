@@ -53,6 +53,7 @@
     },
     {
       "type": "shape-pentagon",
+      "polygon": "pentagon",
       "x": 2,
       "y": 5
     },
@@ -147,6 +148,7 @@
     },
     {
       "type": "shape-hexagon",
+      "polygon": "hexagon",
       "x": 13,
       "y": 5
     },
