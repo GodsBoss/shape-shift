@@ -35,10 +35,8 @@ class Level {
 
   addObject(object) {
     const START = 0;
-    const x = object.x;
-    const y = object.y;
     if (object.type === 'wall') {
-      this.walls.push({x: x, y: y});
+      this.walls.push(object);
     }
     if (object.type === 'shape') {
       this.shapes.push(object);
