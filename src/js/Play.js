@@ -115,12 +115,7 @@ export default class Play {
 
   createTeleporter(teleporter) {
     const sprite = this.createObject(this.teleporterGroup, 'teleporter', teleporter);
-    sprite.playState = this;
-    const targetX = teleporter['target-x'];
-    const targetY = teleporter['target-y'];
-    if (typeof targetX === 'number' && typeof targetY === 'number') {
-      sprite.target = { x: targetX, y: targetY };
-    }
+    sprite.init(this, teleporter);
     return sprite;
   }
 

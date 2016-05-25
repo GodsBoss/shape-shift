@@ -6,6 +6,15 @@ export default class Teleporter extends Phaser.Sprite {
     this.particlePressure = Teleporter.INITIAL_PARTICLE_PRESSURE + Math.random() * Teleporter.INITIAL_PARTICLE_PRESSURE;
   }
 
+  init(state, config) {
+    const targetX = config['target-x'];
+    const targetY = config['target-y'];
+    if (typeof targetX === 'number' && typeof targetY === 'number') {
+      this.target = { x: targetX, y: targetY };
+    }
+    this.playState = state;
+  }
+
   teleport(shape) {
     if (this.target) {
       shape.gridX = this.target.x;
