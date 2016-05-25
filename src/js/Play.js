@@ -105,39 +105,27 @@ export default class Play {
   }
 
   createTrap(trap) {
-    const sprite = this.createObject(this.trapGroup, 'trap', trap);
-    sprite.init(this, trap);
-    return sprite;
+    return this.createInitializedObject(this.trapGroup, 'trap', trap);
   }
 
   createTeleporter(teleporter) {
-    const sprite = this.createObject(this.teleporterGroup, 'teleporter', teleporter);
-    sprite.init(this, teleporter);
-    return sprite;
+    return this.createInitializedObject(this.teleporterGroup, 'teleporter', teleporter);
   }
 
   createVertexChange(change) {
-    const sprite = this.createObject(this.vertexChangeGroup, 'vertex-' + change.change, change);
-    sprite.init(this, change);
-    return sprite;
+    return this.createInitializedObject(this.vertexChangeGroup, 'vertex-' + change.change, change);
   }
 
   createTurn(turn) {
-    const sprite = this.createObject(this.turnGroup, 'turn-' + turn.direction, turn);
-    sprite.init(this, turn);
-    return sprite;
+    return this.createInitializedObject(this.turnGroup, 'turn-' + turn.direction, turn);
   }
 
   createClickSwitch(clickSwitch) {
-    const sprite = this.createObject(this.clickSwitchGroup, 'click-switch', clickSwitch);
-    sprite.init(this, clickSwitch);
-    return sprite;
+    return this.createInitializedObject(this.clickSwitchGroup, 'click-switch', clickSwitch);
   }
 
   createPassSwitch(passSwitch) {
-    const sprite = this.createObject(this.passSwitchGroup, 'pass-switch', passSwitch);
-    sprite.init(this, passSwitch);
-    return sprite;
+    return this.createInitializedObject(this.passSwitchGroup, 'pass-switch', passSwitch);
   }
 
   createHighlight(highlight) {
@@ -158,8 +146,12 @@ export default class Play {
   }
 
   createHole(hole) {
-    const sprite = this.createObject(this.holeGroup, (hole.filled ? 'filled-' :'') + 'hole-' + hole.polygon, hole);
-    sprite.init(this, hole);
+    return this.createInitializedObject(this.holeGroup, (hole.filled ? 'filled-' :'') + 'hole-' + hole.polygon, hole);
+  }
+
+  createInitializedObject(group, spriteKey, config) {
+    const sprite = this.createObject(group, spriteKey, config);
+    sprite.init(this, config);
     return sprite;
   }
 
