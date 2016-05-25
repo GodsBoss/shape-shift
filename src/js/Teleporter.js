@@ -1,4 +1,6 @@
-export default class Teleporter extends Phaser.Sprite {
+import GridObject from './GridObject';
+
+export default class Teleporter extends GridObject {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
     this.target = null;

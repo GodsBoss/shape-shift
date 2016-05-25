@@ -1,4 +1,6 @@
-export default class Trap extends Phaser.Sprite {
+import GridObject from './GridObject';
+
+export default class Trap extends GridObject {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
   }
