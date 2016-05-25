@@ -92,8 +92,10 @@ export default class Play {
 
   createLevelObjects() {
     this.holesToFill = 0;
+    this.gridObjects = [].concat(
+      this.level.getHoles().map((hole) => this.createHole(hole))
+    );
     this.walls = this.level.getWalls().map((wall) => this.createWall(wall));
-    this.holes = this.level.getHoles().map((hole) => this.createHole(hole));
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
     this.turns = this.level.getTurns().map((turn) => this.createTurn(turn));
@@ -219,8 +221,8 @@ export default class Play {
 
   clearLevelObjects() {
     [
+      this.gridObjects,
       this.walls,
-      this.holes,
       this.shapes,
       this.highlights,
       this.clickSwitches,
@@ -263,7 +265,7 @@ export default class Play {
         this.sound.play('movement-stops');
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
-      this.findAndHandleSpecialField(this.holes, shape, 'afterBlock');
+      this.findAndHandleSpecialField(this.gridObjects, shape, 'afterBlock');
       this.findAndHandleSpecialField(this.passSwitches, shape, 'afterBlock');
       this.findAndHandleSpecialField(this.vertexChanges, shape, 'afterBlock');
     }
