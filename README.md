@@ -64,6 +64,7 @@ Alphabetically ordered.
 - [Atom][atom] as text editor / IDE
 - [Babel][babel], because writing plain JavaScript sucks
 - [Bfxr][bfxr] for sounds
+- [Browserify][browserify] for handling inner JavaScript dependencies
 - [Debian GNU/Linux][debian] as operating system
 - [Mozilla Firefox][firefox] for testing purposes
 - [GIMP][gimp] for graphics
@@ -75,6 +76,7 @@ Alphabetically ordered.
 [atom]: https://atom.io/
 [babel]: https://babeljs.io/
 [bfxr]: http://www.bfxr.net/
+[browserify]: http://browserify.org/
 [debian]: https://www.debian.org/
 [firefox]: https://www.mozilla.org/firefox
 [gimp]: http://www.gimp.org/
