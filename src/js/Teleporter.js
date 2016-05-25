@@ -17,7 +17,7 @@ export default class Teleporter extends GridObject {
     this.playState = state;
   }
 
-  teleport(shape) {
+  beforeBlock(shape) {
     if (this.target) {
       shape.gridX = this.target.x;
       shape.gridY = this.target.y;

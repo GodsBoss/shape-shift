@@ -12,7 +12,7 @@ export default class Trap extends GridObject {
     }
   }
 
-  trap(shape) {
+  beforeBlock(shape) {
     if (this.prisoner) { // Release old prisoner
       const newShape = this.playState.createShape(
         {

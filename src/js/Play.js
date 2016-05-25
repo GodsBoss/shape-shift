@@ -254,17 +254,17 @@ export default class Play {
     const newGridY = this.calcBackY(shape.y);
     if (shape.hasGridPositionChanged(newGridX, newGridY)) {
       shape.setGridPosition(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y);
-      this.findAndHandleSpecialField(this.turns, shape, 'turn');
-      this.findAndHandleSpecialField(this.teleporters, shape, 'teleport');
-      this.findAndHandleSpecialField(this.traps, shape, 'trap');
+      this.findAndHandleSpecialField(this.turns, shape, 'beforeBlock');
+      this.findAndHandleSpecialField(this.teleporters, shape, 'beforeBlock');
+      this.findAndHandleSpecialField(this.traps, shape, 'beforeBlock');
       if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y, shape)) {
         shape.stop();
         this.sound.play('movement-stops');
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
-      this.findAndHandleSpecialField(this.holes, shape, 'accept');
-      this.findAndHandleSpecialField(this.passSwitches, shape, 'switchState');
-      this.findAndHandleSpecialField(this.vertexChanges, shape, 'applyChangeTo');
+      this.findAndHandleSpecialField(this.holes, shape, 'afterBlock');
+      this.findAndHandleSpecialField(this.passSwitches, shape, 'afterBlock');
+      this.findAndHandleSpecialField(this.vertexChanges, shape, 'afterBlock');
     }
   }
 

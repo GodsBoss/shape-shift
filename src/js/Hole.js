@@ -14,7 +14,7 @@ export default class Hole extends GridObject {
     }
   }
 
-  accept(shape) {
+  afterBlock(shape) {
     if (this.empty && shape.shapeType === this.holeType) {
       const newHole = this.playState.createHole({x: this.gridX, y: this.gridY, polygon: this.holeType, filled: true});
       --this.playState.holesToFill;

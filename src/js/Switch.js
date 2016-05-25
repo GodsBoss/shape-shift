@@ -38,6 +38,10 @@ export default class Switch extends GridObject {
     this.addObjects(this.off);
   }
 
+  afterBlock(shape) {
+    this.switchState();
+  }
+
   switchState() {
     this[this.clickState ? 'deactivate' : 'activate']();
     this.playState.refreshShapeControls();

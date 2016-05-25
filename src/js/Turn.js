@@ -12,7 +12,7 @@ export default class Turn extends GridObject {
     this.direction = config.direction;
   }
 
-  turn(shape) {
+  beforeBlock(shape) {
     shape.velocity = {
       x: (this.direction === 'right' ? Turn.NEGATIVE : Turn.POSITIVE) * shape.velocity.y,
       y: (this.direction === 'right' ? Turn.POSITIVE : Turn.NEGATIVE) * shape.velocity.x

@@ -11,7 +11,7 @@ export default class VertexChange extends GridObject {
     this.change = config.change;
   }
 
-  applyChangeTo(shape) {
+  afterBlock(shape) {
     const currentVertices = VertexChange.vertices[shape.shapeType];
     const changedVertices = currentVertices + VertexChange.change[this.change];
     if (changedVertices >= VertexChange.MINIMUM_VERTICES && changedVertices <= VertexChange.MAXIMUM_VERTICES) {
