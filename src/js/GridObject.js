@@ -16,12 +16,16 @@ export default class GridObject extends Phaser.Sprite {
   /**
   * Called on a shape moving onto this grid field, after being blocked by an
   * obstacle (i.e. its speed is zero).
+  *
+  * @param {Shape} The shape.
   */
   afterBlock(shape) {}
 
   /**
   * Wether this grid object acts as an obstacle, i.e. stops a shape before it
   * enters this field.
+  *
+  * @return {boolean}
   */
   blocks(shape) {
     return false;
