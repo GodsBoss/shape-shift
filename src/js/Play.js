@@ -169,14 +169,9 @@ export default class Play {
     return sprite;
   }
 
-  createHole(hole, empty = true) {
-    if (empty) {
-      ++this.holesToFill;
-    }
-    const sprite = this.createObject(this.holeGroup, (empty ? '' : 'filled-') + 'hole-' + hole.polygon, hole);
-    sprite.playState = this;
-    sprite.holeType = hole.polygon;
-    sprite.empty = empty;
+  createHole(hole) {
+    const sprite = this.createObject(this.holeGroup, (hole.filled ? 'filled-' :'') + 'hole-' + hole.polygon, hole);
+    sprite.init(this, hole);
     return sprite;
   }
 
