@@ -38,7 +38,7 @@ export default class Trap extends GridObject {
 
   imprison(prisoner) {
     this.prisoner = this.playState.createObject(
-      this.playState.trapGroup,
+      this.playState.spriteGroups.trap,
       prisoner,
       { x: this.gridX, y: this.gridY }
     );

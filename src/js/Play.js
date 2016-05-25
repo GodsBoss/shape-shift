@@ -38,9 +38,10 @@ export default class Play {
       highlight: Highlight,
       arrow: null
     };
+    this.spriteGroups = {};
     for (const groupKey in groupKeys) {
-      this[groupKey + 'Group'] = this.add.group();
-      this[groupKey + 'Group'].classType = groupKeys[groupKey] || Phaser.Sprite;
+      this.spriteGroups[groupKey] = this.add.group();
+      this.spriteGroups[groupKey].classType = groupKeys[groupKey] || Phaser.Sprite;
     }
     this.createArrows();
     this.nextLevelButton = this.createSidebarButton(136, 'button-next-level', 'nextLevel', /*hide=*/true);
@@ -71,7 +72,7 @@ export default class Play {
   }
 
   createArrow(direction, vx, vy) {
-    const arrow = this.arrowGroup.create(0, 0, 'arrow-' + direction);
+    const arrow = this.spriteGroups.arrow.create(0, 0, 'arrow-' + direction);
     arrow.visible = false;
     arrow.anchor.setTo(PhaserConstants.ANCHOR_CENTER, PhaserConstants.ANCHOR_CENTER);
     arrow.vx = vx;
@@ -105,39 +106,39 @@ export default class Play {
   }
 
   createTrap(trap) {
-    return this.createInitializedObject(this.trapGroup, 'trap', trap);
+    return this.createInitializedObject(this.spriteGroups.trap, 'trap', trap);
   }
 
   createTeleporter(teleporter) {
-    return this.createInitializedObject(this.teleporterGroup, 'teleporter', teleporter);
+    return this.createInitializedObject(this.spriteGroups.teleporter, 'teleporter', teleporter);
   }
 
   createVertexChange(change) {
-    return this.createInitializedObject(this.vertexChangeGroup, 'vertex-' + change.change, change);
+    return this.createInitializedObject(this.spriteGroups.vertexChange, 'vertex-' + change.change, change);
   }
 
   createTurn(turn) {
-    return this.createInitializedObject(this.turnGroup, 'turn-' + turn.direction, turn);
+    return this.createInitializedObject(this.spriteGroups.turn, 'turn-' + turn.direction, turn);
   }
 
   createClickSwitch(clickSwitch) {
-    return this.createInitializedObject(this.clickSwitchGroup, 'click-switch', clickSwitch);
+    return this.createInitializedObject(this.spriteGroups.clickSwitch, 'click-switch', clickSwitch);
   }
 
   createPassSwitch(passSwitch) {
-    return this.createInitializedObject(this.passSwitchGroup, 'pass-switch', passSwitch);
+    return this.createInitializedObject(this.spriteGroups.passSwitch, 'pass-switch', passSwitch);
   }
 
   createHighlight(highlight) {
-    return this.highlightGroup.create(this.calcX(highlight.x), this.calcY(highlight.y), 'highlight');
+    return this.spriteGroups.highlight.create(this.calcX(highlight.x), this.calcY(highlight.y), 'highlight');
   }
 
   createWall(wall) {
-    return this.createObject(this.wallGroup, 'wall', wall);
+    return this.createObject(this.spriteGroups.wall, 'wall', wall);
   }
 
   createShape(shape) {
-    const sprite = this.createObject(this.shapeGroup, 'shape-' + shape.polygon, shape);
+    const sprite = this.createObject(this.spriteGroups.shape, 'shape-' + shape.polygon, shape);
     sprite.inputEnabled = true;
     sprite.events.onInputUp.add((sprite) => this.openShapeControls(sprite));
     sprite.shapeType = shape.polygon;
@@ -146,7 +147,7 @@ export default class Play {
   }
 
   createHole(hole) {
-    return this.createInitializedObject(this.holeGroup, (hole.filled ? 'filled-' :'') + 'hole-' + hole.polygon, hole);
+    return this.createInitializedObject(this.spriteGroups.hole, (hole.filled ? 'filled-' :'') + 'hole-' + hole.polygon, hole);
   }
 
   createInitializedObject(group, spriteKey, config) {

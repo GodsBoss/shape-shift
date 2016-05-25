@@ -32,7 +32,7 @@ export default class Teleporter extends GridObject {
       this.particlePressure += Math.random() * Teleporter.PARTICLE_FREQUENCY;
       if (this.particlePressure >= Teleporter.PARTICLE_PRESSURE_THRESHOLD) {
         --this.particlePressure;
-        const particle = this.playState.teleporterParticleGroup.create(this.playState.calcX(this.gridX), this.playState.calcY(this.gridY), 'teleporter-particle');
+        const particle = this.playState.spriteGroups.teleporterParticle.create(this.playState.calcX(this.gridX), this.playState.calcY(this.gridY), 'teleporter-particle');
         particle.playState = this.playState;
         particle.target = { x: this.playState.calcX(this.target.x), y: this.playState.calcY(this.target.y) };
         this.playState.teleporterParticles.push(particle);
