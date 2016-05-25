@@ -1,4 +1,4 @@
-class Boot {
+export default class Boot {
   preload() {
     const SCALE = 2;
     Phaser.Canvas.setImageRenderingCrisp(this.game.canvas);

@@ -1,4 +1,4 @@
-class PlayerProgress {
+export default class PlayerProgress {
   constructor(store, key) {
     this.store = store;
     this.key = key;

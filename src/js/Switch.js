@@ -1,4 +1,6 @@
-class Switch extends Phaser.Sprite {
+import PhaserConstants from './PhaserConstants';
+
+export default class Switch extends Phaser.Sprite {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
     this.anchor.setTo(PhaserConstants.ANCHOR_CENTER, PhaserConstants.ANCHOR_CENTER);

@@ -1,4 +1,4 @@
-class PhaserConstants {
+export default class PhaserConstants {
 }
 
 PhaserConstants.ANCHOR_LEFT = 0;

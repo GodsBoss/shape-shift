@@ -1,4 +1,4 @@
-class Trap extends Phaser.Sprite {
+export default class Trap extends Phaser.Sprite {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
   }

@@ -1,4 +1,6 @@
-class Levels {
+import Level from './Level';
+
+export default class Levels {
   constructor() {
     this.levels = [];
     this.accessGainedBy = {};

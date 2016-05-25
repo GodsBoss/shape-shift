@@ -1,10 +1,11 @@
+var browserify = require('browserify');
+var buffer = require('vinyl-buffer');
 var cp = require('child_process');
 var del = require('del');
 var gulp = require('gulp');
-var babel = require('gulp-babel');
-var concat = require('gulp-concat');
 var eslint = require('gulp-eslint');
 var exec = require('gulp-exec');
+var source = require('vinyl-source-stream');
 var sourcemaps = require('gulp-sourcemaps');
 
 var DIST = process.cwd() + '/dist';
@@ -68,11 +69,24 @@ gulp.task(
 gulp.task(
   'build:game.js',
   function() {
-    gulp.
-      src(SRC + '/js/*.js').
+    var b = browserify(
+      {
+        entries: './src/js/init.js',
+        transform: [
+          [
+            "babelify",
+            {
+              presets: ["es2015"]
+            }
+          ]
+        ]
+      }
+    );
+    return b.
+      bundle().
+      pipe(source('game.js')).
+      pipe(buffer()).
       pipe(sourcemaps.init()).
-      pipe(concat('game.js')).
-      pipe(babel({presets: ['es2015']})).
       pipe(sourcemaps.write('.')).
       pipe(gulp.dest(DIST));
   }

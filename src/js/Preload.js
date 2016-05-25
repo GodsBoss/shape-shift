@@ -1,4 +1,6 @@
-class Preload {
+import PhaserConstants from './PhaserConstants';
+
+export default class Preload {
   preload() {
     const preloadBackground = this.add.sprite(0, 0, 'preload-background');
     const preloaderBar = this.add.sprite(110, 110, 'preload-progress');

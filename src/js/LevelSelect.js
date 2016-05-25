@@ -1,4 +1,8 @@
-class LevelSelect {
+import Highlight from './Highlight';
+import Levels from './Levels';
+import PhaserConstants from './PhaserConstants';
+
+export default class LevelSelect {
   constructor(playerProgress) {
     this.playerProgress = playerProgress;
   }

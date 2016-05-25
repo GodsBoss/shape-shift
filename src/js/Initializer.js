@@ -1,4 +1,12 @@
-class Initializer {
+import Boot from './Boot';
+import Intro from './Intro';
+import LevelSelect from './LevelSelect';
+import Play from './Play';
+import PlayerProgress from './PlayerProgress';
+import Preload from './Preload';
+import Victory from './Victory';
+
+export default class Initializer {
   constructor(elementId) {
     this.elementId = elementId;
   }

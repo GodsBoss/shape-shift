@@ -1,4 +1,4 @@
-class Victory {
+export default class Victory {
   create() {
     const background = this.add.sprite(0, 0, 'victory-background');
     background.inputEnabled = true;

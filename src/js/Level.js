@@ -1,4 +1,4 @@
-class Level {
+export default class Level {
   constructor(key, accessible, index) {
     this.key = key;
     this.accessible = accessible;

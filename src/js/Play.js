@@ -1,4 +1,16 @@
-class Play {
+import Highlight from './Highlight';
+import Hole from './Hole';
+import Levels from './Levels';
+import PhaserConstants from './PhaserConstants';
+import Shape from './Shape';
+import Switch from './Switch';
+import Teleporter from './Teleporter';
+import TeleporterParticle from './TeleporterParticle';
+import Trap from './Trap';
+import Turn from './Turn';
+import VertexChange from './VertexChange';
+
+export default class Play {
   constructor(playerProgress) {
     this.playerProgress = playerProgress;
   }
