@@ -37,13 +37,13 @@
       "y": 8,
       "on": [
         {
-          "type": "vertex-add",
+          "type": "vertex-change",
           "change": "add",
           "x": 8,
           "y": 1
         },
         {
-          "type": "vertex-remove",
+          "type": "vertex-change",
           "change": "remove",
           "x": 10,
           "y": 3
@@ -51,7 +51,7 @@
       ],
       "off": [
         {
-          "type": "vertex-remove",
+          "type": "vertex-change",
           "change": "remove",
           "x": 4,
           "y": 1
@@ -65,13 +65,13 @@
       "y": 8,
       "on": [
         {
-          "type": "vertex-add",
+          "type": "vertex-change",
           "change": "add",
           "x": 6,
           "y": 3
         },
         {
-          "type": "vertex-remove",
+          "type": "vertex-change",
           "change": "remove",
           "x": 11,
           "y": 1
@@ -79,7 +79,7 @@
       ],
       "off": [
         {
-          "type": "vertex-remove",
+          "type": "vertex-change",
           "change": "remove",
           "x": 10,
           "y": 5

@@ -32,7 +32,7 @@
       "y": 4,
       "on": [
         {
-          "type": "vertex-add",
+          "type": "vertex-change",
           "change": "add",
           "x": 7,
           "y": 9
@@ -58,7 +58,7 @@
       "y": 11
     },
     {
-      "type": "vertex-add",
+      "type": "vertex-change",
       "change": "add",
       "x": 6,
       "y": 0
@@ -106,7 +106,7 @@
       "target-y": 7
     },
     {
-      "type": "vertex-remove",
+      "type": "vertex-change",
       "change": "remove",
       "x": 13,
       "y": 8

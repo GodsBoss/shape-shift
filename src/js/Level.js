@@ -53,7 +53,7 @@ export default class Level {
     if (object.type === 'turn') {
       this.turns.push(object);
     }
-    if (object.type.substring(START, 'vertex-'.length) === 'vertex-') {
+    if (object.type === 'vertex-change') {
       this.vertexChanges.push(object);
     }
     if (object.type === 'teleporter') {
