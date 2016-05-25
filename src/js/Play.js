@@ -93,18 +93,19 @@ export default class Play {
 
   createLevelObjects() {
     this.holesToFill = 0;
-    this.walls = this.level.getWalls().map((wall) => this.createWall(wall));
-    this.gridObjects = [].concat(
+    this.gridObjects = [];
+    [
       this.level.getHoles().map((hole) => this.createHole(hole)),
       this.level.getVertexChanges().map((change) => this.createVertexChange(change)),
       this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch)),
       this.level.getTurns().map((turn) => this.createTurn(turn)),
       this.level.getTeleporters().map((teleporter) => this.createTeleporter(teleporter)),
-      this.level.getTraps().map((trap) => this.createTrap(trap))
-    );
+      this.level.getTraps().map((trap) => this.createTrap(trap)),
+      this.level.getWalls().map((wall) => this.createWall(wall)),
+      this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch))
+    ].forEach((gridObjects) => gridObjects.forEach((gridObject) => this.gridObjects.push(gridObject)));
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
-    this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
     this.teleporterParticles = [];
   }
 
@@ -215,18 +216,15 @@ export default class Play {
 
   gridIsFreeAt(gridX, gridY, myself) {
     return gridX >= 0 && gridY >= 0 && gridX <= 15 && gridY <= 11 &&
-      this.walls.every((wall) => wall.gridX !== gridX || wall.gridY !== gridY) &&
-      this.clickSwitches.every((sw) => sw.gridX !== gridX || sw.gridY !== gridY) &&
+      this.gridObjects.every((gridObject) => gridObject.gridX !== gridX || gridObject.gridY !== gridY || !gridObject.blocks(myself)) &&
       this.shapes.every((shape) => shape === myself || shape.currentlyMoving() || shape.gridX !== gridX || shape.gridY !== gridY);
   }
 
   clearLevelObjects() {
     [
       this.gridObjects,
-      this.walls,
       this.shapes,
       this.highlights,
-      this.clickSwitches,
       this.teleporterParticles
     ].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
   }

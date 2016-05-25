@@ -18,4 +18,12 @@ export default class GridObject extends Phaser.Sprite {
   * obstacle (i.e. its speed is zero).
   */
   afterBlock(shape) {}
+
+  /**
+  * Wether this grid object acts as an obstacle, i.e. stops a shape before it
+  * enters this field.
+  */
+  blocks(shape) {
+    return false;
+  }
 }
