@@ -50,6 +50,8 @@ Tech
   without hassle.
 - Sprite atlas.
 - Move all type-specific grid object logic out of the Play class.
+- Generify effects and add more!
+- Generify victory condition(s).
 
 Thank you!
 ==========
