@@ -55,7 +55,7 @@ export default class Switch extends GridObject {
     this.addBySpecIfTypeMatches('wall', spec, 'walls', 'Wall');
     this.addBySpecIfTypeMatches('teleporter', spec, 'teleporters', 'Teleporter');
     this.addBySpecIfTypeMatches('turn', spec, 'turns', 'Turn');
-    this.addBySpecIfTypeMatches('vertex', spec, 'vertexChanges', 'VertexChange');
+    this.addBySpecIfTypeMatches('vertex', spec, 'gridObjects', 'VertexChange');
   }
 
   addBySpecIfTypeMatches(type, spec, collectionName, entityName) {
@@ -72,7 +72,7 @@ export default class Switch extends GridObject {
     this.removeBySpecIfTypeMatches('wall', spec, 'walls');
     this.removeBySpecIfTypeMatches('teleporter', spec, 'teleporters');
     this.removeBySpecIfTypeMatches('turn', spec, 'turns');
-    this.removeBySpecIfTypeMatches('vertex', spec, 'vertexChanges');
+    this.removeBySpecIfTypeMatches('vertex', spec, 'gridObjects');
   }
 
   removeBySpecIfTypeMatches(type, spec, collectionName) {

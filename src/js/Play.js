@@ -92,17 +92,17 @@ export default class Play {
 
   createLevelObjects() {
     this.holesToFill = 0;
+    this.walls = this.level.getWalls().map((wall) => this.createWall(wall));
     this.gridObjects = [].concat(
       this.level.getHoles().map((hole) => this.createHole(hole)),
-      this.level.getVertexChanges().map((change) => this.createVertexChange(change))
+      this.level.getVertexChanges().map((change) => this.createVertexChange(change)),
+      this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch))
     );
-    this.walls = this.level.getWalls().map((wall) => this.createWall(wall));
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
     this.turns = this.level.getTurns().map((turn) => this.createTurn(turn));
     this.teleporters = this.level.getTeleporters().map((teleporter) => this.createTeleporter(teleporter));
     this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
-    this.passSwitches = this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch));
     this.traps = this.level.getTraps().map((trap) => this.createTrap(trap));
     this.teleporterParticles = [];
   }
@@ -226,7 +226,6 @@ export default class Play {
       this.shapes,
       this.highlights,
       this.clickSwitches,
-      this.passSwitches,
       this.turns,
       this.teleporters,
       this.teleporterParticles,
@@ -265,7 +264,6 @@ export default class Play {
         shape.position.setTo(this.calcX(shape.gridX), this.calcY(shape.gridY));
       }
       this.findAndHandleSpecialField(this.gridObjects, shape, 'afterBlock');
-      this.findAndHandleSpecialField(this.passSwitches, shape, 'afterBlock');
     }
   }
 
