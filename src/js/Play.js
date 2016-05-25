@@ -139,7 +139,7 @@ export default class Play {
   }
 
   createClickSwitch(clickSwitch) {
-    const sprite = this.clickSwitchGroup.create(this.calcX(clickSwitch.x), this.calcY(clickSwitch.y), 'click-switch');
+    const sprite = this.createObject(this.clickSwitchGroup, 'click-switch', clickSwitch);
     sprite.playState = this;
     sprite.gridX = clickSwitch.x;
     sprite.gridY = clickSwitch.y;
@@ -152,7 +152,7 @@ export default class Play {
   }
 
   createPassSwitch(passSwitch) {
-    const sprite = this.clickSwitchGroup.create(this.calcX(passSwitch.x), this.calcY(passSwitch.y), 'pass-switch');
+    const sprite = this.createObject(this.passSwitchGroup, 'pass-switch', passSwitch);
     sprite.gridX = passSwitch.x;
     sprite.gridY = passSwitch.y;
     sprite.playState = this;
