@@ -262,10 +262,9 @@ export default class Play {
   }
 
   findAndHandleSpecialField(gridObjects, shape, method) {
-    const index = gridObjects.findIndex((gridObject) => gridObject.gridX === shape.gridX && gridObject.gridY === shape.gridY);
-    if (index !== -1) {
-      gridObjects[index][method](shape);
-    }
+    gridObjects.
+      filter((gridObject) => gridObject.gridX === shape.gridX && gridObject.gridY === shape.gridY).
+      forEach((gridObject) => gridObject[method](shape));
   }
 
   destroySpriteInArray(array, sprite) {
