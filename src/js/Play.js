@@ -96,11 +96,11 @@ export default class Play {
     this.gridObjects = [].concat(
       this.level.getHoles().map((hole) => this.createHole(hole)),
       this.level.getVertexChanges().map((change) => this.createVertexChange(change)),
-      this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch))
+      this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch)),
+      this.level.getTurns().map((turn) => this.createTurn(turn))
     );
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
-    this.turns = this.level.getTurns().map((turn) => this.createTurn(turn));
     this.teleporters = this.level.getTeleporters().map((teleporter) => this.createTeleporter(teleporter));
     this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
     this.traps = this.level.getTraps().map((trap) => this.createTrap(trap));
@@ -226,7 +226,6 @@ export default class Play {
       this.shapes,
       this.highlights,
       this.clickSwitches,
-      this.turns,
       this.teleporters,
       this.teleporterParticles,
       this.traps
@@ -255,7 +254,7 @@ export default class Play {
     const newGridY = this.calcBackY(shape.y);
     if (shape.hasGridPositionChanged(newGridX, newGridY)) {
       shape.setGridPosition(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y);
-      this.findAndHandleSpecialField(this.turns, shape, 'beforeBlock');
+      this.findAndHandleSpecialField(this.gridObjects, shape, 'beforeBlock');
       this.findAndHandleSpecialField(this.teleporters, shape, 'beforeBlock');
       this.findAndHandleSpecialField(this.traps, shape, 'beforeBlock');
       if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y, shape)) {
