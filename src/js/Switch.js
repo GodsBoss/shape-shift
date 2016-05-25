@@ -73,10 +73,7 @@ export default class Switch extends GridObject {
   }
 
   removeBySpec(spec) {
-    this.removeBySpecIfTypeMatches('wall', spec);
-    this.removeBySpecIfTypeMatches('teleporter', spec);
-    this.removeBySpecIfTypeMatches('turn', spec);
-    this.removeBySpecIfTypeMatches('vertex', spec);
+    ['wall', 'teleporter', 'turn', 'vertex'].forEach((type) => this.removeBySpecIfTypeMatches(type, spec));
   }
 
   removeBySpecIfTypeMatches(type, spec) {
