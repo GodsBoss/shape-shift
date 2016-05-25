@@ -261,10 +261,10 @@ export default class Play {
     }
   }
 
-  findAndHandleSpecialField(fields, shape, method) {
-    const index = fields.findIndex((field) => field.gridX === shape.gridX && field.gridY === shape.gridY);
+  findAndHandleSpecialField(gridObjects, shape, method) {
+    const index = gridObjects.findIndex((gridObject) => gridObject.gridX === shape.gridX && gridObject.gridY === shape.gridY);
     if (index !== -1) {
-      fields[index][method](shape);
+      gridObjects[index][method](shape);
     }
   }
 
