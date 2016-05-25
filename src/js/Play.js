@@ -98,12 +98,12 @@ export default class Play {
       this.level.getVertexChanges().map((change) => this.createVertexChange(change)),
       this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch)),
       this.level.getTurns().map((turn) => this.createTurn(turn)),
-      this.level.getTeleporters().map((teleporter) => this.createTeleporter(teleporter))
+      this.level.getTeleporters().map((teleporter) => this.createTeleporter(teleporter)),
+      this.level.getTraps().map((trap) => this.createTrap(trap))
     );
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
     this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
-    this.traps = this.level.getTraps().map((trap) => this.createTrap(trap));
     this.teleporterParticles = [];
   }
 
@@ -226,8 +226,7 @@ export default class Play {
       this.shapes,
       this.highlights,
       this.clickSwitches,
-      this.teleporterParticles,
-      this.traps
+      this.teleporterParticles
     ].forEach((sprites) => sprites.forEach((sprite) => sprite.destroy()));
   }
 
@@ -254,7 +253,6 @@ export default class Play {
     if (shape.hasGridPositionChanged(newGridX, newGridY)) {
       shape.setGridPosition(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y);
       this.findAndHandleSpecialField(this.gridObjects, shape, 'beforeBlock');
-      this.findAndHandleSpecialField(this.traps, shape, 'beforeBlock');
       if (!this.gridIsFreeAt(shape.gridX + shape.velocity.x, shape.gridY + shape.velocity.y, shape)) {
         shape.stop();
         this.sound.play('movement-stops');
