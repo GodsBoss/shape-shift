@@ -1,9 +1,21 @@
+import GridObject from './GridObject';
 import PhaserConstants from './PhaserConstants';
 
-export default class Switch extends Phaser.Sprite {
+export default class Switch extends GridObject {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
     this.clickState = null;
+  }
+
+  init(state, config) {
+    this.playState = state;
+    this.on = config.on;
+    this.off = config.off;
+    this[config.active ? 'activate' : 'deactivate']();
+    if (this.key == 'click-switch') {
+      this.inputEnabled = true;
+      this.events.onInputUp.add((sprite) => sprite.switchState());
+    }
   }
 
   activate() {
