@@ -93,13 +93,13 @@ export default class Play {
   createLevelObjects() {
     this.holesToFill = 0;
     this.gridObjects = [].concat(
-      this.level.getHoles().map((hole) => this.createHole(hole))
+      this.level.getHoles().map((hole) => this.createHole(hole)),
+      this.level.getVertexChanges().map((change) => this.createVertexChange(change))
     );
     this.walls = this.level.getWalls().map((wall) => this.createWall(wall));
     this.shapes = this.level.getShapes().map((shape) => this.createShape(shape));
     this.highlights = this.level.getHighlights().map((highlight) => this.createHighlight(highlight));
     this.turns = this.level.getTurns().map((turn) => this.createTurn(turn));
-    this.vertexChanges = this.level.getVertexChanges().map((change) => this.createVertexChange(change));
     this.teleporters = this.level.getTeleporters().map((teleporter) => this.createTeleporter(teleporter));
     this.clickSwitches = this.level.getClickSwitches().map((clickSwitch) => this.createClickSwitch(clickSwitch));
     this.passSwitches = this.level.getPassSwitches().map((passSwitch) => this.createPassSwitch(passSwitch));
@@ -228,7 +228,6 @@ export default class Play {
       this.clickSwitches,
       this.passSwitches,
       this.turns,
-      this.vertexChanges,
       this.teleporters,
       this.teleporterParticles,
       this.traps
@@ -267,7 +266,6 @@ export default class Play {
       }
       this.findAndHandleSpecialField(this.gridObjects, shape, 'afterBlock');
       this.findAndHandleSpecialField(this.passSwitches, shape, 'afterBlock');
-      this.findAndHandleSpecialField(this.vertexChanges, shape, 'afterBlock');
     }
   }
 
