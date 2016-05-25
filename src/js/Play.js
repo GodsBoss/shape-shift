@@ -131,8 +131,6 @@ export default class Play {
   createClickSwitch(clickSwitch) {
     const sprite = this.createObject(this.clickSwitchGroup, 'click-switch', clickSwitch);
     sprite.playState = this;
-    sprite.gridX = clickSwitch.x;
-    sprite.gridY = clickSwitch.y;
     sprite.on = clickSwitch.on;
     sprite.off = clickSwitch.off;
     sprite[clickSwitch.active ? 'activate' : 'deactivate']();
@@ -143,8 +141,6 @@ export default class Play {
 
   createPassSwitch(passSwitch) {
     const sprite = this.createObject(this.passSwitchGroup, 'pass-switch', passSwitch);
-    sprite.gridX = passSwitch.x;
-    sprite.gridY = passSwitch.y;
     sprite.playState = this;
     sprite.on = passSwitch.on;
     sprite.off = passSwitch.off;
