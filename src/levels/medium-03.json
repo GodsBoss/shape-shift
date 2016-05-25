@@ -31,13 +31,13 @@
       "y": 11
     },
     {
-      "type": "turn-left",
+      "type": "turn",
       "direction": "left",
       "x": 1,
       "y": 1
     },
     {
-      "type": "turn-left",
+      "type": "turn",
       "direction": "left",
       "x": 1,
       "y": 8
@@ -74,7 +74,7 @@
       "y": 2
     },
     {
-      "type": "turn-left",
+      "type": "turn",
       "direction": "left",
       "x": 3,
       "y": 8
@@ -90,13 +90,13 @@
       "y": 0
     },
     {
-      "type": "turn-right",
+      "type": "turn",
       "direction": "right",
       "x": 8,
       "y": 4
     },
     {
-      "type": "turn-right",
+      "type": "turn",
       "direction": "right",
       "x": 10,
       "y": 4
@@ -112,7 +112,7 @@
       "y": 3
     },
     {
-      "type": "turn-left",
+      "type": "turn",
       "direction": "left",
       "x": 11,
       "y": 7

@@ -50,7 +50,7 @@ export default class Level {
     if (object.type === 'pass-switch') {
       this.passSwitches.push(object);
     }
-    if (object.type.substring(START, 'turn-'.length) === 'turn-') {
+    if (object.type === 'turn') {
       this.turns.push(object);
     }
     if (object.type.substring(START, 'vertex-'.length) === 'vertex-') {

@@ -14,7 +14,7 @@
       "y": 9
     },
     {
-      "type": "turn-left",
+      "type": "turn",
       "direction": "left",
       "x": 3,
       "y": 3
@@ -32,7 +32,7 @@
       "y": 1
     },
     {
-      "type": "turn-right",
+      "type": "turn",
       "direction": "right",
       "x": 5,
       "y": 5

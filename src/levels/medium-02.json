@@ -42,7 +42,7 @@
       "active": false
     },
     {
-      "type": "turn-right",
+      "type": "turn",
       "direction": "right",
       "x": 2,
       "y": 10
@@ -112,7 +112,7 @@
       "y": 8
     },
     {
-      "type": "turn-right",
+      "type": "turn",
       "direction": "right",
       "x": 13,
       "y": 10
