@@ -34,7 +34,6 @@ export default class Level {
   }
 
   addObject(object) {
-    const START = 0;
     if (object.type === 'wall') {
       this.walls.push(object);
     }
