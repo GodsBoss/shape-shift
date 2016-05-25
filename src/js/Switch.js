@@ -56,15 +56,15 @@ export default class Switch extends GridObject {
   }
 
   addBySpec(spec) {
-    this.addBySpecIfTypeMatches('wall', spec, 'gridObjects', 'Wall');
-    this.addBySpecIfTypeMatches('teleporter', spec, 'gridObjects', 'Teleporter');
-    this.addBySpecIfTypeMatches('turn', spec, 'gridObjects', 'Turn');
-    this.addBySpecIfTypeMatches('vertex', spec, 'gridObjects', 'VertexChange');
+    this.addBySpecIfTypeMatches('wall', spec, 'Wall');
+    this.addBySpecIfTypeMatches('teleporter', spec, 'Teleporter');
+    this.addBySpecIfTypeMatches('turn', spec, 'Turn');
+    this.addBySpecIfTypeMatches('vertex', spec, 'VertexChange');
   }
 
-  addBySpecIfTypeMatches(type, spec, collectionName, entityName) {
+  addBySpecIfTypeMatches(type, spec, entityName) {
     if (spec.type.substring(0, type.length) === type) {
-      this.playState[collectionName].push(this.playState['create' + entityName](spec));
+      this.playState.gridObjects.push(this.playState['create' + entityName](spec));
     }
   }
 
@@ -73,17 +73,17 @@ export default class Switch extends GridObject {
   }
 
   removeBySpec(spec) {
-    this.removeBySpecIfTypeMatches('wall', spec, 'gridObjects');
-    this.removeBySpecIfTypeMatches('teleporter', spec, 'gridObjects');
-    this.removeBySpecIfTypeMatches('turn', spec, 'gridObjects');
-    this.removeBySpecIfTypeMatches('vertex', spec, 'gridObjects');
+    this.removeBySpecIfTypeMatches('wall', spec);
+    this.removeBySpecIfTypeMatches('teleporter', spec);
+    this.removeBySpecIfTypeMatches('turn', spec);
+    this.removeBySpecIfTypeMatches('vertex', spec);
   }
 
-  removeBySpecIfTypeMatches(type, spec, collectionName) {
+  removeBySpecIfTypeMatches(type, spec) {
     if (spec.type.substring(0, type.length) === type) {
-      this.playState[collectionName].
+      this.playState.gridObjects.
         filter((entity) => entity.gridX === spec.x && entity.gridY === spec.y).
-        forEach((entity) => this.playState.destroySpriteInArray(this.playState[collectionName], entity));
+        forEach((entity) => this.playState.destroySpriteInArray(this.playState.gridObjects, entity));
     }
   }
 }
