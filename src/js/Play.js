@@ -9,6 +9,7 @@ import TeleporterParticle from './TeleporterParticle';
 import Trap from './Trap';
 import Turn from './Turn';
 import VertexChange from './VertexChange';
+import Wall from './Wall';
 
 export default class Play {
   constructor(playerProgress) {
@@ -31,7 +32,7 @@ export default class Play {
       vertexChange: VertexChange,
       teleporter: Teleporter,
       trap: Trap,
-      wall: null,
+      wall: Wall,
       clickSwitch: Switch,
       shape: Shape,
       teleporterParticle: TeleporterParticle,
@@ -136,7 +137,7 @@ export default class Play {
   }
 
   createWall(wall) {
-    return this.createObject(this.spriteGroups.wall, 'wall', wall);
+    return this.createInitializedObject(this.spriteGroups.wall, 'wall', wall);
   }
 
   createShape(shape) {
