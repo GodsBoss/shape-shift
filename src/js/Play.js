@@ -26,18 +26,18 @@ export default class Play {
     const backgroundGroup = this.add.group();
     const background = backgroundGroup.create(0, 0, 'play-background-1');
     const groupKeys = {
+      arrow: null,
+      clickSwitch: Switch,
+      highlight: Highlight,
       hole: Hole,
       passSwitch: Switch,
+      shape: Shape,
       turn: Turn,
       vertexChange: VertexChange,
       teleporter: Teleporter,
-      trap: Trap,
-      wall: Wall,
-      clickSwitch: Switch,
-      shape: Shape,
       teleporterParticle: TeleporterParticle,
-      highlight: Highlight,
-      arrow: null
+      trap: Trap,
+      wall: Wall
     };
     this.spriteGroups = {};
     for (const groupKey in groupKeys) {
