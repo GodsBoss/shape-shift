@@ -125,8 +125,7 @@ export default class Play {
 
   createTurn(turn) {
     const sprite = this.createObject(this.turnGroup, 'turn-' + turn.direction, turn);
-    sprite.direction = turn.direction;
-    sprite.playState = this;
+    sprite.init(this, turn);
     return sprite;
   }
 

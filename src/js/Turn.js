@@ -1,9 +1,15 @@
+import GridObject from './GridObject';
 import PhaserConstants from './PhaserConstants';
 
-export default class Turn extends Phaser.Sprite {
+export default class Turn extends GridObject {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
     this.rotation = Math.random() * Math.PI * 2;
+  }
+
+  init(state, config) {
+    this.playState = state;
+    this.direction = config.direction;
   }
 
   turn(shape) {
