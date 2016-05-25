@@ -3,16 +3,8 @@ export default class Level {
     this.key = key;
     this.accessible = accessible;
     this.unlocks = [];
-    this.walls = [];
-    this.shapes = [];
-    this.holes = [];
+    this.objects = {};
     this.highlights = [];
-    this.clickSwitches = [];
-    this.passSwitches = [];
-    this.turns = [];
-    this.vertexChanges = [];
-    this.teleporters = [];
-    this.traps = [];
     this.index = index;
     this.last = false;
   }
@@ -34,45 +26,24 @@ export default class Level {
   }
 
   addObject(object) {
-    if (object.type === 'wall') {
-      this.walls.push(object);
-    }
-    if (object.type === 'shape') {
-      this.shapes.push(object);
-    }
-    if (object.type === 'hole') {
-      this.holes.push(object);
-    }
-    if (object.type === 'click-switch') {
-      this.clickSwitches.push(object);
-    }
-    if (object.type === 'pass-switch') {
-      this.passSwitches.push(object);
-    }
-    if (object.type === 'turn') {
-      this.turns.push(object);
-    }
-    if (object.type === 'vertex-change') {
-      this.vertexChanges.push(object);
-    }
-    if (object.type === 'teleporter') {
-      this.teleporters.push(object);
-    }
-    if (object.type === 'trap') {
-      this.traps.push(object);
-    }
+    this.objects[object.type] = this.objects[object.type] || []
+    this.objects[object.type].push(object)
+  }
+
+  getObjects(type) {
+    return this.objects[type] || [];
   }
 
   getWalls() {
-    return this.walls;
+    return this.getObjects('wall');
   }
 
   getHoles() {
-    return this.holes;
+    return this.getObjects('hole');
   }
 
   getShapes() {
-    return this.shapes;
+    return this.getObjects('shape');
   }
 
   addHighlight(highlight) {
@@ -84,27 +55,27 @@ export default class Level {
   }
 
   getClickSwitches() {
-    return this.clickSwitches;
+    return this.getObjects('click-switch');
   }
 
   getPassSwitches() {
-    return this.passSwitches;
+    return this.getObjects('pass-switch');
   }
 
   getTurns() {
-    return this.turns;
+    return this.getObjects('turn');
   }
 
   getVertexChanges() {
-    return this.vertexChanges;
+    return this.getObjects('vertex-change');
   }
 
   getTeleporters() {
-    return this.teleporters;
+    return this.getObjects('teleporter');
   }
 
   getTraps() {
-    return this.traps;
+    return this.getObjects('trap');
   }
 
   isLast() {
