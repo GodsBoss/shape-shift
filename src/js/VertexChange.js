@@ -1,8 +1,14 @@
+import GridObject from './GridObject';
 import PhaserConstants from './PhaserConstants';
 
-export default class VertexChange extends Phaser.Sprite {
+export default class VertexChange extends GridObject {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
+  }
+
+  init(state, config) {
+    this.playState = state;
+    this.change = config.change;
   }
 
   applyChangeTo(shape) {

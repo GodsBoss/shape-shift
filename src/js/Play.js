@@ -118,8 +118,7 @@ export default class Play {
 
   createVertexChange(change) {
     const sprite = this.createObject(this.vertexChangeGroup, 'vertex-' + change.change, change);
-    sprite.playState = this;
-    sprite.change = change.change;
+    sprite.init(this, change);
     return sprite;
   }
 
