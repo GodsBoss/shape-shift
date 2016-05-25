@@ -3,6 +3,13 @@ export default class Trap extends Phaser.Sprite {
     super(game, x, y, key, frame);
   }
 
+  init(state, config) {
+    this.playState = state;
+    if (config.prisoner) {
+      this.imprison(config.prisoner);
+    }
+  }
+
   trap(shape) {
     if (this.prisoner) { // Release old prisoner
       const newShape = this.playState.createShape(

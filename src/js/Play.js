@@ -106,10 +106,7 @@ export default class Play {
 
   createTrap(trap) {
     const sprite = this.createObject(this.trapGroup, 'trap', trap);
-    sprite.playState = this;
-    if (trap.prisoner) {
-      sprite.imprison(trap.prisoner);
-    }
+    sprite.init(this, trap);
     return sprite;
   }
 
