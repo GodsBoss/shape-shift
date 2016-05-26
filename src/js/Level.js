@@ -26,8 +26,8 @@ export default class Level {
   }
 
   addObject(object) {
-    this.objects[object.type] = this.objects[object.type] || []
-    this.objects[object.type].push(object)
+    this.objects[object.type] = this.objects[object.type] || [];
+    this.objects[object.type].push(object);
   }
 
   getObjects(type) {
