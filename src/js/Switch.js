@@ -12,7 +12,7 @@ export default class Switch extends GridObject {
     this.on = config.on;
     this.off = config.off;
     this[config.active ? 'activate' : 'deactivate']();
-    if (this.key == 'click-switch') {
+    if (this.key === 'click-switch') {
       this.inputEnabled = true;
       this.events.onInputUp.add((sprite) => sprite.switchState());
     }
