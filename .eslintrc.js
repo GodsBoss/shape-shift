@@ -117,7 +117,7 @@ module.exports = {
         "no-duplicate-imports": "error",
         "no-else-return": "error",
         "no-empty": "error",
-        "no-empty-function": "error",
+        "no-empty-function": "warn",
         "no-eq-null": "error",
         "no-eval": "error",
         "no-extend-native": "error",
