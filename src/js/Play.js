@@ -73,7 +73,7 @@ export default class Play {
   }
 
   createArrow(direction, vx, vy) {
-    const arrow = this.spriteGroups.arrow.create(0, 0, 'arrow-' + direction);
+    const arrow = this.spriteGroups.arrow.create(0, 0, `arrow-${direction}`);
     arrow.visible = false;
     arrow.anchor.setTo(PhaserConstants.ANCHOR_CENTER, PhaserConstants.ANCHOR_CENTER);
     arrow.vx = vx;
@@ -118,11 +118,11 @@ export default class Play {
   }
 
   createVertexChange(change) {
-    return this.createInitializedObject(this.spriteGroups.vertexChange, 'vertex-' + change.change, change);
+    return this.createInitializedObject(this.spriteGroups.vertexChange, `vertex-${change.change}`, change);
   }
 
   createTurn(turn) {
-    return this.createInitializedObject(this.spriteGroups.turn, 'turn-' + turn.direction, turn);
+    return this.createInitializedObject(this.spriteGroups.turn, `turn-${turn.direction}`, turn);
   }
 
   createClickSwitch(clickSwitch) {
@@ -142,7 +142,7 @@ export default class Play {
   }
 
   createShape(shape) {
-    const sprite = this.createObject(this.spriteGroups.shape, 'shape-' + shape.polygon, shape);
+    const sprite = this.createObject(this.spriteGroups.shape, `shape-${shape.polygon}`, shape);
     sprite.inputEnabled = true;
     sprite.events.onInputUp.add((sprite) => this.openShapeControls(sprite));
     sprite.shapeType = shape.polygon;
@@ -151,7 +151,7 @@ export default class Play {
   }
 
   createHole(hole) {
-    return this.createInitializedObject(this.spriteGroups.hole, (hole.filled ? 'filled-' :'') + 'hole-' + hole.polygon, hole);
+    return this.createInitializedObject(this.spriteGroups.hole, `${hole.filled ? 'filled-' :''}hole-${hole.polygon}`, hole);
   }
 
   createInitializedObject(group, spriteKey, config) {

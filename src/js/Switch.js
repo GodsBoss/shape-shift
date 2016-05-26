@@ -64,7 +64,7 @@ export default class Switch extends GridObject {
 
   addBySpecIfTypeMatches(type, spec, entityName) {
     if (spec.type.substring(0, type.length) === type) {
-      this.playState.gridObjects.push(this.playState['create' + entityName](spec));
+      this.playState.gridObjects.push(this.playState[`create${entityName}`](spec));
     }
   }
 

@@ -39,7 +39,7 @@ export default class Preload {
       'vertex-remove',
       'victory-background',
       'wall'
-    ].forEach((key) => this.load.image(key, 'gfx/' + key + '.png'));
+    ].forEach((key) => this.load.image(key, `gfx/${key}.png`));
 
     const SPRITE_WIDTH = 16;
     const SPRITE_HEIGHT = 16;
@@ -54,7 +54,7 @@ export default class Preload {
       'button-next-level',
       'button-reset-level',
       'button-victory'
-    ].forEach((key) => this.load.spritesheet(key, 'gfx/' + key + '.png', BUTTON_WIDTH, BUTTON_HEIGHT));
+    ].forEach((key) => this.load.spritesheet(key, `gfx/${key}.png`, BUTTON_WIDTH, BUTTON_HEIGHT));
 
     [
       'down',
@@ -68,7 +68,7 @@ export default class Preload {
       'teleport',
       'trapped',
       'up'
-    ].forEach((key) => this.load.audio(key, 'sfx/' + key + '.wav'));
+    ].forEach((key) => this.load.audio(key, `sfx/${key}.wav`));
 
     this.load.json('level-data', 'levels.json');
   }

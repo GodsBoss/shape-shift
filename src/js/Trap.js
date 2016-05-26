@@ -26,7 +26,7 @@ export default class Trap extends GridObject {
       this.destroyTrappedSprite();
     }
     this.playState.sound.play('trapped');
-    this.imprison('shape-' + shape.shapeType);
+    this.imprison(`shape-${shape.shapeType}`);
     this.playState.destroySpriteInArray(this.playState.shapes, shape);
   }
 
