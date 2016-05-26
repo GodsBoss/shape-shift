@@ -9,7 +9,8 @@ export default class GridObject extends Phaser.Sprite {
   * Called on a shape moving onto this grid field, before being blocked by an
   * obstacle.
   *
-  * @param {Shape} The shape.
+  * @param {Shape} shape The shape.
+  * @return {undefined}
   */
   beforeBlock(shape) {}
 
@@ -17,7 +18,8 @@ export default class GridObject extends Phaser.Sprite {
   * Called on a shape moving onto this grid field, after being blocked by an
   * obstacle (i.e. its speed is zero).
   *
-  * @param {Shape} The shape.
+  * @param {Shape} shape The shape.
+  * @return {undefined}
   */
   afterBlock(shape) {}
 
@@ -25,7 +27,8 @@ export default class GridObject extends Phaser.Sprite {
   * Wether this grid object acts as an obstacle, i.e. stops a shape before it
   * enters this field.
   *
-  * @return {boolean}
+  * @param {Shape} shape The shape.
+  * @return {boolean} Wether the shape will be blocked or not.
   */
   blocks(shape) {
     return false;
