@@ -9,10 +9,11 @@ export default class Highlight extends Phaser.Sprite {
     this.rotationSpeedFactor = 0.95;
     this.scale = { x: 2, y: 2 };
     this.scaleFactor = 0.98;
+    this.removalThreshold = 0.5;
   }
 
   canBeRemoved() {
-    return this.scale.x < 0.5;
+    return this.scale.x < this.removalThreshold;
   }
 
   update() {

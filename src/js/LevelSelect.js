@@ -36,10 +36,10 @@ export default class LevelSelect {
   }
 
   calcPosition(index) {
-    const grid = this.world.width / 10;
+    const grid = this.world.width / LevelSelect.LEVELS_PER_ROW;
     return {
-      x: (0.5 + index % 10) * grid,
-      y: (0.5 + Math.floor(index / 10)) * grid
+      x: (0.5 + index % LevelSelect.LEVELS_PER_ROW) * grid,
+      y: (0.5 + Math.floor(index / LevelSelect.LEVELS_PER_ROW)) * grid
     };
   }
 
@@ -53,12 +53,12 @@ export default class LevelSelect {
   }
 
   startLevel(level) {
-    this.state.start('Play', /*clearWorld=*/true, /*clearCache=*/false, level);
+    this.state.start('Play', PhaserConstants.CLEAR_WORLD, PhaserConstants.PRESERVE_CACHE, level);
   }
 
   addVictoryButton() {
     const button = this.add.sprite(310, 190, 'crown');
-    button.anchor.setTo(1, 1);
+    button.anchor.setTo(PhaserConstants.ANCHOR_RIGHT, PhaserConstants.ANCHOR_BOTTOM);
     button.inputEnabled = true;
     button.events.onInputOver.add((button, event) => this.showLevelSelectMarkerAt(button.x - button.width/2, button.y - button.height/2));
     button.events.onInputOut.add(() => this.hideLevelSelectMarker());
@@ -82,3 +82,4 @@ export default class LevelSelect {
 }
 
 LevelSelect.MARKER_ROTATION_SPEED = 0.01;
+LevelSelect.LEVELS_PER_ROW = 10;

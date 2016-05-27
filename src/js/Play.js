@@ -45,8 +45,9 @@ export default class Play {
       this.spriteGroups[groupKey].classType = groupKeys[groupKey] || Phaser.Sprite;
     }
     this.createArrows();
-    this.nextLevelButton = this.createSidebarButton(136, 'button-next-level', 'nextLevel', /*hide=*/true);
-    this.victoryButton = this.createSidebarButton(136, 'button-victory', 'viewVictory', /*hide=*/true);
+    const HIDDEN = true;
+    this.nextLevelButton = this.createSidebarButton(136, 'button-next-level', 'nextLevel', HIDDEN);
+    this.victoryButton = this.createSidebarButton(136, 'button-victory', 'viewVictory', HIDDEN);
     this.createSidebarButton(168, 'button-reset-level', 'resetLevel');
     this.createSidebarButton(200, 'button-back-to-level-selection', 'backToLevelSelection');
     this.createLevelObjects();
@@ -275,7 +276,7 @@ export default class Play {
   }
 
   backToLevelSelection() {
-    this.state.start('LevelSelect', /*clearWorld=*/true, /*clearCache=*/false);
+    this.state.start('LevelSelect', PhaserConstants.CLEAR_WORLD, PhaserConstants.PRESERVE_CACHE);
   }
 
   resetLevel() {
@@ -289,7 +290,7 @@ export default class Play {
     if (this.level.hasNextLevelKey()) {
       const nextLevel = Levels.fromData(this.cache.getJSON('level-data')).getByKey(this.level.getNextLevelKey());
       if (nextLevel) {
-        this.state.start('Play', /*clearWorld=*/true, /*clearCache=*/false, nextLevel);
+        this.state.start('Play', PhaserConstants.CLEAR_WORLD, PhaserConstants.PRESERVE_CACHE, nextLevel);
       }
     }
   }

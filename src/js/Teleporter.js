@@ -4,7 +4,9 @@ export default class Teleporter extends GridObject {
   constructor(game, x, y, key, frame) {
     super(game, x, y, key, frame);
     this.target = null;
-    this.animations.add('...', null, /*fps=*/8, /*loop=*/true).play();
+    const FPS = 8;
+    const LOOP = true;
+    this.animations.add('...', null, FPS, LOOP).play();
     this.particlePressure = Teleporter.INITIAL_PARTICLE_PRESSURE + Math.random() * Teleporter.INITIAL_PARTICLE_PRESSURE;
   }
 
