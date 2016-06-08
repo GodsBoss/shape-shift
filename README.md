@@ -1,6 +1,9 @@
 Shape/Shift
 ===========
 
+[![Inline docs](http://inch-ci.org/github/GodsBoss/shape-shift.svg?branch=master)](http://inch-ci.org/github/GodsBoss/shape-shift)
+[![bitHound Code](https://www.bithound.io/github/GodsBoss/shape-shift/badges/code.svg)](https://www.bithound.io/github/GodsBoss/shape-shift)
+
 About
 -----
 
