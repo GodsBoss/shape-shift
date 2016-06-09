@@ -56,7 +56,8 @@ gulp.task(
       [
         'cd node_modules/phaser',
         'npm install --only:dev --progress=false',
-        'grunt custom --filename phaser --sourcemap true --uglify true --exclude ' + excludes,
+        'npm install grunt-cli',
+        './node_modules/.bin/grunt custom --filename phaser --sourcemap true --uglify true --exclude ' + excludes,
         'cp dist/phaser.min.js dist/phaser.map ../../dist'
       ].join(' && ')
     );
