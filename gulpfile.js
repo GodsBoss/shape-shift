@@ -27,7 +27,7 @@ gulp.task(
 
 gulp.task(
   'build:phaser',
-  function() {
+  function(callback) {
     var excludes = [
       'arcade',
       'bitmaptext',
@@ -64,6 +64,16 @@ gulp.task(
     var log = console.log.bind(console);
     proc.stdout.on('data', log);
     proc.stderr.on('data', log);
+    proc.on(
+      'exit',
+      function(code, signal) {
+        var error;
+        if (code > 0) {
+          error = new Error('Phaser creation exited with code ' + code + ', ' + (signal ? 'termination signal was ' + signal : 'no signal') + '.');
+        }
+        callback(error);
+      }
+    );
   }
 );
 
