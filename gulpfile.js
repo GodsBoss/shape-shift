@@ -19,7 +19,7 @@ gulp.task(
 gulp.task(
   'build:index.html',
   function() {
-    gulp.
+    return gulp.
       src(SRC + '/html/index.html').
       pipe(gulp.dest(DIST));
   }
@@ -95,7 +95,7 @@ gulp.task(
 gulp.task(
   'build:style.css',
   function() {
-    gulp.
+    return gulp.
       src(SRC + '/css/style.css').
       pipe(gulp.dest(DIST));
   }
@@ -104,7 +104,7 @@ gulp.task(
 gulp.task(
   'build:gfx',
   function() {
-    gulp.
+    return gulp.
       src(SRC + '/gfx/*.xcf').
       pipe(exec('node src/scripts/gfx.js <%= file.path %> ' + DIST + '/gfx')).
       pipe(exec.reporter());
@@ -129,7 +129,7 @@ gulp.task(
 gulp.task(
   'build:sfx',
   function() {
-    gulp.
+    return gulp.
       src(SRC + '/sfx/*.wav').
       pipe(gulp.dest(DIST + '/sfx'));
   }
