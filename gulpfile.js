@@ -52,28 +52,14 @@ gulp.task(
       'tweens',
       'video'
     ].join(',');
-    var proc = cp.exec(
-      [
-        'cd node_modules/phaser',
-        'npm install --only:dev --progress=false',
-        'npm install grunt-cli',
-        './node_modules/.bin/grunt custom --filename phaser --sourcemap true --uglify true --exclude ' + excludes,
-        'cp dist/phaser.min.js dist/phaser.map ../../dist'
-      ].join(' && ')
-    );
-    var log = console.log.bind(console);
-    proc.stdout.on('data', log);
-    proc.stderr.on('data', log);
-    proc.on(
-      'exit',
-      function(code, signal) {
-        var error;
-        if (code > 0) {
-          error = new Error('Phaser creation exited with code ' + code + ', ' + (signal ? 'termination signal was ' + signal : 'no signal') + '.');
-        }
-        callback(error);
-      }
-    );
+    var cmd = [
+      'cd node_modules/phaser',
+      'npm install --only:dev --progress=false',
+      'npm install grunt-cli',
+      './node_modules/.bin/grunt custom --filename phaser --sourcemap true --uglify true --exclude ' + excludes,
+      'cp dist/phaser.min.js dist/phaser.map ../../dist',
+    ].join(' && ')
+    runCommandAsynchronously(cmd, 'Phaser creation', callback);
   }
 );
 
@@ -125,19 +111,10 @@ gulp.task(
 gulp.task(
   'build:levels',
   function(callback) {
-    proc = cp.exec('node src/scripts/join_levels.js ' + process.cwd() + '/' + SRC + '/levels ' + DIST + '/levels.json');
-    var log = console.log.bind(console);
-    proc.stdout.on('data', log);
-    proc.stderr.on('data', log);
-    proc.on(
-      'exit',
-      function(code, signal) {
-        var error;
-        if (code > 0) {
-          error = new Error('Creating levels exited with code ' + code + ', ' + (signal ? 'termination signal was ' + signal : 'no signal') + '.');
-        }
-        callback(error);
-      }
+    runCommandAsynchronously(
+      'node src/scripts/join_levels.js ' + process.cwd() + '/' + SRC + '/levels ' + DIST + '/levels.json',
+      'Level creation',
+      callback
     );
   }
 );
@@ -168,3 +145,20 @@ gulp.task(
       pipe(eslint.failAfterError());
   }
 );
+
+function runCommandAsynchronously(cmd, name, gulpCallback) {
+  proc = cp.exec(cmd);
+  var log = console.log.bind(console);
+  proc.stdout.on('data', log);
+  proc.stderr.on('data', log);
+  proc.on(
+    'exit',
+    function(code, signal) {
+      var error;
+      if (code > 0) {
+        error = new Error(name + ' exited with code ' + code + ', ' + (signal ? 'termination signal was ' + signal : 'no signal') + '.');
+      }
+      gulpCallback(error);
+    }
+  );
+}
