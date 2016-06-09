@@ -124,14 +124,19 @@ gulp.task(
 
 gulp.task(
   'build:levels',
-  function() {
-    cp.exec(
-      'node src/scripts/join_levels.js ' + process.cwd() + '/' + SRC + '/levels ' + DIST + '/levels.json',
-      function(error, stdout, stderr) {
-        if (error) {
-          throw error;
+  function(callback) {
+    proc = cp.exec('node src/scripts/join_levels.js ' + process.cwd() + '/' + SRC + '/levels ' + DIST + '/levels.json');
+    var log = console.log.bind(console);
+    proc.stdout.on('data', log);
+    proc.stderr.on('data', log);
+    proc.on(
+      'exit',
+      function(code, signal) {
+        var error;
+        if (code > 0) {
+          error = new Error('Creating levels exited with code ' + code + ', ' + (signal ? 'termination signal was ' + signal : 'no signal') + '.');
         }
-        console.log(stdout);
+        callback(error);
       }
     );
   }
