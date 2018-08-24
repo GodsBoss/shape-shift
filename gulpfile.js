@@ -56,7 +56,7 @@ gulp.task(
       'cd node_modules/phaser',
       'npm install --only:dev --progress=false',
       'npm install grunt-cli',
-      './node_modules/.bin/grunt custom --filename phaser --sourcemap true --uglify true --exclude ' + excludes,
+      './node_modules/.bin/grunt custom --filename=phaser --sourcemap=true --uglify=true --exclude=' + excludes,
       'cp dist/phaser.min.js dist/phaser.map ../../dist',
     ].join(' && ')
     runCommandAsynchronously(cmd, 'Phaser creation', callback);
